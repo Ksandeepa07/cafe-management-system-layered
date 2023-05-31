@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancPane" prefHeight="693.0" prefWidth="1153.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.cafe_au_lait.controller.CashierOrderFormController">
+    <children>
+        <ImageView fitHeight="705.0" fitWidth="1175.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../assets/adminHome.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="403.0" layoutY="51.0" text="Order Id        : " textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="38.0" layoutY="55.0" text=" Customer Id         : " textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="406.0" layoutY="103.0" text="Order Date   : " textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="40.0" layoutY="103.0" text="Customer Name   :" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="18.0" />
+            </font>
+        </Label>
+        <TableView fx:id="tblOrder" layoutX="36.0" layoutY="364.0" onMousePressed="#tblClick" prefHeight="270.0" prefWidth="1087.0" stylesheets="@../style/style.css">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="94.0" text="Item Id" />
+                <TableColumn fx:id="colName" prefWidth="145.00003051757812" text="Item Name" />
+                <TableColumn fx:id="colCategory" prefWidth="143.0" text="Category" />
+                <TableColumn fx:id="colQuantity" prefWidth="122.0" text="Quantity" />
+                <TableColumn fx:id="colDelivery" prefWidth="151.0" text="Delivery" />
+                <TableColumn fx:id="colUnitPrice" prefWidth="143.0" text="Unit Price" />
+                <TableColumn fx:id="colTotal" prefWidth="100.0" text="Total" />
+                <TableColumn fx:id="colAction" prefWidth="187.0" text="Action" />
+            </columns>
+        </TableView>
+        <Label layoutX="746.0" layoutY="51.0" text=" Item Id            : " textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="752.0" layoutY="103.0" text="Item Name      :" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="18.0" />
+            </font>
+        </Label>
+        <JFXButton fx:id="addToCart" alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="996.0" layoutY="300.0" onAction="#addToCartClick" prefHeight="34.0" prefWidth="122.0" style="-fx-background-color: #7B3927;" text="Add to Cart" textFill="#dfa47e">
+         <font>
+            <Font name="Times New Roman Bold" size="14.0" />
+         </font></JFXButton>
+        <Label fx:id="unitPrice" layoutX="877.0" layoutY="255.0" prefHeight="17.0" prefWidth="110.0" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="orderId" layoutX="523.0" layoutY="49.0" prefHeight="20.0" prefWidth="182.0" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="custName" layoutX="191.0" layoutY="103.0" prefHeight="20.0" prefWidth="182.0" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="itemName" layoutX="877.0" layoutY="103.0" prefHeight="20.0" prefWidth="143.0" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="752.0" layoutY="255.0" text="Unit Price        :" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="751.0" layoutY="197.0" text="Qty.On hand   :" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="quantityAvailable" layoutX="877.0" layoutY="197.0" prefHeight="23.0" prefWidth="161.0" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="orderDate" layoutX="523.0" layoutY="101.0" prefHeight="20.0" prefWidth="182.0" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="404.0" layoutY="152.0" text="Order Time   : " textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="orderTime" layoutX="522.0" layoutY="150.0" prefHeight="24.0" prefWidth="182.0" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="749.0" layoutY="154.0" text="Category          :" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="category" layoutX="875.0" layoutY="155.0" prefHeight="20.0" prefWidth="127.0" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="752.0" layoutY="307.0" text="Qty                   :" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="quantity" layoutX="881.0" layoutY="291.0" prefHeight="34.0" prefWidth="96.0" styleClass="qtyTxtField" stylesheets="@../style/style.css">
+            <font>
+                <Font name="Agency FB Bold" size="20.0" />
+            </font>
+        </TextField>
+        <JFXButton fx:id="placeOrderBtn" alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="996.0" layoutY="657.0" onAction="#placeOrderClick" prefHeight="34.0" prefWidth="122.0" style="-fx-background-color: #7B3927;" text="Place Order" textFill="#dfa47e">
+         <font>
+            <Font name="Times New Roman Bold" size="14.0" />
+         </font></JFXButton>
+        <Label layoutX="36.0" layoutY="659.0" text="Net Total :" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="netTotall" layoutX="128.0" layoutY="659.0" prefHeight="23.0" prefWidth="104.0" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="20.0" />
+            </font>
+        </Label>
+        <RadioButton fx:id="deliveryYes" layoutX="528.0" layoutY="209.0" mnemonicParsing="false" onAction="#deliveryYesActionClick" stylesheets="@../style/style.css" text="Yes" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="12.0" />
+            </font>
+        </RadioButton>
+        <RadioButton fx:id="deliveryNo" layoutX="589.0" layoutY="209.0" mnemonicParsing="false" onAction="#deliveryNoActionClick" stylesheets="@../style/style.css" text="No" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="12.0" />
+            </font>
+        </RadioButton>
+        <Label layoutX="396.0" layoutY="207.0" text="  Delivery         :" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="266.0" layoutY="660.0" text="Cash :" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="541.0" layoutY="660.0" text="Balance :" textFill="#7b3927">
+            <font>
+                <Font name="Times New Roman Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="balanceLbl" layoutX="622.0" layoutY="660.0" prefHeight="20.0" prefWidth="143.0">
+            <font>
+                <Font name="Times New Roman Bold" size="20.0" />
+            </font>
+        </Label>
+        <TextField fx:id="cashTxt" layoutX="332.0" layoutY="643.0" onKeyTyped="#cashTyped" prefHeight="34.0" prefWidth="104.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="40.0" layoutY="254.0" onAction="#newCustomerBtnClick" prefHeight="34.0" prefWidth="127.0" style="-fx-background-color: #7B3927;" text="New customerDTO" textFill="#dfa47e">
+         <font>
+            <Font name="Times New Roman Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="45.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/add.png" />
+         </image>
+      </ImageView>
+      <JFXComboBox fx:id="custId" focusColor="RED" layoutX="196.0" layoutY="43.0" onAction="#custIdClick" prefHeight="25.0" prefWidth="150.0" styleClass="firstComboBox" stylesheets="@../style/style.css" unFocusColor="#7b3927" />
+      <JFXComboBox fx:id="itemId" focusColor="RED" layoutX="874.0" layoutY="38.0" onAction="#itemIdClick" prefHeight="25.0" prefWidth="150.0" styleClass="firstComboBox" stylesheets="@../style/style.css" unFocusColor="#7b3927" />
+      <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="1002.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/cart.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="1002.0" layoutY="661.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/placeOrder.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="checkOrders" alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="203.0" layoutY="255.0" onAction="#checkOrdersClick" prefHeight="34.0" prefWidth="127.0" style="-fx-background-color: #7B3927;" text="Check Orders" textFill="#dfa47e">
+         <font>
+            <Font name="Times New Roman Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="209.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/details.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>

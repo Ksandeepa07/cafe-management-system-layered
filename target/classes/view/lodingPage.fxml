@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<!--        style="-fx-accent:#7B3927 ; "-->
+
+<AnchorPane fx:id="anchorpane" prefHeight="394.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.cafe_au_lait.controller.LodingPageController">
+   <children>
+      <ImageView fitHeight="398.0" fitWidth="879.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Loaingg.gif" />
+         </image>
+      </ImageView>
+      <ProgressBar fx:id="pgbar" layoutX="71.0" layoutY="346.0" prefHeight="18.0" prefWidth="237.0" progress="0.0" style="-fx-accent:#7B3927" stylesheets="@../style/style.css" />
+   </children>
+</AnchorPane>

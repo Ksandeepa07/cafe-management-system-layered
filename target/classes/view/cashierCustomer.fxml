@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancPane" prefHeight="693.0" prefWidth="1153.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.cafe_au_lait.controller.CashierCustomerController">
+   <children>
+      <ImageView fitHeight="705.0" fitWidth="1179.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/adminHome.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="contactTxt" layoutX="195.0" layoutY="210.0" onKeyTyped="#customerContatctKeyTyped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <TextField fx:id="nameTxt" layoutX="645.0" layoutY="119.0" onKeyTyped="#customerNameKeyTyped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <Label layoutX="58.0" layoutY="136.0" text="Customer Id :" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="495.0" layoutY="136.0" text="Customer Name :" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="227.0" text="Customer Contact :" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblCustomer" layoutX="36.0" layoutY="364.0" onMousePressed="#tblClick" prefHeight="335.0" prefWidth="1087.0" stylesheets="@../style/style.css">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="169.0" text="Cutomer Id" />
+            <TableColumn fx:id="colName" prefWidth="261.0" text="Customer Name" />
+            <TableColumn fx:id="colContact" prefWidth="252.0" text="Customer Contact" />
+            <TableColumn fx:id="colEmail" prefWidth="404.0" text="Customer Email" />
+         </columns>
+      </TableView>
+      <Label layoutX="492.0" layoutY="227.0" text="Customer E-mail :" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="saveBtn" buttonType="RAISED" layoutX="813.0" layoutY="292.0" onAction="#saveOnAction" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #7B3927;" text="Save" textFill="#dfa47e" />
+      <JFXButton fx:id="updateBtn" buttonType="RAISED" layoutX="931.0" layoutY="293.0" onAction="#updateOnAction" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #7B3927;" text="Update" textFill="#dfa47e" />
+      <JFXButton fx:id="deleteBtn" buttonType="RAISED" layoutX="1045.0" layoutY="292.0" onAction="#deleteOnAction" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #7B3927;" text="Delete" textFill="#dfa47e" />
+      <TextField fx:id="searchIdTxt" layoutX="916.0" layoutY="42.0" onKeyTyped="#searchTable" prefHeight="25.0" prefWidth="192.0" promptText="search by Id" styleClass="searchBar" stylesheets="@../style/style.css" />
+      <ImageView fx:id="searchIcon" fitHeight="25.0" fitWidth="28.0" layoutX="1070.0" layoutY="47.0" onMouseClicked="#searchIconClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons8-search-64.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="idTxt" layoutX="195.0" layoutY="119.0" onKeyTyped="#CusromerIdKeyTyped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css">
+         <tooltip>
+            <Tooltip fx:id="idToolTip" text="Ex : C001">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Tooltip>
+         </tooltip></TextField>
+      <TextField fx:id="emailTxt" layoutX="645.0" layoutY="210.0" onKeyTyped="#customerEmailKeyTyped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <Label fx:id="emailCheckLbl" layoutX="645.0" layoutY="247.0" prefHeight="17.0" prefWidth="192.0" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="contactCheckLb" layoutX="195.0" layoutY="247.0" prefHeight="17.0" prefWidth="192.0" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="cutIdIcon" fitHeight="20.0" fitWidth="25.0" layoutX="393.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../assets/brownCheckMark.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="custEmailIcon" fitHeight="20.0" fitWidth="25.0" layoutX="840.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../assets/brownCheckMark.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="custContactIcon" fitHeight="20.0" fitWidth="25.0" layoutX="393.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../assets/brownCheckMark.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="custNameIcon" fitHeight="20.0" fitWidth="25.0" layoutX="840.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../assets/brownCheckMark.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="273.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.cafe_au_lait.controller.EventImageController">
+   <children>
+      <ImageView fitHeight="345.0" fitWidth="451.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/adminHome.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="addImageBtn" buttonType="RAISED" layoutX="140.0" layoutY="187.0" onAction="#addImageBtnClick" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #7B3927;" text="Add event Image" textFill="#dfa47e" />
+      <Label layoutX="51.0" layoutY="121.0" text="Event Id:" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="saveBtn" buttonType="RAISED" layoutX="352.0" layoutY="187.0" onAction="#saveOnAction" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #7B3927;" text="Save" textFill="#dfa47e" />
+      <JFXComboBox fx:id="eventIdCOmboBox" focusColor="RED" layoutX="140.0" layoutY="110.0" onAction="#eventIdComboBoxOnAction" prefHeight="25.0" prefWidth="192.0" styleClass="firstComboBox" stylesheets="@../style/style.css" unFocusColor="#7b3927" />
+      <Label layoutX="90.0" layoutY="14.0" text="Add Event Image" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

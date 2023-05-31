@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorpane" prefHeight="705.0" prefWidth="1374.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.cafe_au_lait.controller.CashierDashboardController">
+   <children>
+      <AnchorPane prefHeight="680.0" prefWidth="221.0" styleClass="dashbordForm" stylesheets="@../style/style.css">
+         <children>
+            <JFXButton fx:id="homeBtn" buttonType="RAISED" layoutX="42.0" layoutY="122.0" onAction="#homeBtnClick" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: #dfa47e; -fx-background-radius: 0 50 50 50;" text="Home" textFill="#7b3927">
+               <font>
+                  <Font name="Times New Roman Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="inventoryBtn" buttonType="RAISED" layoutX="42.0" layoutY="375.0" onAction="#inventoryBtnClick" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: #dfa47e; -fx-background-radius: 0 50 50 50;" text="     Inventory" textFill="#7b3927">
+               <font>
+                  <Font name="Times New Roman Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="deliveryBtn" buttonType="RAISED" layoutX="42.0" layoutY="288.0" onAction="#deliveryBtnClick" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: #dfa47e; -fx-background-radius: 0 50 50 50;" text="   Delivery" textFill="#7b3927">
+               <font>
+                  <Font name="Times New Roman Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="customerBtn" buttonType="RAISED" layoutX="42.0" layoutY="206.0" onAction="#customerBtnClick" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: #dfa47e; -fx-background-radius: 0 50 50 50;" text="    Customer" textFill="#7b3927">
+               <font>
+                  <Font name="Times New Roman Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="ordersBtn" buttonType="RAISED" layoutX="42.0" layoutY="459.0" onAction="#ordersBtnClick" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: #dfa47e; -fx-background-radius: 0 50 50 50;" text="Orders" textFill="#7b3927">
+               <font>
+                  <Font name="Times New Roman Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="eventBtn" buttonType="RAISED" layoutX="42.0" layoutY="541.0" onAction="#eventBttnClick" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: #dfa47e; -fx-background-radius: 0 50 50 50;" text="Event" textFill="#7b3927">
+               <font>
+                  <Font name="Times New Roman Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="46.0" fitWidth="50.0" layoutX="7.0" layoutY="659.0" onMousePressed="#logoutClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons8-logout.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="timeLbl" alignment="CENTER" layoutX="24.0" layoutY="61.0" prefHeight="35.0" prefWidth="179.0" styleClass="timeLbl" stylesheets="@../style/style.css" textFill="#dfa47e" />
+            <Label fx:id="datLbl" alignment="CENTER" layoutX="21.0" layoutY="26.0" prefHeight="35.0" prefWidth="179.0" styleClass="timeLbl" stylesheets="@../style/style.css" textFill="#dfa47e" />
+            <Label layoutX="55.0" layoutY="677.0" text="Logout" textFill="#dfa47e">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="51.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/homeIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="51.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/supplierIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="51.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/employeeIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="51.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/inventoryyIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="51.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/orderIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="51.0" layoutY="545.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/reportIcon.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="supplyLoadBtn" buttonType="RAISED" layoutX="42.0" layoutY="624.0" onAction="#supplyBtnClick" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: #dfa47e; -fx-background-radius: 0 50 50 50;" text="           Supply Load" textFill="#7b3927">
+               <font>
+                  <Font name="Times New Roman Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="10.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/homeIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="53.0" layoutY="628.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/supplierIcon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="ancPane" layoutX="221.0" prefHeight="693.0" prefWidth="1153.0">
+         <children>
+            <ImageView fitHeight="705.0" fitWidth="1166.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/dashbordd.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

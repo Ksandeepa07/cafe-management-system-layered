@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancPane" prefHeight="693.0" prefWidth="1153.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.cafe_au_lait.controller.CashierHomeFormController">
+   <children>
+      <ImageView fitHeight="705.0" fitWidth="1166.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/adminHome.png" />
+         </image>
+      </ImageView>
+      <PieChart fx:id="pieChart" layoutX="754.0" layoutY="365.0" prefHeight="323.0" prefWidth="390.0" style="-fx-border-width: 0;" styleClass="chart-pie" stylesheets="@../style/style.css" />
+      <LineChart fx:id="lineChart" layoutX="31.0" layoutY="365.0" prefHeight="323.0" prefWidth="666.0" styleClass="chart-series-line" stylesheets="@../style/style.css">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <AnchorPane layoutX="31.0" layoutY="36.0" prefHeight="166.0" prefWidth="172.0" styleClass="dashBoardAnchorPane" stylesheets="@../style/style.css">
+         <children>
+            <Label layoutX="18.0" layoutY="69.0" prefHeight="30.0" prefWidth="133.0" text="Total Customers" textFill="#7b3927">
+               <font>
+                  <Font name="Times New Roman Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="62.0" layoutY="75.0" />
+            <Label fx:id="customerCountLbl" alignment="CENTER" layoutX="60.0" layoutY="109.0" prefHeight="39.0" prefWidth="36.0" text="08" textFill="#7b3927">
+               <font>
+                  <Font name="Times New Roman Bold" size="34.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="53.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/employeeIcon.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <AnchorPane layoutX="268.0" layoutY="34.0" prefHeight="166.0" prefWidth="172.0" styleClass="dashBoardAnchorPane" stylesheets="@../style/style.css">
+         <children>
+            <Label layoutX="35.0" layoutY="70.0" prefHeight="30.0" prefWidth="113.0" text="Today Orders" textFill="#7b3927">
+               <font>
+                  <Font name="Times New Roman Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="orderCountLbl" alignment="CENTER" layoutX="68.0" layoutY="105.0" prefHeight="39.0" prefWidth="36.0" text="08" textFill="#7b3927">
+               <font>
+                  <Font name="Times New Roman Bold" size="34.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="61.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/orderIcon.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <Label fx:id="dataLbl" layoutX="754.0" layoutY="34.0" onMouseClicked="#eventLblClicked" prefHeight="166.0" prefWidth="390.0" style="-fx-background-radius: 20;" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="30.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="507.0" layoutY="36.0" prefHeight="166.0" prefWidth="172.0" styleClass="dashBoardAnchorPane" stylesheets="@../style/style.css">
+         <children>
+            <Label layoutX="36.0" layoutY="66.0" prefHeight="30.0" prefWidth="113.0" text="Today Income" textFill="#7b3927">
+               <font>
+                  <Font name="Times New Roman Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="todayIncomeLbl" alignment="CENTER" layoutX="48.0" layoutY="101.0" prefHeight="39.0" prefWidth="81.0" text="08" textFill="#7b3927">
+               <font>
+                  <Font name="Times New Roman Bold" size="34.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="62.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/cash.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <AnchorPane layoutX="33.0" layoutY="237.0" prefHeight="112.0" prefWidth="1113.0" style="-fx-background-radius: 10;" styleClass="dashBoardAnchorPane" stylesheets="@../style/style.css" />
+   </children>
+</AnchorPane>

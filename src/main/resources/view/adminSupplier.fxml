@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancPane" prefHeight="693.0" prefWidth="1153.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.cafe_au_lait.controller.AdminSupplierController">
+   <children>
+      <ImageView fitHeight="705.0" fitWidth="1179.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/adminHome.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="idTxt" layoutX="140.0" layoutY="118.0" onKeyTyped="#idKeyTyped" prefHeight="34.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css">
+         <tooltip>
+            <Tooltip fx:id="supplierIdToolTip" text="S001">
+               <font>
+                  <Font name="Times New Roman Bold" size="12.0" />
+               </font>
+            </Tooltip>
+         </tooltip></TextField>
+      <TextField fx:id="contactTxt" layoutX="916.0" layoutY="121.0" onKeyTyped="#contactKeyTyped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <TextField fx:id="addressTxt" layoutX="140.0" layoutY="209.0" onKeyTyped="#addressKeyTyped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <TextField fx:id="nameTxt" layoutX="538.0" layoutY="119.0" onKeyTyped="#nameKeyTyped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <Label layoutX="25.0" layoutY="134.0" text="Supplier Id : " textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="384.0" layoutY="134.0" text="Supplier Name : " textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="49.0" layoutY="226.0" text="Address : " textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="816.0" layoutY="137.0" text=" Contact : " textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblSupplier" layoutX="36.0" layoutY="364.0" onMouseClicked="#tblClick" prefHeight="335.0" prefWidth="1087.0" stylesheets="@../style/style.css">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="169.0" text="Supplier Id" />
+            <TableColumn fx:id="colName" prefWidth="190.00003051757812" text="Supplier Name" />
+            <TableColumn fx:id="colContact" prefWidth="202.0" text="Supplier contact" />
+            <TableColumn fx:id="colAddress" prefWidth="191.0" text="Supplier address" />
+            <TableColumn fx:id="colEmail" prefWidth="334.0" text="Supplier email" />
+         </columns>
+      </TableView>
+      <TextField fx:id="emailTxt" layoutX="538.0" layoutY="209.0" onKeyTyped="#emailKeyTYped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <Label layoutX="378.0" layoutY="226.0" text=" Supplier Email : " textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="saveBtn" buttonType="RAISED" disable="true" layoutX="813.0" layoutY="292.0" onAction="#saveOnAction" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #7B3927;" text="Save" textFill="#dfa47e" />
+      <JFXButton fx:id="updateBtn" buttonType="RAISED" layoutX="931.0" layoutY="293.0" onAction="#updateOnAction" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #7B3927;" text="Update" textFill="#dfa47e" />
+      <JFXButton fx:id="deleteBtn" buttonType="RAISED" layoutX="1045.0" layoutY="292.0" onAction="#deleteOnAction" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #7B3927;" text="Delete" textFill="#dfa47e" />
+      <TextField fx:id="searchIdTxt" layoutX="916.0" layoutY="42.0" onKeyTyped="#searchTable" prefHeight="25.0" prefWidth="192.0" promptText="search by Id" styleClass="searchBar" stylesheets="@../style/style.css" />
+      <ImageView fx:id="searchIcon" fitHeight="25.0" fitWidth="28.0" layoutX="1070.0" layoutY="47.0" onMouseClicked="#searchIconClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons8-search-64.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="emailCheckLbl" layoutX="538.0" layoutY="246.0" prefHeight="17.0" prefWidth="192.0" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="contactCheckLb" layoutX="916.0" layoutY="155.0" prefHeight="17.0" prefWidth="192.0" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="supplierIdIcon" fitHeight="25.0" fitWidth="25.0" layoutX="334.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../assets/brownCheckMark.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="adressIcon" fitHeight="25.0" fitWidth="25.0" layoutX="338.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../assets/brownCheckMark.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="spplierNameIcon" fitHeight="25.0" fitWidth="25.0" layoutX="730.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../assets/brownCheckMark.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="emailIcon" fitHeight="25.0" fitWidth="25.0" layoutX="732.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../assets/brownCheckMark.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="contactIcon" fitHeight="25.0" fitWidth="25.0" layoutX="1109.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../assets/brownCheckMark.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

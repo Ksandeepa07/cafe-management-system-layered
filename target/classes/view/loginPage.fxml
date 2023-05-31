@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="ancPane" prefHeight="379.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.cafe_au_lait.controller.LoginPageController">
+   <children>
+      <ImageView disable="true" fitHeight="415.0" fitWidth="743.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/LoginPage.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="431.0" layoutY="24.0" prefHeight="368.0" prefWidth="285.0" styleClass="loginForm" stylesheets="@../style/style.css">
+         <children>
+            <TextField fx:id="usernameTxt" focusTraversable="false" layoutX="59.0" layoutY="146.0" prefHeight="25.0" prefWidth="202.0" promptText="Username" styleClass="userNameField" stylesheets="@../style/style.css">
+               <font>
+                  <Font name="Times New Roman Bold" size="14.0" />
+               </font></TextField>
+            <PasswordField fx:id="passwordTxt" focusTraversable="false" layoutX="59.0" layoutY="209.0" prefHeight="25.0" prefWidth="202.0" promptText="Password" styleClass="userNameField" stylesheets="@../style/style.css">
+               <font>
+                  <Font name="Times New Roman Bold" size="14.0" />
+               </font></PasswordField>
+            <Text fill="#dfa47e" layoutX="89.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="loginName" text="Login">
+               <font>
+                  <Font name="Times New Roman Bold" size="36.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="14.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons8-male-user.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons8-lock.png" />
+               </image>
+            </ImageView>
+            <ComboBox fx:id="chooseOption" layoutX="59.0" layoutY="85.0" prefWidth="150.0" promptText="Admin" styleClass="secondComboBox" stylesheets="@../style/style.css" visibleRowCount="2" />
+            <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="179.0" layoutY="272.0" onAction="#loginClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: #dfa47e; -fx-background-radius: 10;" text="Login" textFill="#7b3927">
+               <font>
+                  <Font name="Times New Roman Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <Hyperlink layoutX="91.0" layoutY="309.0" onAction="#forgotPasswordClick" text="Forgot Password" textFill="#dfa47e">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="dontHaveAcoount" layoutX="63.0" layoutY="338.0" onAction="#dontHaveClick" text="Don't have an account" textFill="#dfa47e">
+               <font>
+                  <Font name="Times New Roman Bold" size="14.0" />
+               </font>
+            </Hyperlink>
+            <TextField fx:id="txtShowPassword" layoutX="59.0" layoutY="209.0" onKeyPressed="#passwordFieldEnter" prefHeight="33.0" prefWidth="202.0" styleClass="userNameField" stylesheets="@../style/style.css" />
+            <ImageView fx:id="showPasswordImage" fitHeight="26.0" fitWidth="24.0" layoutX="237.0" layoutY="214.0" onMouseClicked="#shiwPasswordClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons8-eye-50.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="hidePasswordImage" fitHeight="26.0" fitWidth="24.0" layoutX="237.0" layoutY="214.0" onMouseClicked="#hidepasswordClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons8-hide-48.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="invlidLbl" layoutX="63.0" layoutY="184.0" prefHeight="17.0" prefWidth="179.0" textFill="#dfa47e">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="invlidLbl1" layoutX="63.0" layoutY="248.0" prefHeight="17.0" prefWidth="179.0" textFill="#dfa47e">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

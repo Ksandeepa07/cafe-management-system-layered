@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancPane" prefHeight="693.0" prefWidth="1153.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.cafe_au_lait.controller.AdminOrdersController">
+   <children>
+      <ImageView fitHeight="705.0" fitWidth="1166.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/adminHome.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="188.0" layoutY="230.0" text="Orders">
+         <font>
+            <Font size="71.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

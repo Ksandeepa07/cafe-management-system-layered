@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancPane" prefHeight="693.0" prefWidth="1153.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.cafe_au_lait.controller.AdminSalaryController">
+   <children>
+      <ImageView fitHeight="705.0" fitWidth="1179.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/adminHome.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="payamentTxt" layoutX="157.0" layoutY="209.0" onKeyTyped="#paymentKeyTyped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <TextField fx:id="salaryTxt" layoutX="522.0" layoutY="119.0" onKeyTyped="#salaryIdKeyTyped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <Label layoutX="36.0" layoutY="135.0" text="Employee Id : " textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="419.0" layoutY="135.0" text="Salary Id : " textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="226.0" text="Payment :" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="763.0" layoutY="135.0" text="Payment Method :" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tbllsalary" layoutX="36.0" layoutY="364.0" onMouseClicked="#tblClick" prefHeight="335.0" prefWidth="1087.0" stylesheets="@../style/style.css">
+         <columns>
+            <TableColumn fx:id="colempId" prefWidth="169.0" text="Employee Id" />
+            <TableColumn fx:id="colSalary" prefWidth="190.00003051757812" text="Salary Id" />
+            <TableColumn fx:id="colMethod" prefWidth="202.0" text="Payment Method" />
+            <TableColumn fx:id="colPayment" prefWidth="191.0" text="Payment" />
+            <TableColumn fx:id="colOverTime" prefWidth="334.0" text="Over Time" />
+         </columns>
+      </TableView>
+      <TextField fx:id="overTimeTxt" layoutX="522.0" layoutY="209.0" onKeyTyped="#overTimeKeyTyped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <Label layoutX="410.0" layoutY="226.0" text="Over Time:" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="saveBtn" buttonType="RAISED" layoutX="813.0" layoutY="292.0" onAction="#saveOnAction" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #7B3927;" text="Save" textFill="#dfa47e" />
+      <JFXButton fx:id="updateBtn" buttonType="RAISED" layoutX="931.0" layoutY="293.0" onAction="#updateOnAction" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #7B3927;" text="Update" textFill="#dfa47e" />
+      <JFXButton fx:id="deleteBtn" buttonType="RAISED" layoutX="1045.0" layoutY="292.0" onAction="#deleteOnAction" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #7B3927;" text="Delete" textFill="#dfa47e" />
+      <TextField fx:id="searchIdTxt" layoutX="916.0" layoutY="42.0" onKeyTyped="#searchTable" prefHeight="25.0" prefWidth="192.0" promptText="search by Id" styleClass="searchBar" stylesheets="@../style/style.css" />
+      <ImageView fx:id="searchIcon" fitHeight="25.0" fitWidth="28.0" layoutX="1070.0" layoutY="47.0" onMouseClicked="#searchIconClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons8-search-64.png" />
+         </image>
+      </ImageView>
+      <JFXComboBox fx:id="idTxt" focusColor="RED" layoutX="157.0" layoutY="125.0" onAction="#idTxtClick" prefHeight="25.0" prefWidth="192.0" styleClass="firstComboBox" stylesheets="@../style/style.css" unFocusColor="#7b3927" />
+      <JFXComboBox fx:id="methodTxt" focusColor="RED" layoutX="912.0" layoutY="126.0" onAction="#methodTxtClick" prefHeight="25.0" prefWidth="192.0" styleClass="firstComboBox" stylesheets="@../style/style.css" unFocusColor="#7b3927" />
+      <ImageView fx:id="paymentICon" fitHeight="25.0" fitWidth="25.0" layoutX="356.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../assets/brownCheckMark.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="overTimeIcon" fitHeight="25.0" fitWidth="25.0" layoutX="720.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../assets/brownCheckMark.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="salaryIdIcon" fitHeight="25.0" fitWidth="25.0" layoutX="720.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../assets/brownCheckMark.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="emplyeeIdIcon" fitHeight="25.0" fitWidth="25.0" layoutX="356.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../assets/brownCheckMark.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="paymentMethodIcon" fitHeight="25.0" fitWidth="25.0" layoutX="1112.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../assets/brownCheckMark.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

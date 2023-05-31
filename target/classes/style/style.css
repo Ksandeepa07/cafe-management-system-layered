@@ -1,0 +1,403 @@
+/*login and loading page styles start*/
+.loginForm{
+
+    /*-fx-background-color: #E9AF86;*/
+    -fx-background-color: #7B3927;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-background-radius: 10px;
+
+}
+.signUpFrmae{
+    -fx-background-color: #dfa47e;
+}
+
+.loginName{
+    -fx-text-fill:#A85A26;
+}
+
+.userNameField{
+    -fx-background-color: transparent;
+     -fx-text-fill: #dfa47e;
+//-fx-border-color: #2D033B;
+    -fx-border-color:#dfa47e;
+    -fx-border-width: 0 0 2 0;
+    /*-fx-prompt-text-fill:#dfa47e ;*/
+     -fx-font-size: 15px;
+    /*-fx-font-weight: bold;*/
+    -fx-font-family: 'Helvetica', Arial, sans-serif;
+
+}
+
+
+.LoginButton{
+//-fx-background-color: linear-gradient(to top right  , #1C82AD, #86E5FF);
+    -fx-background-color:#dfa47e ;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 2, 0, 0, 0);
+    -fx-background-radius: 10px;
+    -fx-text-fill: #7B3927;
+
+}
+
+.firstComboBox .list-cell {
+    -fx-background-color: #7B3927;
+    -fx-text-fill: #dfa47e;
+}
+
+.firstComboBox .arrow-button .arrow {
+    -fx-background-color: #dfa47e;
+    -fx-background-insets: 8;
+    -fx-padding: 12;
+}
+
+.firstComboBox .arrow-button {
+    -fx-background-color: #7B3927;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+
+.progress-bar > .track {
+    -fx-background-color: transparent;
+}
+
+.forgotPassword{
+
+    /*-fx-background-color: #E9AF86;*/
+    -fx-background-color: #7B3927;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+
+
+}
+
+/*end*/
+
+/*Start DashBoaed*/
+
+.dashbordForm{
+
+    /*-fx-background-color: #E9AF86;*/
+    -fx-background-color: #7B3927;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+
+
+}
+.dontHaveAnAcoount {
+-fx-background-color: transparent;
+-fx-text-fill:#7B3927 ;
+}
+
+.dashbordBtns{
+//-fx-background-color: linear-gradient(to top right  , #1C82AD, #86E5FF);*/*/
+    /*-fx-background-color:#dfa47e ;*/
+    /*-fx-background-color: linear-gradient(to top left  ,#7B3927 ,#dfa47e);*/
+    /*!*-fx-background-color: linear-gradient(from 0px 0px to 4px 30px, repeat, #dfa47e 60%, #7B3927  40%);*!*/
+
+    /* -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 8, 0, 0, 0);*/
+    -fx-background-radius: 20;
+    /*-fx-text-fill: #7B3927;*/
+    /*-fx-font-weight: bold;*/
+
+}
+.dashbordBtns:hover{
+    -fx-background-color: black;
+}
+
+
+.timeLbl{
+    /*-fx-background-color:#dfa47e;*/
+    /*-fx-background-radius: 10px;*/
+
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+
+
+
+}
+
+.atLbl {
+
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+
+.sampl{
+-fx-background-radius: 30px
+}
+
+.dashBoardTextField{
+    -fx-background-color: transparent;
+    -fx-text-fill: #7B3927;
+//-fx-border-color: #2D033B;
+    -fx-border-color:#7B3927;
+    -fx-border-width: 0 0 3 0;
+    -fx-font-size: 15px;
+    -fx-font-family: 'Helvetica', Arial, sans-serif;
+    -fx-prompt-text-fill:#7B3927 ;
+
+}
+
+.dashBoardLabels{
+    -fx-font-weight: bold;
+
+}
+
+
+.buttons:hover{
+    -fx-background-color: #dfa47e ;
+    -fx-text-fill: #dfa47e;
+    -fx-font-weight: bold;
+}
+
+.secondComboBox .list-cell {
+    -fx-background-color: #dfa47e;
+    -fx-text-fill: #7B3927;
+
+}
+
+.secondComboBox .arrow-button .arrow {
+    -fx-background-color: #7B3927;
+    -fx-background-insets: 8;
+    -fx-padding: 12;
+}
+
+.secondComboBox .arrow-button {
+    -fx-background-color: #dfa47e;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+/*.date-picker {*/
+/*    -fx-background-color: #7B3927;*/
+/*    -fx-text-fill: #7B3927;*/
+/*}*/
+
+/*!* Style for the Calendar icon *!*/
+/*.date-picker .arrow-button .arrow {*/
+/*    -fx-background-color: #7B3927;*/
+/*}*/
+
+/*!* Style for the Calendar background *!*/
+/*.date-picker-popup > .popup-content > .calendar-grid {*/
+/*    -fx-background-color: blue;*/
+/*}*/
+
+.table-view {
+    -fx-background-color:#dfa47e; /* set the background color */
+    -fx-selection-bar-color: #7B3927; /* set the selection color */
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #7B3927; /* set the background color of selected rows */
+    -fx-text-fill: #7B3927; /* set the text color of selected rows */
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #dfa47e; /* set the background color of odd rows */
+    /*-fx-border-color: #7B3927;*/
+    -fx-table-cell-border-color: #7B3927;
+    -fx-font-weight: bolder;
+ }
+
+.table-row-cell:even {
+    -fx-background-color: #F8C399; /* set the background color of even rows */
+    /*-fx-border-color: #7B3927;*/
+    -fx-table-cell-border-color: #7B3927;
+    -fx-font-weight: bolder;
+ }
+
+.table-column {
+    -fx-alignment: center; /* set the alignment of table column */
+}
+
+.table-view .column-header {
+    -fx-background-color:#7B3927 ;
+    -fx-text-fill: #7B3927;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #dfa47e;
+    -fx-font-weight: bolder;
+}
+
+.table-view .table-cell{
+
+    -fx-text-fill: #7B3927;
+    -fx-font-weight: bolder;
+}
+
+.table-view .scroll-bar:vertical {
+    -fx-background-color: #7B3927;
+}
+
+.table-view .scroll-bar:horizontal {
+    -fx-background-color: #7B3927;
+}
+
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color:  #dfa47e;
+}
+
+.table-view .scroll-bar:horizontal .thumb {
+    -fx-background-color:  #dfa47e;
+}
+/*.table-row-cell {*/
+/*    -fx-border-color: #7B3927;*/
+/*    -fx-table-cell-border-color: #7B3927;*/
+/*    -fx-font-weight: bolder;*/
+/*}*/
+
+.searchBar{
+    -fx-background-color: transparent;
+    -fx-text-fill: #7B3927;
+//-fx-border-color: #2D033B;
+    -fx-border-color:#7B3927;
+    -fx-border-width: 2 2 2 2;
+    -fx-font-size: 15px;
+    -fx-font-family: 'Helvetica', Arial, sans-serif;
+    -fx-border-radius: 10px;
+    -fx-prompt-text-fill:#7B3927 ;
+}
+.date-picker {
+
+    -fx-background-color: transparent;
+    -fx-border-color: #7B3927;
+    -fx-border-style: solid;
+    /*-fx-border-width: 0 0 3 0; !* Set the bottom border width to 2px *!*/
+
+}
+
+
+.date-picker > .arrow-button {
+    -fx-background-color: #7B3927;
+  }
+.date-picker .arrow-button .arrow {
+    -fx-background-color: #dfa47e;
+}
+
+.timePicker{
+    -fx-background-color: #7B3927;
+}
+
+.qtyTxtField{
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+//-fx-border-color: #2D033B;
+    -fx-border-color:#7B3927;
+    -fx-border-width: 0 0 3 0;
+    -fx-font-size: 15px;
+    -fx-font-family: 'Helvetica', Arial, sans-serif;
+    -fx-prompt-text-fill:#7B3927 ;
+
+}
+.radio-button .radio {
+    -fx-background-color:  #7B3927;
+
+}
+
+.chart {
+    -fx-background-color: #dfa47e;
+}
+
+ .chart-pie {
+    -fx-pie-color:#7B3927 ;
+}
+.chart-pie-label {
+    -fx-font-weight: bold;
+
+}
+.chart-title {
+    -fx-text-fill: #7B3927;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px
+
+}
+
+.chart-legend {
+    -fx-font-size: 12px;
+    -fx-text-fill: #7B3927;
+}
+
+.chart-pie {
+    /*-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 2);*/
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+}
+
+.chart-pie {
+    -fx-border-color: #dfa47e;
+}
+
+
+.chart-pie {
+    -fx-border-width: 1.5px;
+}
+
+.chart-pie-label-line {
+    -fx-stroke: #7B3927;
+}
+
+.dashBoardAnchorPane{
+    -fx-background-color: #dfa47e;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 4, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 4, 0, 0, 0);
+    -fx-background-radius: 0 50 50 50;
+
+
+}
+
+.chart-series-line {
+    -fx-stroke: #7B3927; /* Change line color */
+    -fx-stroke-width: 3px; /* Change line thickness */
+}
+
+.chart-symbol {
+    -fx-background-color: #dfa47e; /* Change symbol fill color */
+    -fx-background-insets: 0, 2; /* Add padding around symbol */
+    -fx-background-radius: 5px; /* Round the corners of the symbol */
+    -fx-padding: 5px; /* Add padding inside symbol */
+    -fx-shape: "M 0 0 L 10 5 L 0 10 Z"; /* Change symbol shape */
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke: #7B3927; /* Change vertical grid line color */
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: #7B3927; /* Change horizontal grid line color */
+}
+
+
+.chart-axis {
+    -fx-tick-length: 8px; /* Change tick length */
+    -fx-tick-label-fill: #7B3927; /* Change tick label color */
+    -fx-label-padding: 5px; /* Add padding around axis labels */
+}
+
+.chart-plot-background {
+    -fx-background-color: #dfa47e;
+}
+.chart-title {
+    -fx-font-size: 20px; /* Change title font size */
+    -fx-font-weight: bold; /* Add bold font weight to title */
+}
+.eventLbl{
+    -fx-border-radius: 20;
+}
+
+.tooltip{
+    -fx-background-color: #7B3927;
+}
+
+
+
+
+
+
+
+
+

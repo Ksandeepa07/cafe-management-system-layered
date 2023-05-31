@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.cafe_au_lait.controller.NewDeliverFormController">
+   <children>
+      <ImageView fitHeight="408.0" fitWidth="673.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/adminHome.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="locationTxt" layoutX="330.0" layoutY="314.0" prefHeight="34.0" prefWidth="149.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <Label layoutX="195.0" layoutY="174.0" prefHeight="23.0" prefWidth="128.0" text="Order Id       :" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="195.0" layoutY="252.0" prefHeight="23.0" prefWidth="128.0" text="Employee Id :" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="195.0" layoutY="331.0" prefHeight="23.0" prefWidth="128.0" text="Location       :" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="195.0" layoutY="101.0" prefHeight="23.0" prefWidth="128.0" text="Deliver Id     :" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="deliverIdTxt" layoutX="329.0" layoutY="84.0" prefHeight="34.0" prefWidth="149.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <TextField fx:id="orderIdLbl" layoutX="330.0" layoutY="157.0" prefHeight="34.0" prefWidth="149.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <Label layoutX="213.0" layoutY="14.0" text="Delivery details" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="35.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="saveBtn" buttonType="RAISED" layoutX="538.0" layoutY="322.0" onAction="#saveBtnClick" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #7b3927;" text="Save" textFill="#dfa47e">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="empIdCOmbo" focusColor="RED" layoutX="330.0" layoutY="245.0" prefHeight="25.0" prefWidth="149.0" styleClass="firstComboBox" stylesheets="@../style/style.css" unFocusColor="#7b3927" />
+   </children>
+</AnchorPane>

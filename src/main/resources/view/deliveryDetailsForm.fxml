@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancPane" prefHeight="693.0" prefWidth="1153.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.cafe_au_lait.controller.DeliveryDetailsFormController">
+   <children>
+      <ImageView fitHeight="705.0" fitWidth="1179.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/adminHome.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblDelivery" layoutX="36.0" layoutY="227.0" onMousePressed="#tblClick" prefHeight="421.0" prefWidth="1087.0" stylesheets="@../style/style.css">
+         <columns>
+            <TableColumn fx:id="coiDeliveryId" prefWidth="193.0" text="Delivery Id" />
+            <TableColumn fx:id="colOrderId" prefWidth="321.0" text="Order Id" />
+            <TableColumn fx:id="colEmployeId" prefWidth="231.0" text="Employee Id" />
+            <TableColumn fx:id="colLocattion" prefWidth="341.0" text="Location" />
+         </columns>
+      </TableView>
+      <TextField fx:id="searchIdTxt" layoutX="916.0" layoutY="42.0" onKeyTyped="#searchTable" prefHeight="25.0" prefWidth="192.0" promptText="search by order Id" styleClass="searchBar" stylesheets="@../style/style.css" />
+      <ImageView fx:id="searchIcon" fitHeight="25.0" fitWidth="28.0" layoutX="1070.0" layoutY="47.0" onMouseClicked="#searchOrderIconClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons8-search-64.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="searchEmpId" layoutX="916.0" layoutY="103.0" onKeyTyped="#searchTableByEmpId" prefHeight="25.0" prefWidth="192.0" promptText="search by emp Id" styleClass="searchBar" stylesheets="@../style/style.css" />
+      <TextField fx:id="searchDeliveryId" layoutX="916.0" layoutY="160.0" onKeyTyped="#searchTableByDeliveryId" prefHeight="25.0" prefWidth="192.0" promptText="search by delivery Id" styleClass="searchBar" stylesheets="@../style/style.css" />
+      <ImageView fx:id="searchIcon1" fitHeight="25.0" fitWidth="28.0" layoutX="1076.0" layoutY="108.0" onMouseClicked="#searchEmpIconClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons8-search-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="searchIcon11" fitHeight="25.0" fitWidth="28.0" layoutX="1072.0" layoutY="165.0" onMouseClicked="#searchDeliveryIconClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons8-search-64.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="deleiverIdTxt" layoutX="136.0" layoutY="50.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <JFXButton fx:id="deleteBtn" buttonType="RAISED" layoutX="660.0" layoutY="165.0" onAction="#deleteBtnCLick" prefHeight="26.0" prefWidth="62.0" style="-fx-background-color: #7B3927;" text="Delete" textFill="#dfa47e">
+         <font>
+            <Font name="Times New Roman Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="24.0" layoutY="67.0" text="Delivery Id :" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="360.0" layoutY="165.0" text="Location :" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="165.0" text="Employee Id :" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="360.0" layoutY="65.0" text="Order Id :" textFill="#7b3927">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="locationTxt" layoutX="457.0" layoutY="148.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <JFXButton fx:id="updateBtn" buttonType="RAISED" layoutX="743.0" layoutY="165.0" onAction="#updateBtnClicl" prefHeight="26.0" prefWidth="62.0" style="-fx-background-color: #7B3927;" text="Update" textFill="#dfa47e">
+         <font>
+            <Font name="Times New Roman Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="orderIdTxt" focusColor="RED" layoutX="450.0" layoutY="55.0" prefHeight="25.0" prefWidth="187.0" styleClass="firstComboBox" stylesheets="@../style/style.css" unFocusColor="#7b3927" />
+      <JFXComboBox fx:id="employeeIdTxt" focusColor="RED" layoutX="136.0" layoutY="153.0" prefHeight="25.0" prefWidth="187.0" styleClass="firstComboBox" stylesheets="@../style/style.css" unFocusColor="#7b3927" />
+   </children>
+</AnchorPane>

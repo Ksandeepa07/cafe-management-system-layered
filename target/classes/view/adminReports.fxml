@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancPane" prefHeight="693.0" prefWidth="1153.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.cafe_au_lait.controller.AdminReportsController">
+   <children>
+      <ImageView fitHeight="705.0" fitWidth="1166.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/adminHome.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="supplierLoadDetailsBtn" buttonType="RAISED" layoutX="123.0" layoutY="101.0" onAction="#supplierLoadDetailsBtnClick" prefHeight="49.0" prefWidth="325.0" style="-fx-background-color: #7B3927;" text="Supply Load Details" textFill="#dfa47e">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="ordersDetailsBtn" buttonType="RAISED" layoutX="123.0" layoutY="233.0" onAction="#ordersDetailsBtnClick" prefHeight="49.0" prefWidth="325.0" style="-fx-background-color: #7B3927;" text="Order Details" textFill="#dfa47e">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="customerDetailsBtn" buttonType="RAISED" layoutX="700.0" layoutY="101.0" onAction="#customerDetailsBtnClick" prefHeight="49.0" prefWidth="325.0" style="-fx-background-color: #7B3927;" text="Customers Details" textFill="#dfa47e">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="suppliersDetailBtn" buttonType="RAISED" layoutX="700.0" layoutY="233.0" onAction="#suplliersDetailsBtnClick" prefHeight="49.0" prefWidth="325.0" style="-fx-background-color: #7B3927;" text="Suppliers Details" textFill="#dfa47e">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
