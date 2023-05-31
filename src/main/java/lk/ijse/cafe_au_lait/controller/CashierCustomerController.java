@@ -179,7 +179,7 @@ public class CashierCustomerController {
     }
 
     @FXML
-    void searchIconClick(MouseEvent event) {
+    void searchIconClick(MouseEvent event) throws SQLException {
 
         CustomerDTO customerDTO = (CustomerDTO) customerBO.searchById(searchIdTxt.getText());
         if (customerDTO != null) {

@@ -1,6 +1,7 @@
 package lk.ijse.cafe_au_lait.dao;
 
 import lk.ijse.cafe_au_lait.dao.custom.impl.CustomerDAOImpl;
+import lk.ijse.cafe_au_lait.dao.custom.impl.EmployeeDAOImpl;
 import lk.ijse.cafe_au_lait.dao.custom.impl.ItemDAOImpl;
 
 public class DAOFactory {
@@ -17,7 +18,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes{
-        CUSTOMER,ITEM
+        CUSTOMER,ITEM,EMPLOYEE
     }
 
     public <T extends SuperDAO>T getDAO(DAOTypes daoTypes){
@@ -27,6 +28,9 @@ public class DAOFactory {
 
             case ITEM:
                 return (T) new ItemDAOImpl();
+
+            case EMPLOYEE:
+                return (T) new EmployeeDAOImpl();
 
             default:
                 return null;

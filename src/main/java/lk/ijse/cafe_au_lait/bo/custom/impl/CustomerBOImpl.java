@@ -28,7 +28,7 @@ public class CustomerBOImpl implements CustomerBO<CustomerDTO,String > {
     }
 
     @Override
-    public CustomerDTO searchById(String id) {
+    public CustomerDTO searchById(String id) throws SQLException {
         Customer customer=customerDAO.searchById(id);
         return new CustomerDTO(customer.getCustId(),customer.getCustName(),customer.getCustContact(),customer.getCustEmail());
     }

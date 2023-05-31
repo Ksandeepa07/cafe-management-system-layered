@@ -13,7 +13,7 @@ public class Launcher extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        URL resource = Launcher.class.getResource("/view/cashierDashboard.fxml");
+        URL resource = Launcher.class.getResource("/view/admindashbord.fxml");
         Parent load = FXMLLoader.load(resource);
         stage.setScene(new Scene(load));
         stage.setTitle("Loading Page");

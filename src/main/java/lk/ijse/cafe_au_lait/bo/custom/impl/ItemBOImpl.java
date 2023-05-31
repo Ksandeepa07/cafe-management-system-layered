@@ -44,7 +44,7 @@ public class ItemBOImpl implements ItemBO<ItemDTO,String> {
     }
 
     @Override
-    public ItemDTO searchItemById(String id) {
+    public ItemDTO searchItemById(String id) throws SQLException {
         Item item=itemDAO.searchById(id);
         return new ItemDTO(item.getId(),item.getName(),item.getQuantity(),item.getPrice(),item.getCategory());
     }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public interface CrudDAO<T,ID> extends SuperDAO {
    boolean save(T t) throws SQLException;
    ArrayList<T> getAll() throws SQLException;
-   T searchById(ID id);
+   T searchById(ID id) throws SQLException;
 
      boolean update(T t) throws SQLException ;
      boolean delete(ID id) throws SQLException ;

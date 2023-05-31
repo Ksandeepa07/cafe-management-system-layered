@@ -187,7 +187,7 @@ public class AdminInventoryController {
     }
 
     @FXML
-    void searchIconClick(MouseEvent event) {
+    void searchIconClick(MouseEvent event) throws SQLException {
         ItemDTO itemDTO = (ItemDTO) itemBO.searchItemById(searchIdTxt.getText());
         idTxt.setText(itemDTO.getId());
         nameTxt.setText(itemDTO.getName());

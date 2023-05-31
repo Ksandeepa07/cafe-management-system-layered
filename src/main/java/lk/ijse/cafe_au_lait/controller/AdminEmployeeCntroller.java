@@ -2,6 +2,7 @@ package lk.ijse.cafe_au_lait.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,8 +12,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.cafe_au_lait.bo.BOFactory;
+import lk.ijse.cafe_au_lait.bo.custom.EmployeeBO;
 import lk.ijse.cafe_au_lait.dto.CustomerDTO;
-import lk.ijse.cafe_au_lait.dto.Employee;
+import lk.ijse.cafe_au_lait.dto.EmployeeDTO;
 import lk.ijse.cafe_au_lait.view.tdm.EmployeeTM;
 import lk.ijse.cafe_au_lait.model.EmployeeModel;
 import lk.ijse.cafe_au_lait.util.DataValidateController;
@@ -23,6 +26,7 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
@@ -142,6 +146,8 @@ public class AdminEmployeeCntroller {
     boolean isPhoneNumberValidate;
     boolean isEmailValidate;
 
+    EmployeeBO employeeBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.EMPLOYEE);
+
 
     @FXML
     void saveOnAction(ActionEvent event) {
@@ -163,12 +169,12 @@ public class AdminEmployeeCntroller {
             String contact = contactTxt.getText();
             String email = emailTxt.getText();
 
-            CustomerDTO customerDTO = new CustomerDTO(id, name, contact, email);
-            Employee employee = new Employee(id, name, address, dob, nic, jobTitle, contact, email);
+//            CustomerDTO customerDTO = new CustomerDTO(id, name, contact, email);
+            EmployeeDTO employeeDTO = new EmployeeDTO(id, name, address, dob, nic, jobTitle, contact, email);
 
             Boolean isSaved = null;
             try {
-                isSaved = EmployeeModel.save(employee);
+                isSaved = employeeBO.saveEmployee(employeeDTO);
                 if (isSaved) {
                     saveBtn.setDisable(true);
                     updateBtn.setDisable(true);
@@ -205,11 +211,17 @@ public class AdminEmployeeCntroller {
 
     }
 
-    void getAll() {
+    void getAll()  {
+        tblEmployee.getItems().clear();
         try {
-            ObservableList<EmployeeTM> employeeData = EmployeeModel.getAll();
-            tblEmployee.setItems(employeeData);
-        } catch (SQLException throwables) {
+            ArrayList<EmployeeDTO> employeeData = employeeBO.getAllEmployee();
+            ObservableList<EmployeeTM> oblist= FXCollections.observableArrayList();
+            for (EmployeeDTO employeeDatum : employeeData) {
+                oblist.add(new EmployeeTM(employeeDatum.getId(),employeeDatum.getName(),employeeDatum.getAddress(),employeeDatum.getDob(),employeeDatum.getNic(),
+                        employeeDatum.getJobTitle(),employeeDatum.getContact(),employeeDatum.getEmail()));
+            }
+            tblEmployee.setItems(oblist);
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         }
     }
@@ -228,29 +240,35 @@ public class AdminEmployeeCntroller {
 
     public void searchIconClick(MouseEvent mouseEvent) {
         try {
-            Employee employee = EmployeeModel.searchById(searchIdTxt.getText());
-            if (employee != null) {
-                idTxt.setText(employee.getId());
-                nameTxt.setText(employee.getName());
-                addressTxt.setText(employee.getAddress());
+            EmployeeDTO employeeDTO = employeeBO.searchEmployeeById(searchIdTxt.getText());
+            if (employeeDTO != null) {
+                idTxt.setText(employeeDTO.getId());
+                nameTxt.setText(employeeDTO.getName());
+                addressTxt.setText(employeeDTO.getAddress());
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                LocalDate date = LocalDate.parse(employee.getDob(), formatter);
+                LocalDate date = LocalDate.parse(employeeDTO.getDob(), formatter);
                 dobTxt.setValue(date);
-                nicTxt.setText(employee.getNic());
-                jobTitileTxt.setValue(employee.getJobTitle());
-                contactTxt.setText(employee.getContact());
-                emailTxt.setText(employee.getEmail());
+                nicTxt.setText(employeeDTO.getNic());
+                jobTitileTxt.setValue(employeeDTO.getJobTitle());
+                contactTxt.setText(employeeDTO.getContact());
+                emailTxt.setText(employeeDTO.getEmail());
             } else {
                 NotificationController.ErrorMasseage("Employee ID Not Found");
             }
-        } catch (SQLException throwables) {
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         }
     }
 
     public void searchTable(KeyEvent keyEvent) throws SQLException {
         String searchValue = searchIdTxt.getText().trim();
-        ObservableList<EmployeeTM> obList = EmployeeModel.getAll();
+        ArrayList<EmployeeDTO> load = employeeBO.getAllEmployee();
+        ObservableList<EmployeeTM> obList=FXCollections.observableArrayList();
+
+        for (EmployeeDTO employeeDTO : load) {
+            obList.add(new EmployeeTM(employeeDTO.getId(),employeeDTO.getName(),employeeDTO.getAddress(),employeeDTO.getDob(),employeeDTO.getNic(),
+                    employeeDTO.getJobTitle(),employeeDTO.getContact(),employeeDTO.getEmail()));
+        }
 
         if (!searchValue.isEmpty()) {
             ObservableList<EmployeeTM> filteredData = obList.filtered(new Predicate<EmployeeTM>() {
@@ -284,9 +302,9 @@ public class AdminEmployeeCntroller {
             String email = emailTxt.getText();
 
 
-            Employee employee = new Employee(id, name, address, dob, nic, jobTitle, contact, email);
+            EmployeeDTO employeeDTO = new EmployeeDTO(id, name, address, dob, nic, jobTitle, contact, email);
             try {
-                boolean isUpdated = EmployeeModel.update(employee);
+                boolean isUpdated = employeeBO.updateEmployee(employeeDTO);
                 boolean result = NotificationController.confirmationMasseage("Are you sure you want update this " +
                         "employee ?");
                 if (result) {
@@ -326,7 +344,7 @@ public class AdminEmployeeCntroller {
 
     public void deleteOnAction(ActionEvent actionEvent) {
         try {
-            boolean isDeleted = EmployeeModel.delete(idTxt.getText());
+            boolean isDeleted = employeeBO.deleteEmployee(idTxt.getText());
             boolean result = NotificationController.confirmationMasseage("Are you sure you want delete this " +
                     "employee ?");
             if (result) {
