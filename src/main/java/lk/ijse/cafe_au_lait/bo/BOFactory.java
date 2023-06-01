@@ -1,8 +1,6 @@
 package lk.ijse.cafe_au_lait.bo;
 
-import lk.ijse.cafe_au_lait.bo.custom.impl.CustomerBOImpl;
-import lk.ijse.cafe_au_lait.bo.custom.impl.EmployeeBOImpl;
-import lk.ijse.cafe_au_lait.bo.custom.impl.ItemBOImpl;
+import lk.ijse.cafe_au_lait.bo.custom.impl.*;
 import lk.ijse.cafe_au_lait.dao.custom.impl.ItemDAOImpl;
 
 public class BOFactory {
@@ -20,7 +18,7 @@ public class BOFactory {
     }
 
     public enum BOTypes{
-        CUSTOMER,ITEM,EMPLOYEE
+        CUSTOMER,ITEM,EMPLOYEE,SUPPLIER,SALARY
     }
 
     public <T extends SuperBO>T getBO(BOTypes boTypes){
@@ -33,6 +31,12 @@ public class BOFactory {
 
             case EMPLOYEE:
                 return (T) new EmployeeBOImpl();
+
+            case SUPPLIER:
+                return (T) new SupplierBOImpl();
+
+            case SALARY:
+                return (T) new SalaryBOImpl();
 
             default:
                 return null;

@@ -45,4 +45,9 @@ public class EmployeeBOImpl implements EmployeeBO<EmployeeDTO,String>{
         return new EmployeeDTO(employee.getId(),employee.getName(),employee.getAddress(),employee.getDob(),employee.getNic(),employee.getJobTitle(),
                 employee.getContact(),employee.getEmail());
     }
+
+    @Override
+    public ArrayList<String> loadEmployeeIds() throws SQLException {
+        return employeeDAO.loadIds();
+    }
 }

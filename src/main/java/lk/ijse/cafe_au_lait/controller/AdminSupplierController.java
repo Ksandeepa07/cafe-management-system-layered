@@ -1,6 +1,7 @@
 package lk.ijse.cafe_au_lait.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +11,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.cafe_au_lait.dto.Supplier;
+import lk.ijse.cafe_au_lait.bo.BOFactory;
+import lk.ijse.cafe_au_lait.bo.SuperBO;
+import lk.ijse.cafe_au_lait.bo.custom.SupplierBO;
+import lk.ijse.cafe_au_lait.dto.SupplierDTO;
+import lk.ijse.cafe_au_lait.entity.Supplier;
 import lk.ijse.cafe_au_lait.view.tdm.SupplierTM;
 import lk.ijse.cafe_au_lait.model.SupplierModel;
 import lk.ijse.cafe_au_lait.util.DataValidateController;
@@ -19,6 +24,7 @@ import lk.ijse.cafe_au_lait.util.NotificationController;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
@@ -108,13 +114,13 @@ public class AdminSupplierController {
     @FXML
     private Tooltip supplierIdToolTip;
 
-
+    SupplierBO supplierBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.SUPPLIER);
 
 
     @FXML
     void deleteOnAction(ActionEvent event) {
         try {
-            boolean isDeleted = SupplierModel.delete(idTxt.getText());
+            boolean isDeleted = supplierBO.deleteSupplier(idTxt.getText());
             boolean result = NotificationController.confirmationMasseage("Are you sure you want remove this " +
                     "employee ?");
             if (result) {
@@ -154,9 +160,9 @@ public class AdminSupplierController {
         String email = emailTxt.getText();
 
 
-                    Supplier supplier = new Supplier(id, name, contact, address, email);
+                    SupplierDTO supplierDTO = new SupplierDTO(id, name, contact, address, email);
                     try {
-                        boolean isSaved = SupplierModel.save(supplier);
+                        boolean isSaved = supplierBO.saveSupplier(supplierDTO);
                         if (isSaved) {
                             deleteBtn.setDisable(true);
                             updateBtn.setDisable(true);
@@ -187,13 +193,13 @@ public class AdminSupplierController {
     @FXML
     void searchIconClick(MouseEvent event) {
         try {
-            Supplier supplier = SupplierModel.searchById(searchIdTxt.getText());
-            if (supplier != null) {
-                idTxt.setText(supplier.getId());
-                nameTxt.setText(supplier.getName());
-                contactTxt.setText(supplier.getContact());
-                addressTxt.setText(supplier.getAddress());
-                emailTxt.setText(supplier.getEmail());
+            SupplierDTO supplierDTO = supplierBO.searchSuppplierById(searchIdTxt.getText());
+            if (supplierDTO != null) {
+                idTxt.setText(supplierDTO.getId());
+                nameTxt.setText(supplierDTO.getName());
+                contactTxt.setText(supplierDTO.getContact());
+                addressTxt.setText(supplierDTO.getAddress());
+                emailTxt.setText(supplierDTO.getEmail());
             } else {
             }
 
@@ -206,7 +212,11 @@ public class AdminSupplierController {
     @FXML
     void searchTable(KeyEvent event) throws SQLException {
         String searchValue = searchIdTxt.getText().trim();
-        ObservableList<SupplierTM> obList = SupplierModel.getAll();
+        ArrayList<SupplierDTO> load = supplierBO.getAllSuppliers();
+        ObservableList<SupplierTM> obList= FXCollections.observableArrayList();
+        for (SupplierDTO supplierDTO : load) {
+            obList.add(new SupplierTM(supplierDTO.getId(),supplierDTO.getName(),supplierDTO.getContact(),supplierDTO.getAddress(),supplierDTO.getEmail()));
+        }
 
         if (!searchValue.isEmpty()) {
             ObservableList<SupplierTM> filteredData = obList.filtered(new Predicate<SupplierTM>() {
@@ -231,12 +241,12 @@ public class AdminSupplierController {
         String address = addressTxt.getText();
         String email = emailTxt.getText();
 
-                    Supplier supplier = new Supplier(id, name, contact, address, email);
+                    SupplierDTO supplierDTO = new SupplierDTO(id, name, contact, address, email);
                     boolean result = NotificationController.confirmationMasseage("Are you sure you want update this " +
                             "employee ?");
                     if (result) {
                         try {
-                            boolean isUpdated = SupplierModel.update(supplier);
+                            boolean isUpdated = supplierBO.updateSupplier(supplierDTO);
                             if (isUpdated) {
                                 deleteBtn.setDisable(true);
                                 updateBtn.setDisable(true);
@@ -264,9 +274,13 @@ public class AdminSupplierController {
     }
 
     void getAll() {
+        tblSupplier.getItems().clear();
         try {
-            ObservableList<SupplierTM> supplierData = SupplierModel.getAll();
-            tblSupplier.setItems(supplierData);
+            ArrayList<SupplierDTO> supplierData = supplierBO.getAllSuppliers();
+            for (SupplierDTO supplierDatum : supplierData) {
+                tblSupplier.getItems().add(new SupplierTM(supplierDatum.getId(),supplierDatum.getName(),supplierDatum.getContact(),supplierDatum.getAddress(),supplierDatum.getEmail()));
+            }
+//            tblSupplier.setItems(supplierData);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

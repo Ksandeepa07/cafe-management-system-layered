@@ -16,4 +16,6 @@ public interface EmployeeBO<T,ID> extends SuperBO {
     boolean deleteEmployee(String text) throws SQLException;
 
     EmployeeDTO searchEmployeeById(String text) throws SQLException;
+
+    ArrayList<String> loadEmployeeIds() throws SQLException;
 }

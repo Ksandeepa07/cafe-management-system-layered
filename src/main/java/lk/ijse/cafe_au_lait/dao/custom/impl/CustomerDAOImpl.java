@@ -88,13 +88,7 @@ public class CustomerDAOImpl implements CustomerDAO {
         return CrudUtil.execute("DELETE FROM Customer WHERE custId=?", id);
     }
 
-    @Override
-    public ArrayList<String> loadIds() {
-        return null;
-    }
 
-    @Override
-    public int countId() throws SQLException {
-        return 0;
-    }
+
+
 }

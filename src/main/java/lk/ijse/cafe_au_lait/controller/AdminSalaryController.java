@@ -2,6 +2,7 @@ package lk.ijse.cafe_au_lait.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +13,11 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
-import lk.ijse.cafe_au_lait.dto.Salary;
+import lk.ijse.cafe_au_lait.bo.BOFactory;
+import lk.ijse.cafe_au_lait.bo.custom.EmployeeBO;
+import lk.ijse.cafe_au_lait.bo.custom.SalaryBO;
+import lk.ijse.cafe_au_lait.dto.CustomerDTO;
+import lk.ijse.cafe_au_lait.dto.SalaryDTO;
 import lk.ijse.cafe_au_lait.view.tdm.SalaryTM;
 import lk.ijse.cafe_au_lait.model.EmployeeModel;
 import lk.ijse.cafe_au_lait.model.SalaryModel;
@@ -23,6 +28,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
@@ -102,11 +108,14 @@ public class AdminSalaryController {
     @FXML
     private ImageView overTimeIcon;
 
+    EmployeeBO employeeBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.EMPLOYEE);
+    SalaryBO salaryBO=BOFactory.getInstance().getBO(BOFactory.BOTypes.SALARY);
+
 
     @FXML
     void deleteOnAction(ActionEvent event) {
         try {
-            boolean isDeleted = SalaryModel.delete(salaryTxt.getText());
+            boolean isDeleted = salaryBO.deleteSalary(salaryTxt.getText());
             boolean result = NotificationController.confirmationMasseage("Are you sure you want delete this " +
                     "salary ?");
             if (result) {
@@ -176,10 +185,10 @@ public class AdminSalaryController {
             }
 
 
-            Salary salary = new Salary(id, salaryId, method, payment, overTyime);
+            SalaryDTO salaryDTO = new SalaryDTO(id, salaryId, method, payment, overTyime);
 
             try {
-                boolean isSaved = SalaryModel.save(salary);
+                boolean isSaved = salaryBO.saveSalary(salaryDTO);
                 if (isSaved) {
                     saveBtn.setDisable(true);
                     updateBtn.setDisable(true);
@@ -209,15 +218,29 @@ public class AdminSalaryController {
     }
 
     @FXML
-    void searchIconClick(MouseEvent event) {
+    void searchIconClick(MouseEvent event) throws SQLException {
+        SalaryDTO salaryDTO = salaryBO.searchSalaryById(searchIdTxt.getText());
+        if (salaryDTO != null) {
+            idTxt.setValue(salaryDTO.getEmpId());
+            salaryTxt.setText(salaryDTO.getSalaryId());
+            methodTxt.setValue(salaryDTO.getPaymentMethod());
+            payamentTxt.setText(String.valueOf(salaryDTO.getPayment()));
+            overTimeTxt.setText(String.valueOf(salaryDTO.getOverTime()));
+
+        } else {
+            NotificationController.ErrorMasseage("Event ID Not Found");
+        }
 
     }
 
     @FXML
     void searchTable(KeyEvent event) throws SQLException {
         String searchValue = searchIdTxt.getText().trim();
-        ObservableList<SalaryTM> obList = SalaryModel.getAll();
-
+        ArrayList<SalaryDTO> load = salaryBO.getAllSalary();
+        ObservableList<SalaryTM> obList=FXCollections.observableArrayList();
+        for (SalaryDTO salaryDTO : load) {
+            obList.add(new SalaryTM(salaryDTO.getEmpId(),salaryDTO.getSalaryId(),salaryDTO.getPaymentMethod(),salaryDTO.getPayment(),salaryDTO.getOverTime()));
+        }
         if (!searchValue.isEmpty()) {
             ObservableList<SalaryTM> filteredData = obList.filtered(new Predicate<SalaryTM>() {
                 @Override
@@ -244,9 +267,9 @@ public class AdminSalaryController {
         } else {
             overTyime = Double.valueOf(overTimeTxt.getText());
         }
-        Salary salary = new Salary(id, salaryId, method, payment, overTyime);
+        SalaryDTO salaryDTO = new SalaryDTO(id, salaryId, method, payment, overTyime);
         try {
-            boolean isUpdated = SalaryModel.update(salary);
+            boolean isUpdated = salaryBO.updateSalary(salaryDTO);
             boolean result = NotificationController.confirmationMasseage("Are you sure you want update this " +
                     "salary ?");
             if (result) {
@@ -278,8 +301,12 @@ public class AdminSalaryController {
 
     void getAll() {
         try {
-            ObservableList<SalaryTM> salaryData = SalaryModel.getAll();
-            tbllsalary.setItems(salaryData);
+            ArrayList<SalaryDTO> salaryData = salaryBO.getAllSalary();
+            for (SalaryDTO salaryDatum : salaryData) {
+                tbllsalary.getItems().add(new SalaryTM(salaryDatum.getEmpId(),salaryDatum.getSalaryId(),salaryDatum.getPaymentMethod(),salaryDatum.getPayment(),
+                        salaryDatum.getOverTime()));
+            }
+//            tbllsalary.setItems(salaryData);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -357,9 +384,13 @@ public class AdminSalaryController {
 
     void loadEmployeeId() {
         try {
-            ObservableList<String> employeeData = EmployeeModel.loadEmpIds();
-            idTxt.setItems(employeeData);
-        } catch (SQLException throwables) {
+            ArrayList<String> employeeData = employeeBO.loadEmployeeIds();
+            ObservableList<String> loadIds= FXCollections.observableArrayList();
+            for (String employeeDatum : employeeData) {
+                loadIds.add(employeeDatum);
+            }
+            idTxt.setItems(loadIds);
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         }
     }

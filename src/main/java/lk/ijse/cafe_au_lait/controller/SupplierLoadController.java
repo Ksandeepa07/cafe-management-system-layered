@@ -10,11 +10,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.cafe_au_lait.dto.ItemDTO;
-import lk.ijse.cafe_au_lait.dto.Supplier;
+import lk.ijse.cafe_au_lait.dto.SupplierDTO;
 import lk.ijse.cafe_au_lait.dto.SupplyLoad;
 import lk.ijse.cafe_au_lait.view.tdm.SupplyLoadTM;
-import lk.ijse.cafe_au_lait.model.ItemModel;
 import lk.ijse.cafe_au_lait.model.SupplierModel;
 import lk.ijse.cafe_au_lait.model.SupplyLoadModel;
 import lk.ijse.cafe_au_lait.util.NotificationController;
@@ -208,12 +206,12 @@ public class SupplierLoadController {
 
     @FXML
     void supllierIdClick(ActionEvent event) {
-        String id = supplierId.getValue();
-        try {
-            Supplier supplier = SupplierModel.searchById(id);
-            supplierName.setText(supplier.getName());
-        } catch (Exception throwables) {
-        }
+//        String id = supplierId.getValue();
+//        try {
+//            SupplierDTO supplierDTO = SupplierModel.searchById(id);
+//            supplierName.setText(supplierDTO.getName());
+//        } catch (Exception throwables) {
+//        }
 
 
     }

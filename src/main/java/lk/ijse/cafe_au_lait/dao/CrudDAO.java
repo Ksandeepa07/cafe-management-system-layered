@@ -14,8 +14,7 @@ public interface CrudDAO<T,ID> extends SuperDAO {
      boolean update(T t) throws SQLException ;
      boolean delete(ID id) throws SQLException ;
 
-    ArrayList<ID> loadIds() ;
+//    ArrayList<ID> loadIds() ;
 
-
-    int countId() throws SQLException ;
+//    int countId() throws SQLException ;
 }

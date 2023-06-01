@@ -75,7 +75,7 @@ create table if not exists Item(
     constraint primary key (ItemId)
     );
 
-create table if not exists supplier(
+create table if not exists supplierDTO(
     SupplierId varchar(20),
     SupplierName varchar(40) not null ,
     SupplierContact varchar(15) not null ,
@@ -140,7 +140,7 @@ create table if not exists SupplierLoadDetail(
     on update cascade
     on delete cascade ,
 
-    constraint foreign key (SupplierId) references supplier (SupplierId)
+    constraint foreign key (SupplierId) references supplierDTO (SupplierId)
     on update cascade
     on delete cascade
     );

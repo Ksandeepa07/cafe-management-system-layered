@@ -81,13 +81,5 @@ public class ItemDAOImpl implements ItemDAO {
         return CrudUtil.execute("DELETE FROM Item WHERE itemId=?", id);
     }
 
-    @Override
-    public ArrayList<String> loadIds (){
-        return null;
-    }
 
-    @Override
-    public int countId() throws SQLException {
-        return 0;
-    }
 }

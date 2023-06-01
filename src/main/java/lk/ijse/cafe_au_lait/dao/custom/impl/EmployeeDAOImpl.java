@@ -3,11 +3,13 @@ package lk.ijse.cafe_au_lait.dao.custom.impl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lk.ijse.cafe_au_lait.dao.custom.EmployeeDAO;
+import lk.ijse.cafe_au_lait.db.DBConnection;
 import lk.ijse.cafe_au_lait.dto.EmployeeDTO;
 import lk.ijse.cafe_au_lait.entity.Employee;
 import lk.ijse.cafe_au_lait.util.CrudUtil;
 import lk.ijse.cafe_au_lait.view.tdm.EmployeeTM;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -98,13 +100,15 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                 id);
     }
 
-    @Override
-    public ArrayList<String> loadIds() {
-        return null;
-    }
 
     @Override
-    public int countId() throws SQLException {
-        return 0;
+    public ArrayList<String> loadIds() throws SQLException {
+        ArrayList<String> employeeIds=new ArrayList<>();
+        ResultSet resultSet=CrudUtil.execute("SELECT * FROM Employee");
+        while (resultSet.next()){
+            employeeIds.add(resultSet.getString(1));
+        }
+        return employeeIds;
+
     }
 }

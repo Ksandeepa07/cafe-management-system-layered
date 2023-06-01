@@ -130,7 +130,7 @@
             <Font name="Times New Roman Bold" size="18.0" />
          </font>
       </Label>
-      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="43.0" layoutY="256.0" onAction="#newSupplierBrtnClick" prefHeight="34.0" prefWidth="135.0" style="-fx-background-color: #7B3927;" text="New supplier" textFill="#dfa47e">
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="43.0" layoutY="256.0" onAction="#newSupplierBrtnClick" prefHeight="34.0" prefWidth="135.0" style="-fx-background-color: #7B3927;" text="New supplierDTO" textFill="#dfa47e">
          <font>
             <Font name="Times New Roman Bold" size="14.0" />
          </font>

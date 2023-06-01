@@ -1,4 +1,4 @@
-package lk.ijse.cafe_au_lait.dto;
+package lk.ijse.cafe_au_lait.entity;
 
 import lombok.*;
 
@@ -7,7 +7,6 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-
 public class Supplier {
     private String id;
     private String name;

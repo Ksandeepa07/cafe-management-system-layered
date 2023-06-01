@@ -317,14 +317,14 @@ public class CashierEventController {
 
     void loadEmployeeId() {
 
-        ObservableList<String> eventData = null;
-        try {
-            eventData = EmployeeModel.loadEmpIds();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-
-        }
-        idTxt.setItems(eventData);
+//        ObservableList<String> eventData = null;
+//        try {
+//            eventData = EmployeeModel.loadEmpIds();
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//
+//        }
+//        idTxt.setItems(eventData);
 
     }
 

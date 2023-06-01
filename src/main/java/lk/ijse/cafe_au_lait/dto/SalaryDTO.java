@@ -7,7 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class Salary {
+public class SalaryDTO {
     private String empId;
     private String salaryId;
     private String paymentMethod;
