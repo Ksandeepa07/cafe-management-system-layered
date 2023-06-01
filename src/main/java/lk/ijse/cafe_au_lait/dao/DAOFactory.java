@@ -16,7 +16,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes{
-        CUSTOMER,ITEM,EMPLOYEE,SUPPLIER,SALARY
+        CUSTOMER,ITEM,EMPLOYEE,SUPPLIER,SALARY,EVENT,EVENTIMAGE
     }
 
     public <T extends SuperDAO>T getDAO(DAOTypes daoTypes){
@@ -35,6 +35,12 @@ public class DAOFactory {
 
             case SALARY:
             return (T) new SalaryDAOImpl();
+
+            case EVENT:
+            return (T) new EventDAOImpl();
+
+            case EVENTIMAGE:
+                return (T) new EventImageDAOImpl();
 
             default:
                 return null;

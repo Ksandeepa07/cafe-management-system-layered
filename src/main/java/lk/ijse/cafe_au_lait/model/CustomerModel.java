@@ -107,15 +107,15 @@ public class CustomerModel {
     }
 
 
-    public static int countId() throws SQLException {
-        String sql="SELECT COUNT(CUSTiD) FROM CUSTOMER";
-        ResultSet resultSet= CrudUtil.execute(sql);
-        int count=0;
-        while (resultSet.next()){
-             count=resultSet.getInt(1);
-        }
-        return count;
-
-    }
+//    public static int countId() throws SQLException {
+//        String sql="SELECT COUNT(CUSTiD) FROM CUSTOMER";
+//        ResultSet resultSet= CrudUtil.execute(sql);
+//        int count=0;
+//        while (resultSet.next()){
+//             count=resultSet.getInt(1);
+//        }
+//        return count;
+//
+//    }
 }
 

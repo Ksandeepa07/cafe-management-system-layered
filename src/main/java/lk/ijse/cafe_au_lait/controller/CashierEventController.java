@@ -2,6 +2,7 @@ package lk.ijse.cafe_au_lait.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,9 +13,11 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import jfxtras.scene.control.LocalTimeTextField;
-import lk.ijse.cafe_au_lait.dto.Event;
+import lk.ijse.cafe_au_lait.bo.BOFactory;
+import lk.ijse.cafe_au_lait.bo.custom.EmployeeBO;
+import lk.ijse.cafe_au_lait.bo.custom.EventBO;
+import lk.ijse.cafe_au_lait.dto.EventDTO;
 import lk.ijse.cafe_au_lait.view.tdm.EventTM;
-import lk.ijse.cafe_au_lait.model.EmployeeModel;
 import lk.ijse.cafe_au_lait.model.EventModel;
 import lk.ijse.cafe_au_lait.util.DataValidateController;
 import lk.ijse.cafe_au_lait.util.NotificationController;
@@ -26,6 +29,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
@@ -115,10 +119,12 @@ public class CashierEventController {
     @FXML
     private ImageView nameIcon;
 
-    @FXML
-    void deleteOnAction(ActionEvent event) {
+    EventBO eventBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.EVENT);
 
-        boolean isDeleted = EventModel.delete(eventIdTxt.getText());
+    @FXML
+    void deleteOnAction(ActionEvent event) throws SQLException {
+
+        boolean isDeleted = eventBO.deleteEvent(eventIdTxt.getText());
         boolean result = NotificationController.confirmationMasseage("Are you sure you want delete this " +
                 "event ?");
         if (result) {
@@ -147,7 +153,7 @@ public class CashierEventController {
     }
 
     @FXML
-    void saveOnAction(ActionEvent event) throws FileNotFoundException {
+    void saveOnAction(ActionEvent event) throws FileNotFoundException, SQLException {
         String time= String.valueOf(eventTimeTxt.getLocalTime());
         if (idTxt.getSelectionModel().isEmpty()&eventDateTxt.getEditor().getText().isEmpty()&time.isEmpty()){
             NotificationController.ErrorMasseage("Employee Id and Event date can't be empty");
@@ -168,8 +174,8 @@ public class CashierEventController {
             String eventDate = String.valueOf(eventDateTxt.getValue());
             String eventTime = String.valueOf(eventTimeTxt.getLocalTime());
 
-            Event event1 = new Event(id, eventId, eventName, eventType, eventDate, eventTime);
-            boolean isSaved = EventModel.save(event1);
+            EventDTO eventDTO1 = new EventDTO(id, eventId, eventName, eventType, eventDate, eventTime);
+            boolean isSaved = eventBO.saveEvent(eventDTO1);
 
             if (isSaved) {
                 saveBtn.setDisable(true);
@@ -193,18 +199,18 @@ public class CashierEventController {
     }
 
     @FXML
-    void searchIconClick(MouseEvent event) {
+    void searchIconClick(MouseEvent event) throws SQLException {
 
-        Event event1 = EventModel.searchById(searchIdTxt.getText());
-        if (event1 != null) {
-            idTxt.setValue(event1.getEmpId());
-            eventIdTxt.setText(event1.getEventId());
-            eventNameTxt.setText(event1.getEventName());
-            eventTypeTxt.setText(event1.getEventType());
+        EventDTO eventDTO1 = eventBO.searchEventById(searchIdTxt.getText());
+        if (eventDTO1 != null) {
+            idTxt.setValue(eventDTO1.getEmpId());
+            eventIdTxt.setText(eventDTO1.getEventId());
+            eventNameTxt.setText(eventDTO1.getEventName());
+            eventTypeTxt.setText(eventDTO1.getEventType());
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            LocalDate date = LocalDate.parse(event1.getEventDate(), formatter);
+            LocalDate date = LocalDate.parse(eventDTO1.getEventDate(), formatter);
             eventDateTxt.setValue(date);
-            eventTimeTxt.setLocalTime(LocalTime.parse(event1.getEventTime()));
+            eventTimeTxt.setLocalTime(LocalTime.parse(eventDTO1.getEventTime()));
 
         } else {
             NotificationController.ErrorMasseage("Event ID Not Found");
@@ -216,7 +222,11 @@ public class CashierEventController {
     @FXML
     void searchTable(KeyEvent event) throws SQLException {
         String searchValue = searchIdTxt.getText().trim();
-        ObservableList<EventTM> obList = EventModel.getAll();
+        ArrayList<EventDTO> load = eventBO.getAllEvent();
+        ObservableList<EventTM> obList=FXCollections.observableArrayList();
+        for (EventDTO eventDTO : load) {
+            obList.add(new EventTM(eventDTO.getEmpId(),eventDTO.getEventId(),eventDTO.getEventName(),eventDTO.getEventType(),eventDTO.getEventDate(),eventDTO.getEventTime()));
+        }
 
         if (!searchValue.isEmpty()) {
             ObservableList<EventTM> filteredData = obList.filtered(new Predicate<EventTM>() {
@@ -268,7 +278,7 @@ public class CashierEventController {
     }
 
     @FXML
-    void updateOnAction(ActionEvent event) {
+    void updateOnAction(ActionEvent event) throws SQLException {
         if (idTxt.getSelectionModel().isEmpty()&eventDateTxt.getEditor().getText().isEmpty()){
             NotificationController.ErrorMasseage("Employee Id and Event date can't be empty");
         }else if (idTxt.getSelectionModel().isEmpty()){
@@ -283,9 +293,9 @@ public class CashierEventController {
             String eventDate = String.valueOf(eventDateTxt.getValue());
             String eventTime = String.valueOf(eventTimeTxt.getLocalTime());
 
-            Event event1 = new Event(id, eventId, eventName, eventType, eventDate, eventTime);
+            EventDTO eventDTO1 = new EventDTO(id, eventId, eventName, eventType, eventDate, eventTime);
 
-            boolean isUpdated = EventModel.update(event1);
+            boolean isUpdated = eventBO.updateEvent(eventDTO1);
             boolean result = NotificationController.confirmationMasseage("Are you sure you want update this " +
                     "event ?");
             if (result) {
@@ -316,22 +326,35 @@ public class CashierEventController {
     }
 
     void loadEmployeeId() {
+        ObservableList<String> oblist= FXCollections.observableArrayList();
 
-//        ObservableList<String> eventData = null;
-//        try {
-//            eventData = EmployeeModel.loadEmpIds();
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//
-//        }
-//        idTxt.setItems(eventData);
+        try {
+            ArrayList<String> eventData = eventBO.loadEmployeeIds();
+             for (String eventDatum : eventData) {
+                oblist.add(eventDatum);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+
+        }
+        idTxt.setItems(oblist);
 
     }
 
-    void getAll() {
+    void getAll()  {
 
-        ObservableList<EventTM> eventData = EventModel.getAll();
-        tblEvent.setItems(eventData);
+
+        try {
+            ArrayList<EventDTO> eventData = eventBO.getAllEvent();
+            for (EventDTO eventDatum : eventData) {
+                tblEvent.getItems().add(new EventTM(eventDatum.getEmpId(),eventDatum.getEventId(),eventDatum.getEventName(),eventDatum.getEventType(),eventDatum.getEventDate(),
+                        eventDatum.getEventTime()));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+//        tblEvent.setItems(eventData);
 
     }
 

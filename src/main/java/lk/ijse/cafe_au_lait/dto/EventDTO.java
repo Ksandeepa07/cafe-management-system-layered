@@ -7,7 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class Event {
+public class EventDTO {
     private String empId;
     private String eventId;
     private String eventName;

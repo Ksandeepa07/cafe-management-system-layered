@@ -2,6 +2,7 @@ package lk.ijse.cafe_au_lait.bo.custom.impl;
 
 import lk.ijse.cafe_au_lait.bo.custom.SalaryBO;
 import lk.ijse.cafe_au_lait.dao.DAOFactory;
+import lk.ijse.cafe_au_lait.dao.custom.EmployeeDAO;
 import lk.ijse.cafe_au_lait.dao.custom.SalaryDAO;
 import lk.ijse.cafe_au_lait.dto.SalaryDTO;
 import lk.ijse.cafe_au_lait.entity.Salary;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 
 public class SalaryBOImpl implements SalaryBO<SalaryDTO,String> {
     SalaryDAO salaryDAO= DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.SALARY);
+    EmployeeDAO employeeDAO=DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.EMPLOYEE);
     ArrayList<SalaryDTO> salaryData=new ArrayList<>();
     @Override
     public boolean saveSalary(SalaryDTO salaryDTO) throws SQLException {
@@ -42,5 +44,10 @@ public class SalaryBOImpl implements SalaryBO<SalaryDTO,String> {
         System.out.println(salary.getEmpId());
         System.out.println(salary.getSalaryId());
         return new SalaryDTO(salary.getEmpId(),salary.getSalaryId(),salary.getSalaryPaymentMethod(),salary.getSalaryPayment(),salary.getSalaryOt());
+    }
+
+    @Override
+    public ArrayList<String> loadEmployeeIds() throws SQLException {
+        return employeeDAO.loadIds();
     }
 }

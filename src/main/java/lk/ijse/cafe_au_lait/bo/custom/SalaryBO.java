@@ -16,4 +16,6 @@ public interface SalaryBO <T,ID> extends SuperBO {
     boolean deleteSalary(String text) throws SQLException;
 
     SalaryDTO searchSalaryById(String text) throws SQLException;
+
+    ArrayList<String> loadEmployeeIds() throws SQLException;
 }

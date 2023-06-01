@@ -3,7 +3,6 @@ package lk.ijse.cafe_au_lait.controller;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.Label;
@@ -12,17 +11,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
-import lk.ijse.cafe_au_lait.dto.Event;
+import lk.ijse.cafe_au_lait.bo.BOFactory;
+import lk.ijse.cafe_au_lait.bo.custom.HomeBO;
+import lk.ijse.cafe_au_lait.dto.EventDTO;
 import lk.ijse.cafe_au_lait.model.CustomerModel;
 import lk.ijse.cafe_au_lait.model.EventModel;
-import lk.ijse.cafe_au_lait.model.OrderDetailModel;
 import lk.ijse.cafe_au_lait.model.OrderModel;
 import lk.ijse.cafe_au_lait.util.StageController;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Files;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -57,10 +54,10 @@ public class CashierHomeFormController {
     @FXML
     private Label todayIncomeLbl;
 
-
-
     @FXML
     private Label dataLbl;
+
+    HomeBO homeBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.HOME);
 
     void setPieChart() {
 
@@ -93,19 +90,6 @@ public class CashierHomeFormController {
             throwables.printStackTrace();
         }
 
-
-//        series.getData().add(new XYChart.Data("Jan", 23));
-//        series.getData().add(new XYChart.Data("Feb", 14));
-//        series.getData().add(new XYChart.Data("Mar", 15));
-//        series.getData().add(new XYChart.Data("Apr", 24));
-//        series.getData().add(new XYChart.Data("May", 34));
-//        series.getData().add(new XYChart.Data("Jun", 36));
-//        series.getData().add(new XYChart.Data("Jul", 22));
-//        series.getData().add(new XYChart.Data("Aug", 45));
-//        series.getData().add(new XYChart.Data("Sep", 43));
-//        series.getData().add(new XYChart.Data("Oct", 17));
-//        series.getData().add(new XYChart.Data("Nov", 29));
-//        series.getData().add(new XYChart.Data("Dec", 25));
 
 
 
@@ -151,7 +135,7 @@ public class CashierHomeFormController {
 
     @FXML
     void eventLblClicked(MouseEvent event) {
-        Event event1 = EventModel.searchById(dataLbl.getText());
+//        EventDTO eventDTO1 = EventModel.searchById(dataLbl.getText());
         StageController.changeStage("/view/cashierEvent.fxml", "Event");
 
     }
@@ -176,10 +160,11 @@ public class CashierHomeFormController {
 
     void countcustomer(){
         try {
-            int count= CustomerModel.countId();
+            int count= homeBO.countCustomerId();
+            System.out.println(count);
             customerCountLbl.setText(String.valueOf("0"+count));
 
-        } catch (SQLException throwables) {
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         }
     }

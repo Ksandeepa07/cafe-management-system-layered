@@ -89,6 +89,14 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
 
+    @Override
+    public int countIds() throws SQLException {
+        ResultSet resultSet= CrudUtil.execute("SELECT COUNT(CUSTiD) FROM Customer");
+        int count=0;
+        while (resultSet.next()){
+            count=resultSet.getInt(1);
+        }
+        return count;
 
-
+    }
 }

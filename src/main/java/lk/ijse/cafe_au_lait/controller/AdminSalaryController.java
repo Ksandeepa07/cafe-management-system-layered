@@ -190,6 +190,7 @@ public class AdminSalaryController {
             try {
                 boolean isSaved = salaryBO.saveSalary(salaryDTO);
                 if (isSaved) {
+                    tbllsalary.refresh();
                     saveBtn.setDisable(true);
                     updateBtn.setDisable(true);
                     deleteBtn.setDisable(true);
@@ -384,7 +385,7 @@ public class AdminSalaryController {
 
     void loadEmployeeId() {
         try {
-            ArrayList<String> employeeData = employeeBO.loadEmployeeIds();
+            ArrayList<String> employeeData = salaryBO.loadEmployeeIds();
             ObservableList<String> loadIds= FXCollections.observableArrayList();
             for (String employeeDatum : employeeData) {
                 loadIds.add(employeeDatum);

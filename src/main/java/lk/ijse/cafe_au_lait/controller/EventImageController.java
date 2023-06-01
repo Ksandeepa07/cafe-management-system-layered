@@ -8,9 +8,11 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXComboBox;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +20,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
+import lk.ijse.cafe_au_lait.bo.BOFactory;
+import lk.ijse.cafe_au_lait.bo.custom.EventBO;
+import lk.ijse.cafe_au_lait.bo.custom.EventImageBO;
+import lk.ijse.cafe_au_lait.dto.EventDTO;
+import lk.ijse.cafe_au_lait.dto.EventImageDTO;
+import lk.ijse.cafe_au_lait.entity.Event;
+import lk.ijse.cafe_au_lait.entity.EventImage;
 import lk.ijse.cafe_au_lait.model.EventModel;
 
 public class EventImageController {
@@ -43,6 +52,9 @@ public class EventImageController {
     private JFXComboBox<String>eventIdCOmboBox;
 
     String filePath;
+
+    EventBO eventBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.EVENT);
+    EventImageBO eventImageBO=BOFactory.getInstance().getBO(BOFactory.BOTypes.EVENTIMAGE);
 
 
     @FXML
@@ -73,7 +85,8 @@ public class EventImageController {
         String eventId=eventIdCOmboBox.getValue();
         InputStream in = new FileInputStream(filePath);
         try {
-            boolean isSavedIamge= EventModel.saveImage(eventId,in);
+            EventImageDTO eventImageDTO=new EventImageDTO(eventId,in);
+            boolean isSavedIamge= eventImageBO.saveImage(eventImageDTO);
             if (isSavedIamge){
                 filePath=null;
             }
@@ -85,8 +98,12 @@ public class EventImageController {
 
     void loadEventIDs(){
         try {
-            ObservableList<String> eventData=EventModel.loadEventIds();
-            eventIdCOmboBox.setItems(eventData);
+            ArrayList<String> eventData=eventBO.loadEventIds();
+            ObservableList<String> obList= FXCollections.observableArrayList();
+            for (String eventDatum : eventData) {
+                obList.add(eventDatum);
+            }
+            eventIdCOmboBox.setItems(obList);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
