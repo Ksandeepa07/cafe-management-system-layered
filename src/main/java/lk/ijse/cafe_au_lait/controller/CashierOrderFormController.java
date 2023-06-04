@@ -111,7 +111,7 @@ public class CashierOrderFormController {
 
     private void generateNextOrderId() {
         try {
-            String id = OrderModel.getNextOrderId();
+            String id = placeOrderBO.generateNextOrderId();
             orderId.setText(id);
         } catch (SQLException e) {
             e.printStackTrace();

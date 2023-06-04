@@ -2,19 +2,23 @@ package lk.ijse.cafe_au_lait.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.cafe_au_lait.dto.Delivery;
-import lk.ijse.cafe_au_lait.model.EmployeeModel;
+import lk.ijse.cafe_au_lait.bo.BOFactory;
+import lk.ijse.cafe_au_lait.bo.custom.PlaceOrderBO;
+import lk.ijse.cafe_au_lait.bo.custom.impl.PlaceOrderBOImpl;
+import lk.ijse.cafe_au_lait.dto.DeliveryDTO;
 import lk.ijse.cafe_au_lait.model.OrderModel;
 import lk.ijse.cafe_au_lait.model.PlaceOrderModel;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class NewDeliverFormController {
@@ -44,6 +48,8 @@ public class NewDeliverFormController {
     @FXML
     private TextField orderIdLbl;
 
+    PlaceOrderBO placeOrderBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.PLACE_ORDER);
+
 
     @FXML
     void saveBtnClick(ActionEvent event) {
@@ -52,13 +58,17 @@ public class NewDeliverFormController {
         String empId = String.valueOf(empIdCOmbo.getValue());
         String location = locationTxt.getText();
 
-        Delivery newDeliverDto = new Delivery(deliverId, location, orderId, empId);
+        DeliveryDTO newDeliverDto = new DeliveryDTO(deliverId, location, orderId, empId);
 
 
         try {
-            PlaceOrderModel.sendObject(newDeliverDto);
+//            PlaceOrderModel.sendObject(newDeliverDto);
+//            System.out.println(newDeliverDto.getDeliverId());
+          placeOrderBO.saveDelivery(newDeliverDto);
+
 
         } catch (Exception throwables) {
+            System.out.println(throwables);
 
         }
 
@@ -68,7 +78,7 @@ public class NewDeliverFormController {
 
     private void generateNextOrderId() {
         try {
-            String id = OrderModel.getNextOrderId();
+            String id = placeOrderBO.generateNextOrderId();
             orderIdLbl.setText(id);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -78,14 +88,19 @@ public class NewDeliverFormController {
 
     void loadEmployeeId() {
 
-//        ObservableList<String> eventData = null;
-//        try {
-//            eventData = EmployeeModel.loadEmpIds();
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//
-//        }
-//        empIdCOmbo.setItems(eventData);
+        ArrayList<String> employeeData = null;
+        try {
+            employeeData = placeOrderBO.loadEmpIds();
+            ObservableList<String> obList= FXCollections.observableArrayList();
+            for (String employeeDatum : employeeData) {
+                obList.add(employeeDatum);
+            }
+            empIdCOmbo.setItems(obList);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+
+        }
+
 
     }
 

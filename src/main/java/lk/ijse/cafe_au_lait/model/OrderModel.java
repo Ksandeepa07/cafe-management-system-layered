@@ -12,29 +12,29 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class OrderModel {
-    public static String getNextOrderId() throws SQLException {
-        String sql = "SELECT orderId FROM Orders ORDER BY orderId DESC LIMIT 1";
+//    public static String getNextOrderId() throws SQLException {
+//        String sql = "SELECT orderId FROM Orders ORDER BY orderId DESC LIMIT 1";
+//
+//
+//        ResultSet resultSet = CrudUtil.execute(sql);
+//        if (resultSet.next()) {
+//            return splitOrderId(resultSet.getString(1));
+//        }
+//        return splitOrderId(null);
+//
+//    }
 
-
-        ResultSet resultSet = CrudUtil.execute(sql);
-        if (resultSet.next()) {
-            return splitOrderId(resultSet.getString(1));
-        }
-        return splitOrderId(null);
-
-    }
-
-    private static String splitOrderId(String currentId) {
-        if (currentId != null) {
-            String[] strings = currentId.split("OD-");
-            int id = Integer.parseInt(strings[1]);
-            ++id;
-            String digit = String.format("%03d", id);
-            return "OD-" + digit;
-
-        }
-        return "OD-001";
-    }
+//    private static String splitOrderId(String currentId) {
+//        if (currentId != null) {
+//            String[] strings = currentId.split("OD-");
+//            int id = Integer.parseInt(strings[1]);
+//            ++id;
+//            String digit = String.format("%03d", id);
+//            return "OD-" + digit;
+//
+//        }
+//        return "OD-001";
+//    }
 
 //
 //    public static boolean save(String oId, String customerId, Double orderPayment, LocalDate now, LocalTime now1, List<OrderDto> orderDtoList) {
@@ -74,7 +74,7 @@ public class OrderModel {
     }
 
     public static ObservableList<String> loadOrderIds() throws SQLException {
-        String sql = "SELECT * FROM ORDERS";
+        String sql = "SELECT * FROM Orders";
         ResultSet resultSet = CrudUtil.execute(sql);
         ObservableList<String> orderIds = FXCollections.observableArrayList();
 
@@ -88,7 +88,7 @@ public class OrderModel {
     }
 
     public static XYChart.Series lineChartData() throws SQLException {
-        String sql="SELECT MONTHNAME(orderDate),sum(orderPayment) from orders group by MONTHNAME(orderDate)";
+        String sql="SELECT MONTHNAME(orderDate),sum(orderPayment) from Orders group by MONTHNAME(orderDate)";
         ResultSet resultSet=CrudUtil.execute(sql);
         XYChart.Series series=new XYChart.Series();
         while (resultSet.next()){
@@ -98,7 +98,7 @@ public class OrderModel {
         }
 
     public static int countOrdersId() throws SQLException {
-        String sql="SELECT COUNT(ORDERiD) FROM ORDERS where orderdate=DATE(NOW())";
+        String sql="SELECT COUNT(ORDERiD) FROM Orders where orderdate=DATE(NOW())";
         ResultSet resultSet=CrudUtil.execute(sql);
         int count=0;
         while (resultSet.next()){
@@ -108,7 +108,7 @@ public class OrderModel {
     }
 
     public static int countIncome() throws SQLException {
-        String sql="SELECT SUM(ORDERPAYMENT) FROM ORDERS WHERE ORDERDATE=DATE(NOW())";
+        String sql="SELECT SUM(ORDERPAYMENT) FROM Orders WHERE ORDERDATE=DATE(NOW())";
         ResultSet resultSet=CrudUtil.execute(sql);
         int count=0;
         while (resultSet.next()){

@@ -10,11 +10,13 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.cafe_au_lait.bo.BOFactory;
+import lk.ijse.cafe_au_lait.bo.custom.SupplierLoadBO;
+import lk.ijse.cafe_au_lait.dto.ItemDTO;
 import lk.ijse.cafe_au_lait.dto.SupplierDTO;
-import lk.ijse.cafe_au_lait.dto.SupplyLoad;
+import lk.ijse.cafe_au_lait.dto.SupplierLoadDetailDTO;
+import lk.ijse.cafe_au_lait.dto.SupplyLoadDTO;
 import lk.ijse.cafe_au_lait.view.tdm.SupplyLoadTM;
-import lk.ijse.cafe_au_lait.model.SupplierModel;
-import lk.ijse.cafe_au_lait.model.SupplyLoadModel;
 import lk.ijse.cafe_au_lait.util.NotificationController;
 import lk.ijse.cafe_au_lait.util.StageController;
 import lk.ijse.cafe_au_lait.util.TimeController;
@@ -80,6 +82,8 @@ public class SupplierLoadController {
     private Label itemIdError;
     @FXML
     private TableView<SupplyLoadTM> tblSupplyLoads;
+
+    SupplierLoadBO supplierLoadBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.SUPPLIER_lOAD);
 
     @FXML
     void addSupplyLoadClick(ActionEvent event) {
@@ -148,15 +152,15 @@ public class SupplierLoadController {
 
     @FXML
     void itemIdClick(ActionEvent event) {
-//        try {
-//            String id = itemId.getValue();
-//            ItemDTO itemDTO = ItemModel.searchById(id);
-//            itemName.setText(itemDTO.getName());
-//            category.setText(itemDTO.getCategory());
-//            quantityAvailable.setText(String.valueOf(itemDTO.getQuantity()));
-//        } catch (Exception e) {
-//
-//        }
+        try {
+            String id = itemId.getValue();
+            ItemDTO itemDTO = supplierLoadBO.searchItemById(id);
+            itemName.setText(itemDTO.getName());
+            category.setText(itemDTO.getCategory());
+            quantityAvailable.setText(String.valueOf(itemDTO.getQuantity()));
+        } catch (Exception e) {
+
+        }
 
 
     }
@@ -171,20 +175,21 @@ public class SupplierLoadController {
     void placeOrderClick(ActionEvent event) {
         String supId = supplierId.getValue();
         String supLoadId = supplyLoadTxt.getText();
-        String payment = netTotall.getText();
+        Double payment = Double.valueOf(netTotall.getText());
 
 
-        List<SupplyLoad> data = new ArrayList<>();
+        List<SupplierLoadDetailDTO> data = new ArrayList<>();
         for (int i = 0; i < tblSupplyLoads.getItems().size(); i++) {
             SupplyLoadTM supplyLoadTM = obList.get(i);
-            SupplyLoad supplyLoad = new SupplyLoad(
+            SupplierLoadDetailDTO supplierLoadDetailDTO = new SupplierLoadDetailDTO(
                     supplyLoadTM.getItemId(), supplyLoadTM.getQuantity()
             );
-            data.add(supplyLoad);
+            data.add(supplierLoadDetailDTO);
         }
+//        SupplyLoadDTO supplyLoadDTO=new SupplyLoadDTO(supId, supLoadId, payment, data);
 
         try {
-            boolean isPlaced = SupplyLoadModel.PlaceSupplyLoad(supId, supLoadId, payment, data);
+            boolean isPlaced = supplierLoadBO.PlaceSupplyLoadOrder(new SupplyLoadDTO(supId, supLoadId, payment, data));
             if (isPlaced) {
                 NotificationController.animationMesseage("/assets/tick.gif", "Supply Load", "Supply load added sucessfully!!");
                 netTotall.setText("");
@@ -206,12 +211,12 @@ public class SupplierLoadController {
 
     @FXML
     void supllierIdClick(ActionEvent event) {
-//        String id = supplierId.getValue();
-//        try {
-//            SupplierDTO supplierDTO = SupplierModel.searchById(id);
-//            supplierName.setText(supplierDTO.getName());
-//        } catch (Exception throwables) {
-//        }
+        String id = supplierId.getValue();
+        try {
+            SupplierDTO supplierDTO =supplierLoadBO.searchSupplierById(id);
+            supplierName.setText(supplierDTO.getName());
+        } catch (Exception throwables) {
+        }
 
 
     }
@@ -224,21 +229,29 @@ public class SupplierLoadController {
 
     void loadSupplierIds() {
         try {
-            ObservableList<String> supplierData = SupplierModel.loadSupplierIds();
-            supplierId.setItems(supplierData);
+            ArrayList<String> supplierData = supplierLoadBO.loadSupplierIds();
+            ObservableList<String> obList=FXCollections.observableArrayList();
+            for (String supplierDatum : supplierData) {
+                obList.add(supplierDatum);
+            }
+            supplierId.setItems(obList);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
 
     void loadItemIds() {
-//        ObservableList<String> itemData = ItemModel.loadItemId();
-//        itemId.setItems(itemData);
+        ArrayList<String> itemData = supplierLoadBO.loadItemId();
+        ObservableList<String> oblist=FXCollections.observableArrayList();
+        for (String itemDatum : itemData) {
+            oblist.add(itemDatum);
+        }
+        itemId.setItems(oblist);
     }
 
     private void generateNextSupplyOrderId() {
         try {
-            String id = SupplyLoadModel.getNextOrderId();
+            String id = supplierLoadBO.generatetNextSupplierLoadId();
             supplyLoadTxt.setText(id);
         } catch (SQLException e) {
             e.printStackTrace();

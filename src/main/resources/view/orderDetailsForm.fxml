@@ -37,7 +37,7 @@
          </font>
       </JFXButton>
       <TextField fx:id="searchEmpId" layoutX="685.0" layoutY="42.0" onKeyTyped="#searchTableByEmpId" prefHeight="25.0" prefWidth="192.0" promptText="search by emp Id" styleClass="searchBar" stylesheets="@../style/style.css" />
-      <TextField fx:id="searchDeliveryId" layoutX="447.0" layoutY="42.0" onKeyTyped="#searchTableByDeliveryId" prefHeight="25.0" prefWidth="192.0" promptText="search by delivery Id" styleClass="searchBar" stylesheets="@../style/style.css" />
+      <TextField fx:id="searchDeliveryId" layoutX="447.0" layoutY="42.0" onKeyTyped="#searchTableByDeliveryId" prefHeight="25.0" prefWidth="192.0" promptText="search by deliveryDTO Id" styleClass="searchBar" stylesheets="@../style/style.css" />
       <ImageView fx:id="searchIcon1" fitHeight="25.0" fitWidth="28.0" layoutX="845.0" layoutY="47.0" onMouseClicked="#searchIconClick" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/icons8-search-64.png" />

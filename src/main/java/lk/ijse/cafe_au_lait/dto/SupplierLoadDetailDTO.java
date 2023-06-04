@@ -1,11 +1,13 @@
 package lk.ijse.cafe_au_lait.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@NoArgsConstructor
 @AllArgsConstructor
-public class SupplyLoad {
+@Getter
+@Setter
+@ToString
+public class SupplierLoadDetailDTO {
     private String itemId;
     private Integer qty;
 }

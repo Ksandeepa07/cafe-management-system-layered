@@ -1,23 +1,16 @@
 package lk.ijse.cafe_au_lait.model;
 
-import lk.ijse.cafe_au_lait.db.DBConnection;
-import lk.ijse.cafe_au_lait.dto.Delivery;
-import lk.ijse.cafe_au_lait.dto.OrdersDTO;
-import lk.ijse.cafe_au_lait.view.tdm.CartTM;
+import lk.ijse.cafe_au_lait.dto.DeliveryDTO;
 import lk.ijse.cafe_au_lait.util.CrudUtil;
 
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.List;
 
 public class PlaceOrderModel {
 
-    static Delivery gotnewdelivery;
+    static DeliveryDTO gotnewdelivery;
 
-    public static void sendObject(Delivery newDelivery) {
-        gotnewdelivery = newDelivery;
+    public static void sendObject(DeliveryDTO newDeliveryDTO) {
+        gotnewdelivery = newDeliveryDTO;
     }
 
 //    public static boolean placeOrder(String oId, String customerId, Double orderPayment, CartTM cartTM, List<OrdersDTO> ordersDTODtoList) {
@@ -59,15 +52,15 @@ public class PlaceOrderModel {
 //        return false;
 //    }
 
-    public static boolean saveDeliver(Delivery newDeliverDto) throws SQLException {
-
-        String Sql = "INSERT INTO delivery(deliveryId,deliveryLocation,orderId,empId) VALUES(?,?,?,?)";
-
-        return CrudUtil.execute(Sql,
-                newDeliverDto.getDeliverId(),
-                newDeliverDto.getLocation(),
-                newDeliverDto.getOrderId(),
-                newDeliverDto.getEmpId());
+//    public static boolean saveDeliver(DeliveryDTO newDeliverDto) throws SQLException {
+//
+//        String Sql = "INSERT INTO delivery(deliveryId,deliveryLocation,orderId,empId) VALUES(?,?,?,?)";
+//
+//        return CrudUtil.execute(Sql,
+//                newDeliverDto.getDeliverId(),
+//                newDeliverDto.getLocation(),
+//                newDeliverDto.getOrderId(),
+//                newDeliverDto.getEmpId());
 
     }
-}
+

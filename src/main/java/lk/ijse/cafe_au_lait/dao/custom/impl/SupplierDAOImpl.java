@@ -79,4 +79,38 @@ public class SupplierDAOImpl implements SupplierDAO {
     }
 
 
+    @Override
+    public ArrayList<String> loadIds() throws SQLException {
+        ResultSet resultSet = CrudUtil.execute("SELECT * FROM supplier");
+        ArrayList<String> supplierData = new ArrayList<>();
+        while (resultSet.next()) {
+            supplierData.add(
+                    resultSet.getString(1)
+            );
+        }
+        return supplierData;
+    }
+
+    @Override
+    public String generateNextId() throws SQLException {
+        ResultSet resultSet = CrudUtil.execute("SELECT supplierLoadId FROM SupplierLoadDetail ORDER BY supplierLoadId DESC LIMIT 1");
+
+        if (resultSet.next()) {
+            return SplitSupplierLoadId(resultSet.getString(1));
+        }
+        return SplitSupplierLoadId(null);
+    }
+
+    private static String SplitSupplierLoadId(String string) {
+        if (string != null) {
+            String[] strings = string.split("load-");
+            int id = Integer.parseInt(strings[1]);
+            ++id;
+            String digit = String.format("%03d", id);
+            return "load-" + digit;
+
+        }
+        return "load-001";
+    }
 }
+

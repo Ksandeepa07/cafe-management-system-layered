@@ -2,14 +2,13 @@ package lk.ijse.cafe_au_lait.bo.custom.impl;
 
 import lk.ijse.cafe_au_lait.bo.custom.PlaceOrderBO;
 import lk.ijse.cafe_au_lait.dao.DAOFactory;
-import lk.ijse.cafe_au_lait.dao.custom.CustomerDAO;
-import lk.ijse.cafe_au_lait.dao.custom.ItemDAO;
-import lk.ijse.cafe_au_lait.dao.custom.OrderDetailDAO;
-import lk.ijse.cafe_au_lait.dao.custom.OrdersDAO;
+import lk.ijse.cafe_au_lait.dao.custom.*;
 import lk.ijse.cafe_au_lait.db.DBConnection;
+import lk.ijse.cafe_au_lait.dto.DeliveryDTO;
 import lk.ijse.cafe_au_lait.dto.ItemDTO;
 import lk.ijse.cafe_au_lait.dto.OrderDetailDTO;
 import lk.ijse.cafe_au_lait.dto.OrdersDTO;
+import lk.ijse.cafe_au_lait.entity.Delivery;
 import lk.ijse.cafe_au_lait.entity.Item;
 import lk.ijse.cafe_au_lait.entity.OrdeDetail;
 import lk.ijse.cafe_au_lait.entity.Orders;
@@ -28,6 +27,9 @@ public class PlaceOrderBOImpl implements PlaceOrderBO {
     ItemDAO itemDAO=DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ITEM);
     OrdersDAO ordersDAO=DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ORDERS);
     OrderDetailDAO orderDetailDAO=DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ORDER_DETAIL);
+    DeliveryDAO deliveryDAO=DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.DELIVERY);
+    EmployeeDAO employeeDAO=DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.EMPLOYEE);
+    static DeliveryDTO deliveryDTO;
     @Override
     public ArrayList<String> loadCustId() {
         return customerDAO.loadIds();
@@ -87,29 +89,27 @@ public class PlaceOrderBOImpl implements PlaceOrderBO {
                 }
                 System.out.println("saved");
 
+
             }
 
             //delivery insert
 
+            if (ordersDTO.getDelivery().equals("Yes")) {
+                System.out.println("pakaya");
+                System.out.println(deliveryDTO.getLocation());
+                boolean isdeliverd =deliveryDAO.save(new Delivery(deliveryDTO.getDeliverId(),deliveryDTO.getLocation(),deliveryDTO.getOrderId(),deliveryDTO.getEmpId()));
+                if (!isdeliverd) {
+                    con.rollback();
+                    con.setAutoCommit(true);
+                    return false;
+                }
+            }else {
+                con.commit();
+                return true;
+            }
+
             con.commit();
             return true;
-
-//                if (isUpdated) {
-//                    boolean isplaced = OrderDetailModel.save(oId, orderDtoList);
-//                    if (isplaced) {
-//                        if (cartTM.getDelivery().equals("Yes")) {
-//                            boolean isdeliverd = saveDeliver(gotnewdelivery);
-//                            if (isdeliverd) {
-//                                con.commit();
-//                                return true;
-//                            }
-//                        } else {
-//                            con.commit();
-//                            return true;
-//                        }
-//                    }
-//                }
-
 
         } catch (Exception e) {
             try {
@@ -122,6 +122,23 @@ public class PlaceOrderBOImpl implements PlaceOrderBO {
         }
         return false;
     }
+
+    @Override
+    public void saveDelivery(DeliveryDTO newDeliverDto) {
+        this.deliveryDTO=newDeliverDto;
+        System.out.println(deliveryDTO.getDeliverId());
+    }
+
+    @Override
+    public ArrayList<String> loadEmpIds() throws SQLException {
+        return employeeDAO.loadIds();
+    }
+
+    @Override
+    public String generateNextOrderId() throws SQLException {
+        return ordersDAO.generateNextOrderId();
+    }
+
 
     private ItemDTO findItemByID(String id) throws SQLException {
         Item item=itemDAO.searchById(id);

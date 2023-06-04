@@ -61,15 +61,15 @@ public class SupplierModel {
 //        return CrudUtil.execute(sql, text);
 //    }
 
-    public static ObservableList<String> loadSupplierIds() throws SQLException {
-        String sql = "SELECT * FROM supplier";
-        ResultSet resultSet = CrudUtil.execute(sql);
-        ObservableList<String> supplierData = FXCollections.observableArrayList();
-        while (resultSet.next()) {
-            supplierData.add(
-                    resultSet.getString(1)
-            );
-        }
-        return supplierData;
-    }
+//    public static ObservableList<String> loadSupplierIds() throws SQLException {
+//        String sql = "SELECT * FROM supplier";
+//        ResultSet resultSet = CrudUtil.execute(sql);
+//        ObservableList<String> supplierData = FXCollections.observableArrayList();
+//        while (resultSet.next()) {
+//            supplierData.add(
+//                    resultSet.getString(1)
+//            );
+//        }
+//        return supplierData;
+//    }
 }

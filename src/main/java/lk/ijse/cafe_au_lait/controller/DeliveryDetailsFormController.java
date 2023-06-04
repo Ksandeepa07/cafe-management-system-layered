@@ -13,10 +13,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.cafe_au_lait.dto.Delivery;
+import lk.ijse.cafe_au_lait.dto.DeliveryDTO;
 import lk.ijse.cafe_au_lait.view.tdm.DeliveryTM;
 import lk.ijse.cafe_au_lait.model.DeliveryModel;
-import lk.ijse.cafe_au_lait.model.EmployeeModel;
 import lk.ijse.cafe_au_lait.model.OrderModel;
 import lk.ijse.cafe_au_lait.util.NotificationController;
 import lk.ijse.cafe_au_lait.util.StageController;
@@ -175,11 +174,11 @@ public class DeliveryDetailsFormController {
     void searchDeliveryIconClick(MouseEvent event) {
 
         try {
-            Delivery delivery = DeliveryModel.searchByDeliveryId(searchDeliveryId.getText());
-            orderIdTxt.setValue(delivery.getOrderId());
-            deleiverIdTxt.setText(delivery.getDeliverId());
-            locationTxt.setText(delivery.getLocation());
-            employeeIdTxt.setValue(delivery.getEmpId());
+            DeliveryDTO deliveryDTO = DeliveryModel.searchByDeliveryId(searchDeliveryId.getText());
+            orderIdTxt.setValue(deliveryDTO.getOrderId());
+            deleiverIdTxt.setText(deliveryDTO.getDeliverId());
+            locationTxt.setText(deliveryDTO.getLocation());
+            employeeIdTxt.setValue(deliveryDTO.getEmpId());
 
         } catch (Exception throwables) {
             System.out.println(throwables);
@@ -234,7 +233,7 @@ public class DeliveryDetailsFormController {
         String orderId = orderIdTxt.getValue();
         String empId = String.valueOf(employeeIdTxt.getValue());
         String location = locationTxt.getText();
-        Delivery newDeliverDto = new Delivery(deliveryId, location, orderId, empId);
+        DeliveryDTO newDeliverDto = new DeliveryDTO(deliveryId, location, orderId, empId);
 
         try {
             boolean result = NotificationController.confirmationMasseage("Are you sure want to update this delivery");
