@@ -46,26 +46,26 @@ public class OrderModel {
 //return true;
 //    }
 
-    public static boolean save(String oId, String customerId, Double orderPayment, LocalDate now, LocalTime now1, CartTM cartTM) {
-        String sql = "INSERT INTO orders(orderId,custId,orderDate,orderTime,orderPayment,Delivery)VALUES(?," +
-                "?,?,?,?,?)";
-
-        try {
-            return CrudUtil.execute(sql,
-                    oId,
-                    customerId,
-                    now,
-                    now1,
-                    orderPayment,
-                    cartTM.getDelivery()
-
-            );
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return false;
-
-    }
+//    public static boolean save(String oId, String customerId, Double orderPayment, LocalDate now, LocalTime now1, CartTM cartTM) {
+//        String sql = "INSERT INTO Orders(orderId,custId,orderDate,orderTime,orderPayment,Delivery)VALUES(?," +
+//                "?,?,?,?,?)";
+//
+//        try {
+//            return CrudUtil.execute(sql,
+//                    oId,
+//                    customerId,
+//                    now,
+//                    now1,
+//                    orderPayment,
+//                    cartTM.getDelivery()
+//
+//            );
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+//        return false;
+//
+//    }
 
     public static boolean updateDeliveyMode(String orderId, String message) throws SQLException {
         String sql = "UPDATE orders SET delivery=? WHERE orderId=?";

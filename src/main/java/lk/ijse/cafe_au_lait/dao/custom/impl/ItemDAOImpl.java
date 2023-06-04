@@ -82,4 +82,24 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
 
+    @Override
+    public ArrayList<String> loadIds() {
+
+        ArrayList<String> itemData = new ArrayList<>();
+        try {
+
+            ResultSet resultSet = CrudUtil.execute("SELECT * FROM Item");
+            while (resultSet.next()) {
+                itemData.add(
+                        resultSet.getString(1)
+                );
+            }
+            return itemData;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return null;
+    }
 }

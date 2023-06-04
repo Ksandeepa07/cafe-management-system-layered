@@ -1,17 +1,5 @@
 package lk.ijse.cafe_au_lait.model;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import lk.ijse.cafe_au_lait.dto.ItemDTO;
-import lk.ijse.cafe_au_lait.dto.Order;
-import lk.ijse.cafe_au_lait.dto.SupplyLoad;
-import lk.ijse.cafe_au_lait.view.tdm.ItemTM;
-import lk.ijse.cafe_au_lait.util.CrudUtil;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
 public class ItemModel {
 //    public static boolean save(ItemDTO itemDTO) throws SQLException {
 //        String sql = "INSERT INTO item(ItemId,ItemName,ItemQuantity" +

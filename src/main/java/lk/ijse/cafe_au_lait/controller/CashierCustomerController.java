@@ -14,6 +14,8 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.CustomerBO;
 import lk.ijse.cafe_au_lait.dto.CustomerDTO;
+import lk.ijse.cafe_au_lait.entity.Customer;
+import lk.ijse.cafe_au_lait.model.CustomerModel;
 import lk.ijse.cafe_au_lait.view.tdm.CustomerTM;
 import lk.ijse.cafe_au_lait.util.DataValidateController;
 import lk.ijse.cafe_au_lait.util.NotificationController;
@@ -108,6 +110,7 @@ public class CashierCustomerController {
                     nameTxt.setText("");
                     contactTxt.setText("");
                     emailTxt.setText("");
+                    clear();
                     getAll();
                     NotificationController.animationMesseage("/assets/tick.gif", "Delete",
                             "Customer Deleted sucessfully !!");
@@ -142,8 +145,8 @@ public class CashierCustomerController {
             deleteBtn.setDisable(true);
             updateBtn.setDisable(true);
             saveBtn.setDisable(true);
-//            getAll();
-            tblCustomer.getItems().add(new CustomerTM(id,name,contact,email));
+            getAll();
+//            tblCustomer.getItems().add(new CustomerTM(id,name,contact,email));
             idTxt.setText("");
             nameTxt.setText("");
             contactTxt.setText("");
@@ -337,15 +340,27 @@ public class CashierCustomerController {
 
     }
 
+    @FXML
+    void initialize() {
+        deleteBtn.setDisable(true);
+        updateBtn.setDisable(true);
+        saveBtn.setDisable(true);
+        contactCheckLb.setVisible(false);
+        emailCheckLbl.setVisible(false);
+        getCellValueFactory();
+        getAll();
+
+    }
+
 
     @FXML
     void CusromerIdKeyTyped(KeyEvent event) {
         idTxt.setTooltip(idToolTip);
         isIdValid = DataValidateController.customerIdValidate(idTxt.getText());
 
-            saveBtn.setDisable(!isIdValid | contactTxt.getText().isEmpty() | emailTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
-            updateBtn.setDisable(!isIdValid | contactTxt.getText().isEmpty() | emailTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
-            deleteBtn.setDisable(!isIdValid | contactTxt.getText().isEmpty() | emailTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
+        saveBtn.setDisable(!isIdValid | contactTxt.getText().isEmpty() | emailTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
+        updateBtn.setDisable(!isIdValid | contactTxt.getText().isEmpty() | emailTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
+        deleteBtn.setDisable(!isIdValid | contactTxt.getText().isEmpty() | emailTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
 
 
 
@@ -355,7 +370,7 @@ public class CashierCustomerController {
 
         } else {
             cutIdIcon.setVisible(false);
-         }
+        }
 
     }
 
@@ -363,9 +378,9 @@ public class CashierCustomerController {
     void customerContatctKeyTyped(KeyEvent event) {
         isCustomerValid = DataValidateController.contactCheck(contactTxt.getText());
 
-            saveBtn.setDisable(!isCustomerValid | idTxt.getText().isEmpty() | emailTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
-            updateBtn.setDisable(!isCustomerValid | idTxt.getText().isEmpty() | emailTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
-            deleteBtn.setDisable(!isCustomerValid | idTxt.getText().isEmpty() | emailTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
+        saveBtn.setDisable(!isCustomerValid | idTxt.getText().isEmpty() | emailTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
+        updateBtn.setDisable(!isCustomerValid | idTxt.getText().isEmpty() | emailTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
+        deleteBtn.setDisable(!isCustomerValid | idTxt.getText().isEmpty() | emailTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
 
 
 
@@ -375,7 +390,7 @@ public class CashierCustomerController {
 
         } else {
             custContactIcon.setVisible(false);
-         }
+        }
 
     }
 
@@ -383,9 +398,9 @@ public class CashierCustomerController {
     void customerEmailKeyTyped(KeyEvent event) {
         isEmailValidate = DataValidateController.emailCheck(emailTxt.getText());
 
-            saveBtn.setDisable(!isEmailValidate | idTxt.getText().isEmpty() | contactTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
-            updateBtn.setDisable(!isEmailValidate | idTxt.getText().isEmpty() | contactTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
-            deleteBtn.setDisable(!isEmailValidate | idTxt.getText().isEmpty() | contactTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
+        saveBtn.setDisable(!isEmailValidate | idTxt.getText().isEmpty() | contactTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
+        updateBtn.setDisable(!isEmailValidate | idTxt.getText().isEmpty() | contactTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
+        deleteBtn.setDisable(!isEmailValidate | idTxt.getText().isEmpty() | contactTxt.getText().isEmpty() | nameTxt.getText().isEmpty());
 
 
 
@@ -405,9 +420,9 @@ public class CashierCustomerController {
     void customerNameKeyTyped(KeyEvent event) {
         isNameValidate = DataValidateController.customerNameValidate(nameTxt.getText());
 
-            saveBtn.setDisable(!isNameValidate | idTxt.getText().isEmpty() | contactTxt.getText().isEmpty() | emailTxt.getText().isEmpty());
-            updateBtn.setDisable(!isNameValidate | idTxt.getText().isEmpty() | contactTxt.getText().isEmpty() | emailTxt.getText().isEmpty());
-            deleteBtn.setDisable(!isNameValidate | idTxt.getText().isEmpty() | contactTxt.getText().isEmpty() | emailTxt.getText().isEmpty());
+        saveBtn.setDisable(!isNameValidate | idTxt.getText().isEmpty() | contactTxt.getText().isEmpty() | emailTxt.getText().isEmpty());
+        updateBtn.setDisable(!isNameValidate | idTxt.getText().isEmpty() | contactTxt.getText().isEmpty() | emailTxt.getText().isEmpty());
+        deleteBtn.setDisable(!isNameValidate | idTxt.getText().isEmpty() | contactTxt.getText().isEmpty() | emailTxt.getText().isEmpty());
 
 
 
@@ -426,18 +441,10 @@ public class CashierCustomerController {
 
     }
 
-
-    @FXML
-    void initialize() {
-        deleteBtn.setDisable(true);
-        updateBtn.setDisable(true);
-        saveBtn.setDisable(true);
-        contactCheckLb.setVisible(false);
-        emailCheckLbl.setVisible(false);
-        getCellValueFactory();
-        getAll();
-
+    void clear(){
+        tblCustomer.getItems().clear();
     }
+
 
 
 }

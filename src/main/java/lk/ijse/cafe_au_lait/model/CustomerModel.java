@@ -13,7 +13,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 
 public class CustomerModel {
 //    public static boolean save(CustomerDTO customerDTO) {
-//        String sql = "INSERT INTO customer (custId,custName,phoneNumber,email)" +
+//        String sql = "INSERT INTO Customer (custId,custName,phoneNumber,email)" +
 //                "VALUES(?,?,?,?)";
 //
 //        try {
@@ -29,9 +29,9 @@ public class CustomerModel {
 //        }
 //        return false;
 //    }
-
+//
 //    public static ObservableList<CustomerTM> getAll() throws SQLException {
-//        String sql = "SELECT * FROM customer";
+//        String sql = "SELECT * FROM Customer";
 //
 //        ObservableList<CustomerTM> customerData = FXCollections.observableArrayList();
 //        ResultSet resultSet = CrudUtil.execute(sql);
@@ -47,9 +47,9 @@ public class CustomerModel {
 //        }
 //        return customerData;
 //    }
-
+//
 //    public static CustomerDTO searchById(String text) {
-//        String sql = "SELECT * FROM customer WHERE custId=?";
+//        String sql = "SELECT * FROM Customer WHERE custId=?";
 //        ResultSet resultSet = null;
 //        try {
 //            resultSet = CrudUtil.execute(sql, text);
@@ -68,9 +68,9 @@ public class CustomerModel {
 //
 //        return null;
 //    }
-
+//
 //    public static boolean update(CustomerDTO customerDTO) throws SQLException {
-//        String sql = "UPDATE customer SET custName=?,phoneNumber=?,email=?" +
+//        String sql = "UPDATE Customer SET custName=?,phoneNumber=?,email=?" +
 //                "WHERE custId=? ";
 //
 //        return CrudUtil.execute(sql,
@@ -80,35 +80,35 @@ public class CustomerModel {
 //                customerDTO.getCustEmail(),
 //                customerDTO.getCustId());
 //    }
-
+//
 //    public static boolean delete(String text) throws SQLException {
-//        String sql = "DELETE FROM customer WHERE custId=?";
+//        String sql = "DELETE FROM Customer WHERE custId=?";
 //        return CrudUtil.execute(sql, text);
 //    }
-
-    public static ObservableList<String> loadCustId() {
-        String sql = "SELECT * FROM customer";
-        ObservableList<String> custData = FXCollections.observableArrayList();
-        try {
-
-            ResultSet resultSet = CrudUtil.execute(sql);
-            while (resultSet.next()) {
-                custData.add(
-                        resultSet.getString(1)
-                );
-            }
-            return custData;
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-        return null;
-    }
-
-
+//
+//    public static ObservableList<String> loadCustId() {
+//        String sql = "SELECT * FROM Customer";
+//        ObservableList<String> custData = FXCollections.observableArrayList();
+//        try {
+//
+//            ResultSet resultSet = CrudUtil.execute(sql);
+//            while (resultSet.next()) {
+//                custData.add(
+//                        resultSet.getString(1)
+//                );
+//            }
+//            return custData;
+//
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+//
+//        return null;
+//    }
+//
+//
 //    public static int countId() throws SQLException {
-//        String sql="SELECT COUNT(CUSTiD) FROM CUSTOMER";
+//        String sql="SELECT COUNT(CUSTiD) FROM Customer";
 //        ResultSet resultSet= CrudUtil.execute(sql);
 //        int count=0;
 //        while (resultSet.next()){

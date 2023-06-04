@@ -1,5 +1,7 @@
 package lk.ijse.cafe_au_lait.dao.custom.impl;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import lk.ijse.cafe_au_lait.dao.custom.CustomerDAO;
 import lk.ijse.cafe_au_lait.entity.Customer;
 import lk.ijse.cafe_au_lait.util.CrudUtil;
@@ -88,6 +90,27 @@ public class CustomerDAOImpl implements CustomerDAO {
         return CrudUtil.execute("DELETE FROM Customer WHERE custId=?", id);
     }
 
+
+    @Override
+    public ArrayList<String> loadIds() {
+
+        ArrayList<String> custData = new ArrayList<>();
+        try {
+
+            ResultSet resultSet = CrudUtil.execute("SELECT * FROM Customer");
+            while (resultSet.next()) {
+                custData.add(
+                        resultSet.getString(1)
+                );
+            }
+            return custData;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return null;
+    }
 
     @Override
     public int countIds() throws SQLException {

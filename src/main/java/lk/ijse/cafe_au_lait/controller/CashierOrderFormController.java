@@ -11,14 +11,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.cafe_au_lait.bo.BOFactory;
+import lk.ijse.cafe_au_lait.bo.custom.PlaceOrderBO;
 import lk.ijse.cafe_au_lait.db.DBConnection;
-import lk.ijse.cafe_au_lait.dto.CustomerDTO;
-import lk.ijse.cafe_au_lait.dto.Delivery;
-import lk.ijse.cafe_au_lait.dto.ItemDTO;
-import lk.ijse.cafe_au_lait.dto.Order;
+import lk.ijse.cafe_au_lait.dto.*;
 import lk.ijse.cafe_au_lait.view.tdm.CartTM;
 import lk.ijse.cafe_au_lait.model.CustomerModel;
-import lk.ijse.cafe_au_lait.model.ItemModel;
 import lk.ijse.cafe_au_lait.model.OrderModel;
 import lk.ijse.cafe_au_lait.model.PlaceOrderModel;
 import lk.ijse.cafe_au_lait.util.*;
@@ -28,6 +26,8 @@ import net.sf.jasperreports.view.JasperViewer;
 import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.*;
 
 import static lk.ijse.cafe_au_lait.util.TextFieldBorderController.txtfieldbordercolor;
@@ -102,6 +102,8 @@ public class CashierOrderFormController {
 
     CustomerDTO customerDTO = null;
 
+    PlaceOrderBO placeOrderBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.PLACE_ORDER);
+
     @FXML
     void tblClick(MouseEvent event) {
 
@@ -118,8 +120,12 @@ public class CashierOrderFormController {
     }
 
     void loadCustId() {
-        ObservableList<String> custData = CustomerModel.loadCustId();
-        custId.setItems(custData);
+        ArrayList<String> custData = placeOrderBO.loadCustId();
+        ObservableList<String> obList=FXCollections.observableArrayList();
+        for (String custDatum : custData) {
+            obList.add(custDatum);
+        }
+        custId.setItems(obList);
     }
 
     public void custIdClick(ActionEvent actionEvent) {
@@ -136,28 +142,32 @@ public class CashierOrderFormController {
 
     void loadItemId() {
 
-//        ObservableList<String> itemData = ItemModel.loadItemId();
-//        itemId.setItems(itemData);
+        ArrayList<String> itemData = placeOrderBO.loadItemId();
+        ObservableList<String> obList=FXCollections.observableArrayList();
+        for (String itemDatum : itemData) {
+            obList.add(itemDatum);
+        }
+        itemId.setItems(obList);
 
     }
 
     public void itemIdClick(ActionEvent actionEvent) {
         String id = itemId.getValue();
 
-//        try {
-//            itemDTO = ItemModel.searchById(id);
-//            itemName.setText(itemDTO.getName());
-//            if (itemDTO.getQuantity() <= 0) {
-//                quantityAvailable.setText("Out Of Stock");
-//                NotificationController.ErrorMasseage("Item " + itemDTO.getName() + " out of stock ");
-//            } else {
-//                quantityAvailable.setText(String.valueOf(itemDTO.getQuantity()));
-//            }
-//            category.setText(itemDTO.getCategory());
-//            unitPrice.setText(String.valueOf(itemDTO.getPrice()));
-//        } catch (Exception throwables) {
-//
-//        }
+        try {
+            itemDTO = placeOrderBO.searchBItemyId(id);
+            itemName.setText(itemDTO.getName());
+            if (itemDTO.getQuantity() <= 0) {
+                quantityAvailable.setText("Out Of Stock");
+                NotificationController.ErrorMasseage("Item " + itemDTO.getName() + " out of stock ");
+            } else {
+                quantityAvailable.setText(String.valueOf(itemDTO.getQuantity()));
+            }
+            category.setText(itemDTO.getCategory());
+            unitPrice.setText(String.valueOf(itemDTO.getPrice()));
+        } catch (Exception throwables) {
+
+        }
 
     }
 
@@ -281,33 +291,39 @@ public class CashierOrderFormController {
         String oId = orderId.getText();
         String customerId = custId.getValue();
         Double orderPayment = Double.valueOf(netTotall.getText());
+//        LocalDate date= LocalDate.parse(orderDate.getText());
+//        LocalTime time= LocalTime.parse(orderTime.getText());
+        CartTM cartTM=null;
 
-
-        List<Order> orderDtoList = new ArrayList<>();
+        List<OrderDetailDTO> orderDetailDTOS = new ArrayList<>();
 
         for (int i = 0; i < tblOrder.getItems().size(); i++) {
-            CartTM cartTM = obList.get(i);
-            Order orderDto = new Order(
-                    cartTM.getItemId(),
-                    cartTM.getQuantity(),
-                    cartTM.getDelivery()
-            );
-            orderDtoList.add(orderDto);
-            try {
-                boolean isPlaced = PlaceOrderModel.placeOrder(oId, customerId, orderPayment, cartTM, orderDtoList);
+            cartTM = obList.get(i);
 
-                Delivery newDeliverDto = new Delivery();
+            OrderDetailDTO ordersDTODto = new OrderDetailDTO(
+                    cartTM.getItemId(),
+                    cartTM.getQuantity()
+            );
+
+
+            orderDetailDTOS.add(ordersDTODto);
+        }
+            OrdersDTO ordersDTO = new OrdersDTO(oId, customerId, LocalDate.now(), LocalTime.now(), orderPayment, cartTM.getDelivery(), orderDetailDTOS);
+
+
+            try {
+                boolean isPlaced = placeOrderBO.placeOrder(ordersDTO);
                 if (isPlaced) {
                     NotificationController.animationMesseage("/assets/tick.gif", "placed", "Order Placed" +
                             "sucessfully!!");
                     InputStream resource = this.getClass().getResourceAsStream("/reports/orderPaymentBill.jrxml");
                     try {
-                        String outputFilePath = "C:/Users/User/Final Project/src/main/resources/generated bills/output.pdf";
-                        JasperReport jasperReport = JasperCompileManager.compileReport(resource);
-                        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, DBConnection.getInstance().getConnection());
-                        JasperViewer.viewReport(jasperPrint, false);
-                        JasperExportManager.exportReportToPdfFile(jasperPrint, outputFilePath);
-                        AttachmentEmailSend.EmailSend(customerDTO.getCustEmail(), "cafe au lait",  "RECEIPT",outputFilePath);
+//                        String outputFilePath = "C:/Users/User/Final Project/src/main/resources/generated bills/output.pdf";
+//                        JasperReport jasperReport = JasperCompileManager.compileReport(resource);
+//                        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, DBConnection.getInstance().getConnection());
+//                        JasperViewer.viewReport(jasperPrint, false);
+//                        JasperExportManager.exportReportToPdfFile(jasperPrint, outputFilePath);
+//                        AttachmentEmailSend.EmailSend(customerDTO.getCustEmail(), "cafe au lait",  "RECEIPT",outputFilePath);
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -335,7 +351,8 @@ public class CashierOrderFormController {
 
             }
 
-        }
+
+
     }
 
     public void cashTyped(KeyEvent keyEvent) {
