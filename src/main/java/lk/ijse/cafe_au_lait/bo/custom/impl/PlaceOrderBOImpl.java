@@ -4,14 +4,8 @@ import lk.ijse.cafe_au_lait.bo.custom.PlaceOrderBO;
 import lk.ijse.cafe_au_lait.dao.DAOFactory;
 import lk.ijse.cafe_au_lait.dao.custom.*;
 import lk.ijse.cafe_au_lait.db.DBConnection;
-import lk.ijse.cafe_au_lait.dto.DeliveryDTO;
-import lk.ijse.cafe_au_lait.dto.ItemDTO;
-import lk.ijse.cafe_au_lait.dto.OrderDetailDTO;
-import lk.ijse.cafe_au_lait.dto.OrdersDTO;
-import lk.ijse.cafe_au_lait.entity.Delivery;
-import lk.ijse.cafe_au_lait.entity.Item;
-import lk.ijse.cafe_au_lait.entity.OrdeDetail;
-import lk.ijse.cafe_au_lait.entity.Orders;
+import lk.ijse.cafe_au_lait.dto.*;
+import lk.ijse.cafe_au_lait.entity.*;
 import lk.ijse.cafe_au_lait.model.OrderModel;
 import lk.ijse.cafe_au_lait.view.tdm.CartTM;
 
@@ -137,6 +131,12 @@ public class PlaceOrderBOImpl implements PlaceOrderBO {
     @Override
     public String generateNextOrderId() throws SQLException {
         return ordersDAO.generateNextOrderId();
+    }
+
+    @Override
+    public CustomerDTO searchCustomerById(String id) throws SQLException {
+        Customer customer=customerDAO.searchById(id);
+        return new CustomerDTO(customer.getCustId(),customer.getCustName(),customer.getCustContact(),customer.getCustEmail());
     }
 
 

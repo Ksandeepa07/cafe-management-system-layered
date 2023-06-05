@@ -1,6 +1,7 @@
 package lk.ijse.cafe_au_lait.bo.custom;
 
 import lk.ijse.cafe_au_lait.bo.SuperBO;
+import lk.ijse.cafe_au_lait.dto.CustomerDTO;
 import lk.ijse.cafe_au_lait.dto.DeliveryDTO;
 import lk.ijse.cafe_au_lait.dto.ItemDTO;
 import lk.ijse.cafe_au_lait.dto.OrdersDTO;
@@ -24,4 +25,6 @@ public interface PlaceOrderBO extends SuperBO {
     ArrayList<String> loadEmpIds() throws SQLException;
 
     String generateNextOrderId() throws SQLException;
+
+    CustomerDTO searchCustomerById(String value) throws SQLException;
 }

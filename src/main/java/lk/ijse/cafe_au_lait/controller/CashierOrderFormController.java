@@ -130,12 +130,12 @@ public class CashierOrderFormController {
 
     public void custIdClick(ActionEvent actionEvent) {
 
-//        try {
-//            customerDTO = CustomerModel.searchById(custId.getValue());
-//            custName.setText(customerDTO.getCustName());
-//        } catch (Exception throwables) {
-//
-//        }
+        try {
+            customerDTO = placeOrderBO.searchCustomerById(custId.getValue());
+            custName.setText(customerDTO.getCustName());
+        } catch (Exception throwables) {
+
+        }
 
 
     }
