@@ -1,4 +1,4 @@
-package lk.ijse.cafe_au_lait.dto;
+package lk.ijse.cafe_au_lait.entity;
 
 import lombok.*;
 
@@ -10,6 +10,6 @@ import lombok.*;
 public class User {
     private String username;
     private String password;
-    private String emial;
+    private String email;
     private String jobTitle;
 }

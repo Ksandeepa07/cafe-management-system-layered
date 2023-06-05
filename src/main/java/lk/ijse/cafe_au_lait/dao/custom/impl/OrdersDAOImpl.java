@@ -1,5 +1,6 @@
 package lk.ijse.cafe_au_lait.dao.custom.impl;
 
+import javafx.scene.chart.XYChart;
 import lk.ijse.cafe_au_lait.dao.custom.OrdersDAO;
 import lk.ijse.cafe_au_lait.entity.Orders;
 import lk.ijse.cafe_au_lait.util.CrudUtil;
@@ -59,6 +60,37 @@ public class OrdersDAOImpl implements OrdersDAO {
             return splitOrderId(resultSet.getString(1));
         }
         return splitOrderId(null);
+    }
+
+    @Override
+    public int countOrders() throws SQLException {
+        ResultSet resultSet=CrudUtil.execute("SELECT COUNT(ORDERiD) FROM Orders where orderdate=DATE(NOW())");
+        int count=0;
+        while (resultSet.next()){
+            count=resultSet.getInt(1);
+        }
+        return count;
+    }
+
+    @Override
+    public int countIncome() throws SQLException {
+
+        ResultSet resultSet=CrudUtil.execute("SELECT SUM(ORDERPAYMENT) FROM Orders WHERE ORDERDATE=DATE(NOW())");
+        int count=0;
+        while (resultSet.next()){
+            count=resultSet.getInt(1);
+        }
+        return count;
+    }
+
+    @Override
+    public XYChart.Series getdata() throws SQLException {
+        ResultSet resultSet=CrudUtil.execute("SELECT MONTHNAME(orderDate),sum(orderPayment) from Orders group by MONTHNAME(orderDate)");
+        XYChart.Series series=new XYChart.Series();
+        while (resultSet.next()){
+            series.getData().add(new XYChart.Data(resultSet.getString(1),resultSet.getInt(2)));
+        }
+        return series;
     }
 
     private static String splitOrderId(String currentId) {

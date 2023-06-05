@@ -4,27 +4,27 @@
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
 	<queryString language="SQL">
-		<![CDATA[select * from customerDTO]]>
+		<![CDATA[select * from Customer]]>
 	</queryString>
 	<field name="CustId" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="CustId"/>
 		<property name="com.jaspersoft.studio.field.label" value="CustId"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="customerDTO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Customer"/>
 	</field>
 	<field name="CustName" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="CustName"/>
 		<property name="com.jaspersoft.studio.field.label" value="CustName"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="customerDTO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Customer"/>
 	</field>
 	<field name="PhoneNumber" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="PhoneNumber"/>
 		<property name="com.jaspersoft.studio.field.label" value="PhoneNumber"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="customerDTO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Customer"/>
 	</field>
 	<field name="Email" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="Email"/>
 		<property name="com.jaspersoft.studio.field.label" value="Email"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="customerDTO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Customer"/>
 	</field>
 	<group name="CustId">
 		<groupExpression><![CDATA[$F{CustId}]]></groupExpression>
@@ -57,7 +57,7 @@
 			</staticText>
 			<image>
 				<reportElement x="-17" y="-17" width="44" height="37" uuid="1d90c10e-97b9-4813-8432-d3eb7bd7ffb2"/>
-				<imageExpression><![CDATA["C:/Users/User/Downloads/icons8-coffee-cup-65.png"]]></imageExpression>
+				<imageExpression><![CDATA["/home/kaveen/Music/cafe-managment-system/src/main/resources/assets/icons8-coffee-cup-65.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="-15" y="25" width="169" height="40" uuid="5979bb3d-de09-4bb5-86c8-bd09e219c50e"/>

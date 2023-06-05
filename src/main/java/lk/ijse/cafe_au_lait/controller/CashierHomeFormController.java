@@ -3,6 +3,8 @@ package lk.ijse.cafe_au_lait.controller;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.Label;
@@ -21,6 +23,7 @@ import lk.ijse.cafe_au_lait.util.StageController;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -61,15 +64,19 @@ public class CashierHomeFormController {
 
     void setPieChart() {
 
-//        try {
-//            ObservableList<PieChart.Data> data = OrderDetailModel.getPieChartData();
-//            pieChart.getData().addAll(data);
-//            pieChart.setTitle("Most Trending Products");
-//            pieChart.setStartAngle(180);
-//
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//        }
+        try {
+            ObservableList<PieChart.Data> obList = FXCollections.observableArrayList();
+            ArrayList<PieChart.Data> data =homeBO.getPieChartData();
+            for (PieChart.Data datum : data) {
+                obList.add(datum);
+            }
+            pieChart.getData().addAll(obList);
+            pieChart.setTitle("Most Trending Products");
+            pieChart.setStartAngle(180);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
 
     }
@@ -83,7 +90,7 @@ public class CashierHomeFormController {
 
 
         try {
-            XYChart.Series series  = OrderModel.lineChartData();
+            XYChart.Series series  = homeBO.getLineChartData();
             series.setName("Income Chart");
             lineChart.getData().add(series);
         } catch (SQLException throwables) {
@@ -96,23 +103,10 @@ public class CashierHomeFormController {
     }
 
     public void eventAnimation() {
-//        try {
-//            List<String> data = EventModel.eventData();
-//            dataLbl.setText(data.get(currentIndex));
-//            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), event -> {
-//                dataLbl.setText(data.get(currentIndex));
-//                currentIndex = (currentIndex + 1) % data.size();
-//            }));
-//            timeline.setCycleCount(Animation.INDEFINITE);
-//            timeline.play();
-//
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//        }
 
         try {
 //            dataLbl.setStyle("-fx-border-radius: 20px");
-            List<Image> imageData  = EventModel.eventData();
+            List<Image> imageData  = homeBO.getEventImage();
             System.out.println(imageData);
             Image image = imageData.get(currentIndex);
             ImageView imageView = new ImageView(image);
@@ -171,7 +165,7 @@ public class CashierHomeFormController {
 
     void countOrders(){
         try {
-            int count=OrderModel.countOrdersId();
+            int count=homeBO.countOrdersId();
             orderCountLbl.setText(String.valueOf("0"+count));
 
         } catch (SQLException throwables) {
@@ -181,7 +175,7 @@ public class CashierHomeFormController {
 
     void countTodayIncome(){
         try {
-            int count=OrderModel.countIncome();
+            int count=homeBO.countTodayIncome();
             if (count==0){
                 todayIncomeLbl.setText("0"+String.valueOf(count));
             }else{

@@ -10,7 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.cafe_au_lait.dto.User;
+import lk.ijse.cafe_au_lait.bo.BOFactory;
+import lk.ijse.cafe_au_lait.bo.custom.ForgotPasswordBO;
+import lk.ijse.cafe_au_lait.dto.UserDTO;
 import lk.ijse.cafe_au_lait.model.UserModel;
 
 import javax.mail.MessagingException;
@@ -23,6 +25,8 @@ import java.util.ResourceBundle;
 public class ForgotPasswordController {
 
     String usernamee;
+    String email;
+    String jobTitle;
     int otp;
     @FXML
     private ResourceBundle resources;
@@ -52,14 +56,17 @@ public class ForgotPasswordController {
     @FXML
     private Label usernameLbl;
 
+    ForgotPasswordBO forgotPasswordBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.FORGOTPASSWORD);
+
 
     @FXML
     void sendCodeClick(ActionEvent event) throws Exception {
 
         String username = usernametxt.getText();
-        User user = UserModel.SearchById(username);
-        String email = user.getEmial();
-        usernamee = user.getUsername();
+        UserDTO userDTO = forgotPasswordBO.SearchUserById(username);
+        email = userDTO.getEmial();
+        usernamee = userDTO.getUsername();
+        jobTitle=userDTO.getJobTitle();
         if (DataValidateController.emailCheck(Emailtxtt.getText())) {
             if (Emailtxtt.getText().equals(email)) {
                 try {
@@ -118,7 +125,8 @@ public class ForgotPasswordController {
     void submmitCodeClick1(ActionEvent event) throws IOException {
         String password = Emailtxtt.getText();
         try {
-            boolean isSavd = UserModel.updatePassword(usernamee, password);
+
+            boolean isSavd = forgotPasswordBO.updateUserPassword(new UserDTO(usernamee,password,email,jobTitle));
             if (isSavd) {
                 NotificationController.animationMesseage("/assets/tik.png", "OTP",
                         "Password change sucessfully");

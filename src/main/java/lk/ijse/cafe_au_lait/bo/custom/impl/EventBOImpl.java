@@ -50,11 +50,6 @@ public class EventBOImpl implements EventBO<EventDTO,String>{
     }
 
     @Override
-    public ArrayList<String> loadEventIds() throws SQLException {
-        return eventDAO.loadIds();
-    }
-
-    @Override
     public ArrayList<String> loadEmployeeIds() throws SQLException {
         return employeeDAO.loadIds();
     }

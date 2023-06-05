@@ -1,25 +1,22 @@
 package lk.ijse.cafe_au_lait.controller;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.cafe_au_lait.dto.User;
+import lk.ijse.cafe_au_lait.bo.BOFactory;
+import lk.ijse.cafe_au_lait.bo.custom.SignUpBO;
+import lk.ijse.cafe_au_lait.dto.UserDTO;
 import lk.ijse.cafe_au_lait.model.UserModel;
 import lk.ijse.cafe_au_lait.util.AnimationController;
 import lk.ijse.cafe_au_lait.util.DataValidateController;
 import lk.ijse.cafe_au_lait.util.NotificationController;
 import lk.ijse.cafe_au_lait.util.StageController;
-import org.mockito.internal.matchers.Not;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class SignUpController {
@@ -55,6 +52,8 @@ public class SignUpController {
     @FXML
     private ComboBox jobTitlte;
 
+    SignUpBO signUpBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.SIGNUP);
+
 
     public void alreadyHaveAnAccountClick(ActionEvent actionEvent) throws IOException {
         AnimationController.fadeUpAnimation("/view/loginPage.fxml", ancPane);
@@ -78,12 +77,11 @@ public class SignUpController {
             String email = emailTxt.getText();
             String jobTitle = (String) jobTitlte.getValue();
 
-            User user = new User(username, password, email, jobTitle);
 
             if (passwordTxt.getText().equals(confirmPassword.getText())) {
                 boolean isSaved = false;
                 try {
-                    isSaved = UserModel.save(user);
+                    isSaved = signUpBO.saveUser(new UserDTO(username, password, email, jobTitle));
                     if (isSaved) {
                         signBtn.getScene().getWindow().hide();
                         StageController.changeStage("/view/loginPage.fxml","login");

@@ -19,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.EventBO;
@@ -48,12 +49,14 @@ public class EventImageController {
 
     @FXML
     private JFXButton saveBtn;
+
+    @FXML
+    private AnchorPane eventImageAncPane;
     @FXML
     private JFXComboBox<String>eventIdCOmboBox;
 
     String filePath;
 
-    EventBO eventBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.EVENT);
     EventImageBO eventImageBO=BOFactory.getInstance().getBO(BOFactory.BOTypes.EVENTIMAGE);
 
 
@@ -89,6 +92,8 @@ public class EventImageController {
             boolean isSavedIamge= eventImageBO.saveImage(eventImageDTO);
             if (isSavedIamge){
                 filePath=null;
+                eventImageAncPane.getScene().getWindow().hide();
+
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -98,7 +103,7 @@ public class EventImageController {
 
     void loadEventIDs(){
         try {
-            ArrayList<String> eventData=eventBO.loadEventIds();
+            ArrayList<String> eventData=eventImageBO.loadEventIds();
             ObservableList<String> obList= FXCollections.observableArrayList();
             for (String eventDatum : eventData) {
                 obList.add(eventDatum);

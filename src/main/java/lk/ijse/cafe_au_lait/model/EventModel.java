@@ -122,28 +122,28 @@ public class EventModel {
 //        return false;
 //    }
 
-    public static List<Image> eventData() throws SQLException {
-//        String sql = "SELECT eventName FROM event";
+//    public static List<Image> eventData() throws SQLException {
+////        String sql = "SELECT eventName FROM event";
+////        ResultSet resultSet = CrudUtil.execute(sql);
+////        List<String> data = new ArrayList<>();
+////        while (resultSet.next()) {
+////            data.add(
+////                    resultSet.getString(1)
+////            );
+////        }
+////
+////
+////        return data;
+//        String sql = "SELECT eventImage FROM eventImages";
 //        ResultSet resultSet = CrudUtil.execute(sql);
-//        List<String> data = new ArrayList<>();
+//        List<Image> data = new ArrayList<>();
 //        while (resultSet.next()) {
-//            data.add(
-//                    resultSet.getString(1)
-//            );
+//           byte[]imageData=resultSet.getBytes(1);
+//           Image image=new Image(new ByteArrayInputStream(imageData));
+//           data.add(image);
 //        }
-//
-//
 //        return data;
-        String sql = "SELECT eventImage FROM eventImages";
-        ResultSet resultSet = CrudUtil.execute(sql);
-        List<Image> data = new ArrayList<>();
-        while (resultSet.next()) {
-           byte[]imageData=resultSet.getBytes(1);
-           Image image=new Image(new ByteArrayInputStream(imageData));
-           data.add(image);
-        }
-        return data;
-    }
+//    }
 
 //    public static boolean SaveImage(byte[] imageData) throws SQLException {
 //        String sql="insert into image(filePath)values(?)";

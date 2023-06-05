@@ -87,34 +87,34 @@ public class OrderModel {
         return orderIds;
     }
 
-    public static XYChart.Series lineChartData() throws SQLException {
-        String sql="SELECT MONTHNAME(orderDate),sum(orderPayment) from Orders group by MONTHNAME(orderDate)";
-        ResultSet resultSet=CrudUtil.execute(sql);
-        XYChart.Series series=new XYChart.Series();
-        while (resultSet.next()){
-            series.getData().add(new XYChart.Data(resultSet.getString(1),resultSet.getInt(2)));
-        }
-       return series;
-        }
+//    public static XYChart.Series lineChartData() throws SQLException {
+//        String sql="SELECT MONTHNAME(orderDate),sum(orderPayment) from Orders group by MONTHNAME(orderDate)";
+//        ResultSet resultSet=CrudUtil.execute(sql);
+//        XYChart.Series series=new XYChart.Series();
+//        while (resultSet.next()){
+//            series.getData().add(new XYChart.Data(resultSet.getString(1),resultSet.getInt(2)));
+//        }
+//       return series;
+//        }
 
-    public static int countOrdersId() throws SQLException {
-        String sql="SELECT COUNT(ORDERiD) FROM Orders where orderdate=DATE(NOW())";
-        ResultSet resultSet=CrudUtil.execute(sql);
-        int count=0;
-        while (resultSet.next()){
-            count=resultSet.getInt(1);
-        }
-        return count;
-    }
+//    public static int countOrdersId() throws SQLException {
+//        String sql="SELECT COUNT(ORDERiD) FROM Orders where orderdate=DATE(NOW())";
+//        ResultSet resultSet=CrudUtil.execute(sql);
+//        int count=0;
+//        while (resultSet.next()){
+//            count=resultSet.getInt(1);
+//        }
+//        return count;
+//    }
 
-    public static int countIncome() throws SQLException {
-        String sql="SELECT SUM(ORDERPAYMENT) FROM Orders WHERE ORDERDATE=DATE(NOW())";
-        ResultSet resultSet=CrudUtil.execute(sql);
-        int count=0;
-        while (resultSet.next()){
-            count=resultSet.getInt(1);
-        }
-        return count;
-    }
+//    public static int countIncome() throws SQLException {
+//        String sql="SELECT SUM(ORDERPAYMENT) FROM Orders WHERE ORDERDATE=DATE(NOW())";
+//        ResultSet resultSet=CrudUtil.execute(sql);
+//        int count=0;
+//        while (resultSet.next()){
+//            count=resultSet.getInt(1);
+//        }
+//        return count;
+//    }
 }
 

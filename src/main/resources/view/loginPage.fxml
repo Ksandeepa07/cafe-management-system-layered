@@ -36,7 +36,7 @@
             </Text>
             <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="14.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/icons8-male-user.png" />
+                  <Image url="@../assets/icons8-male-userDTO.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">

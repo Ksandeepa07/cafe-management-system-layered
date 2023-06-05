@@ -17,7 +17,5 @@ public interface EventBO<T,ID> extends SuperBO {
 
     boolean updateEvent(EventDTO eventDTO1) throws SQLException;
 
-    ArrayList<String> loadEventIds() throws SQLException;
-
     ArrayList<String> loadEmployeeIds() throws SQLException;
 }

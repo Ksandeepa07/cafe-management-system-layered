@@ -13,7 +13,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
-import lk.ijse.cafe_au_lait.dto.User;
+import lk.ijse.cafe_au_lait.bo.BOFactory;
+import lk.ijse.cafe_au_lait.bo.custom.LoginBO;
+import lk.ijse.cafe_au_lait.dto.UserDTO;
 import lk.ijse.cafe_au_lait.model.UserModel;
 import lk.ijse.cafe_au_lait.util.AnimationController;
 import lk.ijse.cafe_au_lait.util.NotificationController;
@@ -68,6 +70,8 @@ public class LoginPageController {
     @FXML
     private Label invlidLbl1;
 
+    LoginBO loginBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.LOGIN);
+
 
     public void dontHaveClick(ActionEvent actionEvent) throws IOException {
         AnimationController.fadeAnimation("/view/signUp.fxml", ancPane);
@@ -96,10 +100,10 @@ public class LoginPageController {
         password = null;
         jobTitle = null;
         try {
-            User user = UserModel.SearchById(username);
-            password = user.getPassword();
-            jobTitle = user.getJobTitle();
-            userr = user.getUsername();
+            UserDTO userDTO = loginBO.SearchUserById(username);
+            password = userDTO.getPassword();
+            jobTitle = userDTO.getJobTitle();
+            userr = userDTO.getUsername();
         } catch (Exception e) {
 
         }
