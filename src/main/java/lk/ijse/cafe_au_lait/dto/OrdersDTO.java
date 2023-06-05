@@ -17,4 +17,13 @@ public class OrdersDTO {
     private Double orderPayment;
     private String delivery;
     List<OrderDetailDTO> orderDetaisList;
+
+    public OrdersDTO(String orderId, String custId, LocalDate orderDate, LocalTime orderTime, Double orderPayment, String delivery) {
+        this.orderId = orderId;
+        this.custId = custId;
+        this.orderDate = orderDate;
+        this.orderTime = orderTime;
+        this.orderPayment = orderPayment;
+        this.delivery = delivery;
+    }
 }

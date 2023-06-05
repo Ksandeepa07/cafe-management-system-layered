@@ -71,12 +71,12 @@
       </ImageView>
       <Group fx:id="dateGroup" layoutX="44.0" layoutY="108.0">
          <children>
-            <Label prefHeight="20.0" prefWidth="123.0" text="Total Orders   :" textFill="#7b3927">
+            <Label prefHeight="21.0" prefWidth="257.0" text="Total Orders   :" textFill="#7b3927">
                <font>
                   <Font name="Times New Roman Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="tot6alOrderForDate" layoutX="133.0" prefHeight="20.0" prefWidth="123.0" textFill="#7b3927">
+            <Label fx:id="tot6alOrderForDate" layoutX="133.0" prefHeight="21.0" prefWidth="134.0" textFill="#7b3927">
                <font>
                   <Font name="Times New Roman Bold" size="18.0" />
                </font>

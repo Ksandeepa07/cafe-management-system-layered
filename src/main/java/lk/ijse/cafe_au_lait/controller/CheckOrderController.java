@@ -1,6 +1,7 @@
 package lk.ijse.cafe_au_lait.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +15,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.cafe_au_lait.bo.BOFactory;
+import lk.ijse.cafe_au_lait.bo.custom.OrdersBO;
 import lk.ijse.cafe_au_lait.dto.CustomerDTO;
+import lk.ijse.cafe_au_lait.dto.OrdersDTO;
 import lk.ijse.cafe_au_lait.view.tdm.CheckOrdersTM;
 import lk.ijse.cafe_au_lait.model.CheckOrdersModel;
 import lk.ijse.cafe_au_lait.model.CustomerModel;
@@ -22,6 +26,7 @@ import lk.ijse.cafe_au_lait.util.StageController;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
@@ -105,6 +110,8 @@ public class CheckOrderController {
     @FXML
     private JFXButton backBtn;
 
+    OrdersBO ordersBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.ORDERS);
+
     @FXML
     void checkdeliveryDetailsBtnCllick(ActionEvent event) {
 
@@ -127,8 +134,8 @@ public class CheckOrderController {
         try {
             customerGroup.setVisible(false);
             dateGroup.setVisible(true);
-            String count = CheckOrdersModel.countOrdersOnDay(searchByOrderDate.getText());
-            tot6alOrderForDate.setText(count);
+            int count = ordersBO.countOrdersOnDay(searchByOrderDate.getText());
+            tot6alOrderForDate.setText(String.valueOf(count));
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -136,17 +143,17 @@ public class CheckOrderController {
 
 
     @FXML
-    void searchIconCustomerClick(MouseEvent event) {
-//        dateGroup.setVisible(false);
-//        customerGroup.setVisible(true);
-//        CustomerDTO customerDTO = CustomerModel.searchById(searchCustId.getText());
-//        customerNameLbl.setText(customerDTO.getCustName());
-//        try {
-//            String id = CheckOrdersModel.countOrders(searchCustId.getText());
-//            TototalOrderPlacedLbl.setText(String.valueOf(id));
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//        }
+    void searchIconCustomerClick(MouseEvent event) throws SQLException {
+        dateGroup.setVisible(false);
+        customerGroup.setVisible(true);
+        CustomerDTO customerDTO = ordersBO.searchCustomerById(searchCustId.getText());
+        customerNameLbl.setText(customerDTO.getCustName());
+        try {
+            int id = Integer.parseInt(String.valueOf(ordersBO.countOrdersPlaceBYCustomer(searchCustId.getText())));
+            TototalOrderPlacedLbl.setText(String.valueOf(id));
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
     }
 
@@ -158,8 +165,13 @@ public class CheckOrderController {
 
     void getAll() {
         try {
-            ObservableList<CheckOrdersTM> orderData = CheckOrdersModel.getAll();
-            tblCheckOrders.setItems(orderData);
+            ArrayList<OrdersDTO> orderData = ordersBO.getAllOrders();
+            ObservableList<CheckOrdersTM> obList= FXCollections.observableArrayList();
+            for (OrdersDTO orderDatum : orderData) {
+                obList.add(new CheckOrdersTM(orderDatum.getOrderId(),orderDatum.getCustId(),orderDatum.getOrderDate(),orderDatum.getOrderTime(),orderDatum.getOrderPayment(),
+                        orderDatum.getDelivery()));
+            }
+            tblCheckOrders.setItems(obList);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -178,7 +190,11 @@ public class CheckOrderController {
 
     public void searchTableByorderDate(KeyEvent keyEvent) throws SQLException {
         String searchValue = searchByOrderDate.getText().trim();
-        ObservableList<CheckOrdersTM> obList = CheckOrdersModel.getAll();
+        ArrayList<OrdersDTO> load = ordersBO.getAllOrders();
+        ObservableList<CheckOrdersTM> obList=FXCollections.observableArrayList();
+        for (OrdersDTO ordersDTO : load) {
+            obList.add(new CheckOrdersTM(ordersDTO.getOrderId(),ordersDTO.getCustId(),ordersDTO.getOrderDate(),ordersDTO.getOrderTime(),ordersDTO.getOrderPayment(),ordersDTO.getDelivery()));
+        }
 
         if (!searchValue.isEmpty()) {
             ObservableList<CheckOrdersTM> filteredData = obList.filtered(new Predicate<CheckOrdersTM>() {
@@ -197,7 +213,11 @@ public class CheckOrderController {
     @FXML
     void searchTable(KeyEvent event) throws SQLException {
         String searchValue = searchIdTxt.getText().trim();
-        ObservableList<CheckOrdersTM> obList = CheckOrdersModel.getAll();
+        ArrayList<OrdersDTO> load = ordersBO.getAllOrders();
+        ObservableList<CheckOrdersTM> obList=FXCollections.observableArrayList();
+        for (OrdersDTO ordersDTO : load) {
+            obList.add(new CheckOrdersTM(ordersDTO.getOrderId(),ordersDTO.getCustId(),ordersDTO.getOrderDate(),ordersDTO.getOrderTime(),ordersDTO.getOrderPayment(),ordersDTO.getDelivery()));
+        }
 
         if (!searchValue.isEmpty()) {
             ObservableList<CheckOrdersTM> filteredData = obList.filtered(new Predicate<CheckOrdersTM>() {
@@ -217,7 +237,11 @@ public class CheckOrderController {
     @FXML
     void searchTableByCustId(KeyEvent event) throws SQLException {
         String searchValue = searchCustId.getText().trim();
-        ObservableList<CheckOrdersTM> obList = CheckOrdersModel.getAll();
+        ArrayList<OrdersDTO> load = ordersBO.getAllOrders();
+        ObservableList<CheckOrdersTM> obList=FXCollections.observableArrayList();
+        for (OrdersDTO ordersDTO : load) {
+            obList.add(new CheckOrdersTM(ordersDTO.getOrderId(),ordersDTO.getCustId(),ordersDTO.getOrderDate(),ordersDTO.getOrderTime(),ordersDTO.getOrderPayment(),ordersDTO.getDelivery()));
+        }
 
         if (!searchValue.isEmpty()) {
             ObservableList<CheckOrdersTM> filteredData = obList.filtered(new Predicate<CheckOrdersTM>() {

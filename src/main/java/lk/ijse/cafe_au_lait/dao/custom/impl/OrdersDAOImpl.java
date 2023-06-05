@@ -1,9 +1,12 @@
 package lk.ijse.cafe_au_lait.dao.custom.impl;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart;
 import lk.ijse.cafe_au_lait.dao.custom.OrdersDAO;
 import lk.ijse.cafe_au_lait.entity.Orders;
 import lk.ijse.cafe_au_lait.util.CrudUtil;
+import lk.ijse.cafe_au_lait.view.tdm.CheckOrdersTM;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,7 +37,22 @@ public class OrdersDAOImpl implements OrdersDAO {
 
     @Override
     public ArrayList<Orders> getAll() throws SQLException {
-        return null;
+        ResultSet resultSet = CrudUtil.execute("SELECT * FROM Orders");
+        ArrayList<Orders> ordersData =new ArrayList<>();
+
+        while (resultSet.next()) {
+            ordersData.add(new Orders(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getDate(3).toLocalDate(),
+                    resultSet.getTime(4).toLocalTime(),
+                    resultSet.getDouble(5),
+                    resultSet.getString(6)
+
+            ));
+
+        }
+        return ordersData;
     }
 
     @Override
@@ -92,6 +110,49 @@ public class OrdersDAOImpl implements OrdersDAO {
         }
         return series;
     }
+
+    @Override
+    public boolean updateDeliveryModeOnOrders(String oId, String message) throws SQLException {
+        return CrudUtil.execute("UPDATE Orders SET delivery=? WHERE orderId=?",
+                message, oId);
+    }
+
+    @Override
+    public ArrayList<String> loadIds() throws SQLException {
+        ResultSet resultSet = CrudUtil.execute("SELECT * FROM Orders");
+        ArrayList<String> orderIds =new ArrayList<>();
+
+        while (resultSet.next()) {
+            orderIds.add(
+                    resultSet.getString(1)
+            );
+
+        }
+        return orderIds;
+    }
+
+    @Override
+    public int countOrdersOnDay(String date) throws SQLException {
+        ResultSet resultSet = CrudUtil.execute("SELECT COUNT(orderId) FROM Orders WHERE orderDate=?",
+                date);
+
+        if (resultSet.next()) {
+            int count = Integer.parseInt(resultSet.getString(1));
+            return count;
+        }
+        return Integer.parseInt(null);
+    }
+
+    @Override
+    public int countOrdersPlaceByCustomer(String id) throws SQLException {
+        ResultSet resultSet = CrudUtil.execute("SELECT COUNT(orderId) from Orders where custId=?", id);
+        if (resultSet.next()) {
+            int idd = Integer.parseInt(resultSet.getString(1));
+            return idd;
+        }
+        return Integer.parseInt(null);
+    }
+
 
     private static String splitOrderId(String currentId) {
         if (currentId != null) {

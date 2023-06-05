@@ -2,6 +2,7 @@ package lk.ijse.cafe_au_lait.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +14,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.cafe_au_lait.bo.BOFactory;
+import lk.ijse.cafe_au_lait.bo.custom.DeliveryBO;
 import lk.ijse.cafe_au_lait.dto.DeliveryDTO;
+import lk.ijse.cafe_au_lait.entity.Delivery;
 import lk.ijse.cafe_au_lait.view.tdm.DeliveryTM;
 import lk.ijse.cafe_au_lait.model.DeliveryModel;
 import lk.ijse.cafe_au_lait.model.OrderModel;
@@ -22,6 +26,7 @@ import lk.ijse.cafe_au_lait.util.StageController;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
@@ -75,6 +80,8 @@ public class DeliveryDetailsFormController {
     @FXML
     private TableView<DeliveryTM> tblDelivery;
 
+    DeliveryBO deliveryBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.DELIVERY);
+
 
     @FXML
     void checkOrederDetailsBtnCllick(ActionEvent event) {
@@ -92,7 +99,11 @@ public class DeliveryDetailsFormController {
     @FXML
     void searchTable(KeyEvent event) throws SQLException {
         String searchValue = searchIdTxt.getText().trim();
-        ObservableList<DeliveryTM> obList = DeliveryModel.getAll();
+        ArrayList<DeliveryDTO> load = deliveryBO.getAllDelivery();
+        ObservableList<DeliveryTM> obList=FXCollections.observableArrayList();
+        for (DeliveryDTO deliveryDatum : load) {
+            obList.add(new DeliveryTM(deliveryDatum.getDeliverId(),deliveryDatum.getLocation(),deliveryDatum.getOrderId(),deliveryDatum.getEmpId()));
+        }
 
         if (!searchValue.isEmpty()) {
             ObservableList<DeliveryTM> filteredData = obList.filtered(new Predicate<DeliveryTM>() {
@@ -112,7 +123,11 @@ public class DeliveryDetailsFormController {
     @FXML
     void searchTableByDeliveryId(KeyEvent event) throws SQLException {
         String searchValue = searchDeliveryId.getText().trim();
-        ObservableList<DeliveryTM> obList = DeliveryModel.getAll();
+        ArrayList<DeliveryDTO> load = deliveryBO.getAllDelivery();
+        ObservableList<DeliveryTM> obList=FXCollections.observableArrayList();
+        for (DeliveryDTO deliveryDatum : load) {
+            obList.add(new DeliveryTM(deliveryDatum.getDeliverId(),deliveryDatum.getLocation(),deliveryDatum.getOrderId(),deliveryDatum.getEmpId()));
+        }
 
         if (!searchValue.isEmpty()) {
             ObservableList<DeliveryTM> filteredData = obList.filtered(new Predicate<DeliveryTM>() {
@@ -132,7 +147,11 @@ public class DeliveryDetailsFormController {
     @FXML
     void searchTableByEmpId(KeyEvent event) throws SQLException {
         String searchValue = searchEmpId.getText().trim();
-        ObservableList<DeliveryTM> obList = DeliveryModel.getAll();
+        ArrayList<DeliveryDTO> load = deliveryBO.getAllDelivery();
+        ObservableList<DeliveryTM> obList=FXCollections.observableArrayList();
+        for (DeliveryDTO deliveryDatum : load) {
+            obList.add(new DeliveryTM(deliveryDatum.getDeliverId(),deliveryDatum.getLocation(),deliveryDatum.getOrderId(),deliveryDatum.getEmpId()));
+        }
 
         if (!searchValue.isEmpty()) {
             ObservableList<DeliveryTM> filteredData = obList.filtered(new Predicate<DeliveryTM>() {
@@ -160,9 +179,13 @@ public class DeliveryDetailsFormController {
 
     void getAll() {
         try {
-            ObservableList<DeliveryTM> deliveryData = DeliveryModel.getAll();
+            ArrayList<DeliveryDTO> deliveryData = deliveryBO.getAllDelivery();
+            ObservableList<DeliveryTM> obList= FXCollections.observableArrayList();
+            for (DeliveryDTO deliveryDatum : deliveryData) {
+                obList.add(new DeliveryTM(deliveryDatum.getDeliverId(),deliveryDatum.getLocation(),deliveryDatum.getOrderId(),deliveryDatum.getEmpId()));
+            }
 
-            tblDelivery.setItems(deliveryData);
+            tblDelivery.setItems(obList);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -174,7 +197,7 @@ public class DeliveryDetailsFormController {
     void searchDeliveryIconClick(MouseEvent event) {
 
         try {
-            DeliveryDTO deliveryDTO = DeliveryModel.searchByDeliveryId(searchDeliveryId.getText());
+            DeliveryDTO deliveryDTO = deliveryBO.searchByDeliveryId(searchDeliveryId.getText());
             orderIdTxt.setValue(deliveryDTO.getOrderId());
             deleiverIdTxt.setText(deliveryDTO.getDeliverId());
             locationTxt.setText(deliveryDTO.getLocation());
@@ -210,13 +233,13 @@ public class DeliveryDetailsFormController {
         try {
             boolean result = NotificationController.confirmationMasseage("Are you sure want to delete this delivery");
             if (result) {
-                boolean isDeleted = DeliveryModel.deleteById(deleiverIdTxt.getText());
+                boolean isDeleted = deliveryBO.deleteDeliveryById(deleiverIdTxt.getText());
                 if (isDeleted) {
                     getAll();
                     NotificationController.animationMesseage("/assets/tick.gif", "delete", "Delivery deleted sucessfull !!");
 
                     String message = "No";
-                    boolean isUpdated = OrderModel.updateDeliveyMode(orderIdTxt.getValue(), message);
+                    boolean isUpdated = deliveryBO.updateDeliveyMode(orderIdTxt.getValue(), message);
 
                 }
             }
@@ -238,7 +261,7 @@ public class DeliveryDetailsFormController {
         try {
             boolean result = NotificationController.confirmationMasseage("Are you sure want to update this delivery");
             if (result) {
-                boolean isUpdated = DeliveryModel.update(newDeliverDto);
+                boolean isUpdated = deliveryBO.updateDelivery(newDeliverDto);
                 if (isUpdated) {
                     getAll();
                     NotificationController.animationMesseage("/assets/tick.gif", "update", "Delivery updated sucessfull !!");
@@ -262,9 +285,14 @@ public class DeliveryDetailsFormController {
 
     void loadOrderIds() {
         try {
-            ObservableList<String> orderIds = OrderModel.loadOrderIds();
-            orderIdTxt.setItems(orderIds);
-        } catch (SQLException throwables) {
+            ArrayList<String> orderIds = deliveryBO.loadOrderIds();
+            ObservableList<String> obList=FXCollections.observableArrayList();
+            for (String id : orderIds) {
+                obList.add(id);
+            }
+
+            orderIdTxt.setItems(obList);
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         }
     }

@@ -67,25 +67,25 @@ public class OrderModel {
 //
 //    }
 
-    public static boolean updateDeliveyMode(String orderId, String message) throws SQLException {
-        String sql = "UPDATE orders SET delivery=? WHERE orderId=?";
-        return CrudUtil.execute(sql,
-                message, orderId);
-    }
+//    public static boolean updateDeliveyMode(String orderId, String message) throws SQLException {
+//        String sql = "UPDATE orders SET delivery=? WHERE orderId=?";
+//        return CrudUtil.execute(sql,
+//                message, orderId);
+//    }
 
-    public static ObservableList<String> loadOrderIds() throws SQLException {
-        String sql = "SELECT * FROM Orders";
-        ResultSet resultSet = CrudUtil.execute(sql);
-        ObservableList<String> orderIds = FXCollections.observableArrayList();
-
-        while (resultSet.next()) {
-            orderIds.add(
-                    resultSet.getString(1)
-            );
-
-        }
-        return orderIds;
-    }
+//    public static ObservableList<String> loadOrderIds() throws SQLException {
+//        String sql = "SELECT * FROM Orders";
+//        ResultSet resultSet = CrudUtil.execute(sql);
+//        ObservableList<String> orderIds = FXCollections.observableArrayList();
+//
+//        while (resultSet.next()) {
+//            orderIds.add(
+//                    resultSet.getString(1)
+//            );
+//
+//        }
+//        return orderIds;
+//    }
 
 //    public static XYChart.Series lineChartData() throws SQLException {
 //        String sql="SELECT MONTHNAME(orderDate),sum(orderPayment) from Orders group by MONTHNAME(orderDate)";

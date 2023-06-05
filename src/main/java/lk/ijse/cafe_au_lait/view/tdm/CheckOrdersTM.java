@@ -2,6 +2,9 @@ package lk.ijse.cafe_au_lait.view.tdm;
 
 import lombok.*;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -10,9 +13,9 @@ import lombok.*;
 public class CheckOrdersTM {
     private String orderId;
     private String custId;
-    private String orderDate;
-    private String orderTime;
-    private String orderPayment;
+    private LocalDate orderDate;
+    private LocalTime orderTime;
+    private Double orderPayment;
     private String delivery;
 
 }
