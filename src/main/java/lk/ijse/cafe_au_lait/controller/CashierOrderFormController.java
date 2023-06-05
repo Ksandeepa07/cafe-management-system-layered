@@ -318,12 +318,12 @@ public class CashierOrderFormController {
                             "sucessfully!!");
                     InputStream resource = this.getClass().getResourceAsStream("/reports/orderPaymentBill.jrxml");
                     try {
-//                        String outputFilePath = "C:/Users/User/Final Project/src/main/resources/generated bills/output.pdf";
-//                        JasperReport jasperReport = JasperCompileManager.compileReport(resource);
-//                        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, DBConnection.getInstance().getConnection());
-//                        JasperViewer.viewReport(jasperPrint, false);
-//                        JasperExportManager.exportReportToPdfFile(jasperPrint, outputFilePath);
-//                        AttachmentEmailSend.EmailSend(customerDTO.getCustEmail(), "cafe au lait",  "RECEIPT",outputFilePath);
+                        String outputFilePath = "/home/kaveen/Music/cafe-managment-system/src/main/resources/generated bills/output.pdf";
+                        JasperReport jasperReport = JasperCompileManager.compileReport(resource);
+                        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, DBConnection.getInstance().getConnection());
+                        JasperViewer.viewReport(jasperPrint, false);
+                        JasperExportManager.exportReportToPdfFile(jasperPrint, outputFilePath);
+                        AttachmentEmailSend.EmailSend(customerDTO.getCustEmail(), "cafe au lait",  "RECEIPT",outputFilePath);
 
                     } catch (Exception e) {
                         e.printStackTrace();

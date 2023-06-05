@@ -19,5 +19,7 @@ public interface DeliveryBO extends SuperBO {
 
     boolean updateDeliveyMode(String value, String message) throws SQLException;
 
-    ArrayList<String> loadOrderIds();
+    ArrayList<String> loadOrderIds() throws SQLException;
+
+    ArrayList<String> loadEmpIds() throws SQLException;
 }

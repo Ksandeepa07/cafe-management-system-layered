@@ -3,6 +3,7 @@ package lk.ijse.cafe_au_lait.bo.custom.impl;
 import lk.ijse.cafe_au_lait.bo.custom.DeliveryBO;
 import lk.ijse.cafe_au_lait.dao.DAOFactory;
 import lk.ijse.cafe_au_lait.dao.custom.DeliveryDAO;
+import lk.ijse.cafe_au_lait.dao.custom.EmployeeDAO;
 import lk.ijse.cafe_au_lait.dao.custom.OrdersDAO;
 import lk.ijse.cafe_au_lait.dto.DeliveryDTO;
 import lk.ijse.cafe_au_lait.entity.Delivery;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 public class DeliveryBOImpl implements DeliveryBO {
     DeliveryDAO deliveryDAO= DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.DELIVERY);
     OrdersDAO ordersDAO=DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ORDERS);
+    EmployeeDAO employeeDAO=DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.EMPLOYEE);
     ArrayList<DeliveryDTO> deliveryDTOS=new ArrayList<>();
 
     @Override
@@ -46,7 +48,12 @@ public class DeliveryBOImpl implements DeliveryBO {
     }
 
     @Override
-    public ArrayList<String> loadOrderIds() {
-        return null;
+    public ArrayList<String> loadOrderIds() throws SQLException {
+        return ordersDAO.loadIds();
+    }
+
+    @Override
+    public ArrayList<String> loadEmpIds() throws SQLException {
+        return employeeDAO.loadIds();
     }
 }

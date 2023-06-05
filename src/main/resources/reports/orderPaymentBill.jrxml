@@ -10,26 +10,26 @@
 		<defaultValueExpression><![CDATA[$P{textFieldValue1}]]></defaultValueExpression>
 	</parameter>
 	<queryString language="SQL">
-		<![CDATA[select itemDTO.ItemName,itemDTO.ItemUnitPrice,orderDetail.orderQuantity,(itemDTO.ItemUnitPrice*orderDetail.orderQuantity)
-AS value,orders.OrderPayment FROM orderDetail INNER JOIN orders ON orderDetail.OrderId=orders.OrderId INNER JOIN itemDTO
-ON itemDTO.ItemId=orderdetail.ItemId
-WHERE orders.OrderId=(select max(orders.OrderId )
-FROM orders) ORDER BY orderdetail.OrderId desc ;]]>
+		<![CDATA[select Item.ItemName,Item.ItemUnitPrice,OrderDetail.orderQuantity,(Item.ItemUnitPrice*OrderDetail.orderQuantity)
+AS value,Orders.OrderPayment FROM OrderDetail INNER JOIN Orders ON OrderDetail.OrderId=Orders.OrderId INNER JOIN Item
+ON Item.ItemId=OrderDetail.itemId
+WHERE Orders.OrderId=(select max(Orders.OrderId )
+FROM Orders) ORDER BY OrderDetail.OrderId desc ;]]>
 	</queryString>
 	<field name="ItemName" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="ItemName"/>
 		<property name="com.jaspersoft.studio.field.label" value="ItemName"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="itemDTO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Item"/>
 	</field>
 	<field name="ItemUnitPrice" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.name" value="ItemUnitPrice"/>
 		<property name="com.jaspersoft.studio.field.label" value="ItemUnitPrice"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="itemDTO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Item"/>
 	</field>
 	<field name="orderQuantity" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="orderQuantity"/>
 		<property name="com.jaspersoft.studio.field.label" value="orderQuantity"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="orderdetail"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Orderdetail"/>
 	</field>
 	<field name="value" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.name" value="value"/>
@@ -38,7 +38,7 @@ FROM orders) ORDER BY orderdetail.OrderId desc ;]]>
 	<field name="OrderPayment" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.name" value="OrderPayment"/>
 		<property name="com.jaspersoft.studio.field.label" value="OrderPayment"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="orders"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Orders"/>
 	</field>
 	<group name="ItemName">
 		<groupExpression><![CDATA[$F{ItemName}]]></groupExpression>
@@ -88,7 +88,7 @@ FROM orders) ORDER BY orderdetail.OrderId desc ;]]>
 			</staticText>
 			<image>
 				<reportElement x="-17" y="-17" width="44" height="37" uuid="dd4244ff-e6cd-4083-aaa3-ed4a78b5a25b"/>
-				<imageExpression><![CDATA["C:/Users/User/Downloads/icons8-coffee-cup-65.png"]]></imageExpression>
+				<imageExpression><![CDATA["/home/kaveen/Music/cafe-managment-system/src/main/resources/assets/icons8-coffee-cup-65.png"]]></imageExpression>
 			</image>
 			<textField pattern="MMMMM dd, yyyy">
 				<reportElement x="460" y="-10" width="106" height="30" uuid="78ac9bb8-ac76-4cbf-93c3-3cac217de719"/>

@@ -94,7 +94,7 @@ public class CashierCustomerController {
     @FXML
     void deleteOnAction(ActionEvent event) {
         try {
-            boolean isDeleted = customerBO.delete(idTxt.getText());
+            boolean isDeleted = customerBO.deleteCustomer(idTxt.getText());
             boolean result = NotificationController.confirmationMasseage("Are you sure you want delete this " +
                     "customer ?");
             if (result) {
@@ -140,7 +140,7 @@ public class CashierCustomerController {
 //                    emailCheckLbl.setText(" ");
         CustomerDTO customerDTO = new CustomerDTO(id, name, contact, email);
 //        boolean isSaved = CustomerModel.save(customerDTO);
-        boolean isSaved=customerBO.save(customerDTO);
+        boolean isSaved=customerBO.saveCustomer(customerDTO);
         if (isSaved) {
             deleteBtn.setDisable(true);
             updateBtn.setDisable(true);
@@ -184,7 +184,7 @@ public class CashierCustomerController {
     @FXML
     void searchIconClick(MouseEvent event) throws SQLException {
 
-        CustomerDTO customerDTO = (CustomerDTO) customerBO.searchById(searchIdTxt.getText());
+        CustomerDTO customerDTO = (CustomerDTO) customerBO.searchCustomerById(searchIdTxt.getText());
         if (customerDTO != null) {
             idTxt.setText(customerDTO.getCustId());
             nameTxt.setText(customerDTO.getCustName());
@@ -201,7 +201,7 @@ public class CashierCustomerController {
     @FXML
     void searchTable(KeyEvent event) throws SQLException {
         String searchValue = searchIdTxt.getText().trim();
-        ArrayList<CustomerDTO> custData = customerBO.getAll();
+        ArrayList<CustomerDTO> custData = customerBO.getAllCustomers();
         ObservableList<CustomerTM> obList= FXCollections.observableArrayList();
         for (CustomerDTO custDatum : custData) {
             obList.add(new CustomerTM(custDatum.getCustId(),custDatum.getCustName(),custDatum.getCustContact(),custDatum.getCustEmail()));
@@ -261,7 +261,7 @@ public class CashierCustomerController {
 
         CustomerDTO customerDTO = new CustomerDTO(id, name, contact, email);
         try {
-            boolean isUpdated = customerBO.update(customerDTO);
+            boolean isUpdated = customerBO.updateCustomer(customerDTO);
             boolean result = NotificationController.confirmationMasseage("Are you sure you want update this " +
                     "customer ?");
             if (result) {
@@ -316,7 +316,7 @@ public class CashierCustomerController {
     void getAll() {
         tblCustomer.getItems().clear();
         try {
-            ArrayList<CustomerDTO> customerData = customerBO.getAll();
+            ArrayList<CustomerDTO> customerData = customerBO.getAllCustomers();
             for (CustomerDTO customerDatum : customerData) {
                 tblCustomer.getItems().add(new CustomerTM(customerDatum.getCustId(),customerDatum.getCustName(),customerDatum.getCustContact(),customerDatum.getCustEmail()));
             }

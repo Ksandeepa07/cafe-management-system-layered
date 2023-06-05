@@ -4,37 +4,37 @@
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
 	<queryString language="SQL">
-		<![CDATA[select * from orders]]>
+		<![CDATA[select * from Orders]]>
 	</queryString>
 	<field name="OrderId" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="OrderId"/>
 		<property name="com.jaspersoft.studio.field.label" value="OrderId"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="orders"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Orders"/>
 	</field>
 	<field name="CustId" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="CustId"/>
 		<property name="com.jaspersoft.studio.field.label" value="CustId"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="orders"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Orders"/>
 	</field>
 	<field name="OrderDate" class="java.sql.Date">
 		<property name="com.jaspersoft.studio.field.name" value="OrderDate"/>
 		<property name="com.jaspersoft.studio.field.label" value="OrderDate"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="orders"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Orders"/>
 	</field>
 	<field name="OrderTime" class="java.sql.Time">
 		<property name="com.jaspersoft.studio.field.name" value="OrderTime"/>
 		<property name="com.jaspersoft.studio.field.label" value="OrderTime"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="orders"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Orders"/>
 	</field>
 	<field name="OrderPayment" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.name" value="OrderPayment"/>
 		<property name="com.jaspersoft.studio.field.label" value="OrderPayment"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="orders"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Orders"/>
 	</field>
 	<field name="Delivery" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="Delivery"/>
 		<property name="com.jaspersoft.studio.field.label" value="Delivery"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="orders"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Orders"/>
 	</field>
 	<group name="OrderId">
 		<groupExpression><![CDATA[$F{OrderId}]]></groupExpression>
@@ -73,7 +73,7 @@
 			</staticText>
 			<image>
 				<reportElement x="-17" y="-17" width="44" height="37" uuid="f9fede57-f628-4366-bba5-52cefa483ea8"/>
-				<imageExpression><![CDATA["C:/Users/User/Downloads/icons8-coffee-cup-65.png"]]></imageExpression>
+				<imageExpression><![CDATA["/home/kaveen/Music/cafe-managment-system/src/main/resources/assets/icons8-coffee-cup-65.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="-15" y="25" width="169" height="40" uuid="ebc98814-9a99-4e6b-afc3-a948b0e5d9b3"/>

@@ -13,13 +13,13 @@ public class CustomerBOImpl implements CustomerBO<CustomerDTO,String > {
     CustomerDAO customerDAO= DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.CUSTOMER);
     ArrayList<CustomerDTO> customerData=new ArrayList<>();
     @Override
-    public boolean save(CustomerDTO customerDTO) throws SQLException {
+    public boolean saveCustomer(CustomerDTO customerDTO) throws SQLException {
         return customerDAO.save(new Customer(customerDTO.getCustId(),customerDTO.getCustName(),customerDTO.getCustContact(),customerDTO.getCustEmail()));
 
     }
 
     @Override
-    public ArrayList<CustomerDTO> getAll() throws SQLException {
+    public ArrayList<CustomerDTO> getAllCustomers() throws SQLException {
         ArrayList<Customer>load= customerDAO.getAll();
         for (Customer customer : load) {
             customerData.add(new CustomerDTO(customer.getCustId(),customer.getCustName(),customer.getCustContact(),customer.getCustEmail()) );
@@ -28,18 +28,18 @@ public class CustomerBOImpl implements CustomerBO<CustomerDTO,String > {
     }
 
     @Override
-    public CustomerDTO searchById(String id) throws SQLException {
+    public CustomerDTO searchCustomerById(String id) throws SQLException {
         Customer customer=customerDAO.searchById(id);
         return new CustomerDTO(customer.getCustId(),customer.getCustName(),customer.getCustContact(),customer.getCustEmail());
     }
 
     @Override
-    public boolean update(CustomerDTO customerDTO) throws SQLException {
+    public boolean updateCustomer(CustomerDTO customerDTO) throws SQLException {
         return customerDAO.update(new Customer(customerDTO.getCustId(),customerDTO.getCustName(),customerDTO.getCustContact(),customerDTO.getCustEmail()));
     }
 
     @Override
-    public boolean delete(String id) throws SQLException {
+    public boolean deleteCustomer(String id) throws SQLException {
         return customerDAO.delete(id);
     }
 

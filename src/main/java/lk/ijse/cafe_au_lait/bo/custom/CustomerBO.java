@@ -6,15 +6,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface CustomerBO<T, ID> extends SuperBO {
-    boolean save(T t) throws SQLException;
+    boolean saveCustomer(T t) throws SQLException;
 
-    boolean update(T t) throws SQLException;
+    boolean updateCustomer(T t) throws SQLException;
 
-    boolean delete(ID id) throws SQLException;
+    boolean deleteCustomer(ID id) throws SQLException;
 
-    ArrayList<T> getAll() throws SQLException;
+    ArrayList<T> getAllCustomers() throws SQLException;
 
-    T searchById(ID id) throws SQLException;
+    T searchCustomerById(ID id) throws SQLException;
 
     ArrayList<ID> loadCustId();
 

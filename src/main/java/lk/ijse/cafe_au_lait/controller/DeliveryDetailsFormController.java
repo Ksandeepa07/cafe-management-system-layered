@@ -275,12 +275,16 @@ public class DeliveryDetailsFormController {
     }
 
     void loadEmpIds() {
-//        try {
-//            ObservableList<String> empIds = EmployeeModel.loadEmpIds();
-//            employeeIdTxt.setItems(empIds);
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//        }
+        try {
+            ArrayList<String> empIds = deliveryBO.loadEmpIds();
+            ObservableList<String> obList=FXCollections.observableArrayList();
+            for (String empId : empIds) {
+                obList.add(empId);
+            }
+            employeeIdTxt.setItems(obList);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     void loadOrderIds() {

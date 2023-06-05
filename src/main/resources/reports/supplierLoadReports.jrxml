@@ -4,42 +4,42 @@
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
 	<queryString language="SQL">
-		<![CDATA[select * from supplierLoaddetail]]>
+		<![CDATA[select * from SupplierLoadDetail]]>
 	</queryString>
 	<field name="SupplierLoadId" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="SupplierLoadId"/>
 		<property name="com.jaspersoft.studio.field.label" value="SupplierLoadId"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="supplierloaddetail"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SupplierloadDetail"/>
 	</field>
 	<field name="ItemId" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="ItemId"/>
 		<property name="com.jaspersoft.studio.field.label" value="ItemId"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="supplierloaddetail"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SupplierloadDetail"/>
 	</field>
 	<field name="SupplierId" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="SupplierId"/>
 		<property name="com.jaspersoft.studio.field.label" value="SupplierId"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="supplierloaddetail"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SupplierloadDetail"/>
 	</field>
 	<field name="SupplierLoadTime" class="java.sql.Time">
 		<property name="com.jaspersoft.studio.field.name" value="SupplierLoadTime"/>
 		<property name="com.jaspersoft.studio.field.label" value="SupplierLoadTime"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="supplierloaddetail"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SupplierloadDetail"/>
 	</field>
 	<field name="SupplierQuantity" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="SupplierQuantity"/>
 		<property name="com.jaspersoft.studio.field.label" value="SupplierQuantity"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="supplierloaddetail"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SupplierloadDetail"/>
 	</field>
 	<field name="SupplierLoadDate" class="java.sql.Date">
 		<property name="com.jaspersoft.studio.field.name" value="SupplierLoadDate"/>
 		<property name="com.jaspersoft.studio.field.label" value="SupplierLoadDate"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="supplierloaddetail"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SupplierloadDetail"/>
 	</field>
 	<field name="SupplierLoadPricem" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.name" value="SupplierLoadPricem"/>
 		<property name="com.jaspersoft.studio.field.label" value="SupplierLoadPricem"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="supplierloaddetail"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SupplierloadDetail"/>
 	</field>
 	<group name="SupplierLoadId">
 		<groupExpression><![CDATA[$F{SupplierLoadId}]]></groupExpression>
@@ -95,7 +95,7 @@
 			</staticText>
 			<image>
 				<reportElement x="-17" y="-17" width="44" height="37" uuid="0ee4d358-02dc-4f8d-bf4f-e6578c169836"/>
-				<imageExpression><![CDATA["C:/Users/User/Downloads/icons8-coffee-cup-65.png"]]></imageExpression>
+				<imageExpression><![CDATA["/home/kaveen/Music/cafe-managment-system/src/main/resources/assets/icons8-coffee-cup-65.png"]]></imageExpression>
 			</image>
 			<textField pattern="MMMMM dd, yyyy">
 				<reportElement x="707" y="-16" width="106" height="30" uuid="c6d03d0d-f3aa-4f74-a73d-75b96972dfba"/>
