@@ -15,9 +15,7 @@ import javafx.util.Callback;
 import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.ItemBO;
 import lk.ijse.cafe_au_lait.dto.ItemDTO;
-import lk.ijse.cafe_au_lait.entity.Item;
 import lk.ijse.cafe_au_lait.view.tdm.ItemTM;
-import lk.ijse.cafe_au_lait.model.ItemModel;
 import lk.ijse.cafe_au_lait.util.DataValidateController;
 import lk.ijse.cafe_au_lait.util.NotificationController;
 
@@ -129,7 +127,7 @@ public class AdminInventoryController {
                     getAll();
 //                    tblItem.getItems().remove(tblItem.getSelectionModel().getSelectedItem());
 //                    tblItem.getSelectionModel().clearSelection();
-                    NotificationController.animationMesseage("/assets/tick.gif", "Delete",
+                    NotificationController.animationMesseage("/assets/images/tick.gif", "Delete",
                             "Item Deleted sucessfully !!");
                     idTxt.setText("");
                     nameTxt.setText("");
@@ -172,7 +170,7 @@ public class AdminInventoryController {
                 priceTxt.setText("");
                 categoryTxt.setText("");
 //                tblItem.getItems().add(new ItemTM(id, name, quantity, price, category));
-                NotificationController.animationMesseage("/assets/tick.gif", "Saved",
+                NotificationController.animationMesseage("/assets/images/tick.gif", "Saved",
                         "Item Added sucessfully !!");
                 getAll();
 
@@ -252,7 +250,7 @@ public class AdminInventoryController {
                     categoryTxt.setText("");
 
 //                    tblItem.getItems().add(new ItemTM(id, name, quantity, price, category));
-                    NotificationController.animationMesseage("/assets/tick.gif", "Update",
+                    NotificationController.animationMesseage("/assets/images/tick.gif", "Update",
                             "Item Updated sucessfully !!");
 
                 }

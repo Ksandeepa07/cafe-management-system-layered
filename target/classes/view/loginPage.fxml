@@ -16,16 +16,16 @@
    <children>
       <ImageView disable="true" fitHeight="415.0" fitWidth="743.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/LoginPage.png" />
+            <Image url="@../assets/images/LoginPage.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="431.0" layoutY="24.0" prefHeight="368.0" prefWidth="285.0" styleClass="loginForm" stylesheets="@../style/style.css">
+      <AnchorPane layoutX="431.0" layoutY="24.0" prefHeight="368.0" prefWidth="285.0" styleClass="loginForm" stylesheets="@../assets/style/style.css">
          <children>
-            <TextField fx:id="usernameTxt" focusTraversable="false" layoutX="59.0" layoutY="146.0" prefHeight="25.0" prefWidth="202.0" promptText="Username" styleClass="userNameField" stylesheets="@../style/style.css">
+            <TextField fx:id="usernameTxt" focusTraversable="false" layoutX="59.0" layoutY="146.0" prefHeight="25.0" prefWidth="202.0" promptText="Username" styleClass="userNameField" stylesheets="@../assets/style/style.css">
                <font>
                   <Font name="Times New Roman Bold" size="14.0" />
                </font></TextField>
-            <PasswordField fx:id="passwordTxt" focusTraversable="false" layoutX="59.0" layoutY="209.0" prefHeight="25.0" prefWidth="202.0" promptText="Password" styleClass="userNameField" stylesheets="@../style/style.css">
+            <PasswordField fx:id="passwordTxt" focusTraversable="false" layoutX="59.0" layoutY="209.0" prefHeight="25.0" prefWidth="202.0" promptText="Password" styleClass="userNameField" stylesheets="@../assets/style/style.css">
                <font>
                   <Font name="Times New Roman Bold" size="14.0" />
                </font></PasswordField>
@@ -41,10 +41,10 @@
             </ImageView>
             <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/icons8-lock.png" />
+                  <Image url="@../assets/images/icons8-lock.png" />
                </image>
             </ImageView>
-            <ComboBox fx:id="chooseOption" layoutX="59.0" layoutY="85.0" prefWidth="150.0" promptText="Admin" styleClass="secondComboBox" stylesheets="@../style/style.css" visibleRowCount="2" />
+            <ComboBox fx:id="chooseOption" layoutX="59.0" layoutY="85.0" prefWidth="150.0" promptText="Admin" styleClass="secondComboBox" stylesheets="@../assets/style/style.css" visibleRowCount="2" />
             <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="179.0" layoutY="272.0" onAction="#loginClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: #dfa47e; -fx-background-radius: 10;" text="Login" textFill="#7b3927">
                <font>
                   <Font name="Times New Roman Bold" size="14.0" />
@@ -60,15 +60,15 @@
                   <Font name="Times New Roman Bold" size="14.0" />
                </font>
             </Hyperlink>
-            <TextField fx:id="txtShowPassword" layoutX="59.0" layoutY="209.0" onKeyPressed="#passwordFieldEnter" prefHeight="33.0" prefWidth="202.0" styleClass="userNameField" stylesheets="@../style/style.css" />
+            <TextField fx:id="txtShowPassword" layoutX="59.0" layoutY="209.0" onKeyPressed="#passwordFieldEnter" prefHeight="33.0" prefWidth="202.0" styleClass="userNameField" stylesheets="@../assets/style/style.css" />
             <ImageView fx:id="showPasswordImage" fitHeight="26.0" fitWidth="24.0" layoutX="237.0" layoutY="214.0" onMouseClicked="#shiwPasswordClick" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/icons8-eye-50.png" />
+                  <Image url="@../assets/images/icons8-eye-50.png" />
                </image>
             </ImageView>
             <ImageView fx:id="hidePasswordImage" fitHeight="26.0" fitWidth="24.0" layoutX="237.0" layoutY="214.0" onMouseClicked="#hidepasswordClick" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/icons8-hide-48.png" />
+                  <Image url="@../assets/images/icons8-hide-48.png" />
                </image>
             </ImageView>
             <Label fx:id="invlidLbl" layoutX="63.0" layoutY="184.0" prefHeight="17.0" prefWidth="179.0" textFill="#dfa47e">

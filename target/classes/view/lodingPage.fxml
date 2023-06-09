@@ -11,9 +11,9 @@
    <children>
       <ImageView fitHeight="398.0" fitWidth="879.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/Loaingg.gif" />
+            <Image url="@../assets/images/Loaingg.gif" />
          </image>
       </ImageView>
-      <ProgressBar fx:id="pgbar" layoutX="71.0" layoutY="346.0" prefHeight="18.0" prefWidth="237.0" progress="0.0" style="-fx-accent:#7B3927" stylesheets="@../style/style.css" />
+      <ProgressBar fx:id="pgbar" layoutX="71.0" layoutY="346.0" prefHeight="18.0" prefWidth="237.0" progress="0.0" style="-fx-accent:#7B3927" stylesheets="@../assets/style/style.css" />
    </children>
 </AnchorPane>

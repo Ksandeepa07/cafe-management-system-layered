@@ -17,12 +17,12 @@
    <children>
       <ImageView fitHeight="705.0" fitWidth="1179.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/adminHome.png" />
+            <Image url="@../assets/images/adminHome.png" />
          </image>
       </ImageView>
-      <TextField fx:id="eventNameTxt" layoutX="916.0" layoutY="119.0" onKeyTyped="#eventNameKeyTyped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
-      <TextField fx:id="eventTypeTxt" layoutX="157.0" layoutY="209.0" onKeyTyped="#eventTypeKeyTyped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
-      <TextField fx:id="eventIdTxt" layoutX="538.0" layoutY="117.0" onKeyTyped="#eventIdKeyTyped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <TextField fx:id="eventNameTxt" layoutX="916.0" layoutY="119.0" onKeyTyped="#eventNameKeyTyped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../assets/style/style.css" />
+      <TextField fx:id="eventTypeTxt" layoutX="157.0" layoutY="209.0" onKeyTyped="#eventTypeKeyTyped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../assets/style/style.css" />
+      <TextField fx:id="eventIdTxt" layoutX="538.0" layoutY="117.0" onKeyTyped="#eventIdKeyTyped" prefHeight="25.0" prefWidth="192.0" styleClass="dashBoardTextField" stylesheets="@../assets/style/style.css" />
       <Label layoutX="36.0" layoutY="135.0" text="Employee Id :" textFill="#7b3927">
          <font>
             <Font name="Times New Roman Bold" size="18.0" />
@@ -43,7 +43,7 @@
             <Font name="Times New Roman Bold" size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="tblEvent" layoutX="36.0" layoutY="364.0" onMousePressed="#tblClick" prefHeight="335.0" prefWidth="1087.0" stylesheets="@../style/style.css">
+      <TableView fx:id="tblEvent" layoutX="36.0" layoutY="364.0" onMousePressed="#tblClick" prefHeight="335.0" prefWidth="1087.0" stylesheets="@../assets/style/style.css">
          <columns>
             <TableColumn fx:id="colId" prefWidth="169.0" text="Employee Id" />
             <TableColumn fx:id="colEventId" prefWidth="190.00003051757812" text="Event Id" />
@@ -61,49 +61,49 @@
       <JFXButton fx:id="saveBtn" buttonType="RAISED" layoutX="813.0" layoutY="292.0" onAction="#saveOnAction" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #7B3927;" text="Save" textFill="#dfa47e" />
       <JFXButton fx:id="updateBtn" buttonType="RAISED" layoutX="931.0" layoutY="293.0" onAction="#updateOnAction" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #7B3927;" text="Update" textFill="#dfa47e" />
       <JFXButton fx:id="deleteBtn" buttonType="RAISED" layoutX="1045.0" layoutY="292.0" onAction="#deleteOnAction" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #7B3927;" text="Delete" textFill="#dfa47e" />
-      <TextField fx:id="searchIdTxt" layoutX="916.0" layoutY="42.0" onKeyTyped="#searchTable" prefHeight="25.0" prefWidth="192.0" promptText="search by Id" styleClass="searchBar" stylesheets="@../style/style.css" />
+      <TextField fx:id="searchIdTxt" layoutX="916.0" layoutY="42.0" onKeyTyped="#searchTable" prefHeight="25.0" prefWidth="192.0" promptText="search by Id" styleClass="searchBar" stylesheets="@../assets/style/style.css" />
       <ImageView fx:id="searchIcon" fitHeight="25.0" fitWidth="28.0" layoutX="1070.0" layoutY="47.0" onMouseClicked="#searchIconClick" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/icons8-search-64.png" />
+            <Image url="@../assets/images/icons8-search-64.png" />
          </image>
       </ImageView>
-      <LocalTimeTextField fx:id="eventTimeTxt" layoutX="916.0" layoutY="224.0" onMouseClicked="#dateOnAction" prefHeight="25.0" prefWidth="192.0" styleClass="timePicker" stylesheets="@../style/style.css" />
+      <LocalTimeTextField fx:id="eventTimeTxt" layoutX="916.0" layoutY="224.0" onMouseClicked="#dateOnAction" prefHeight="25.0" prefWidth="192.0" styleClass="timePicker" stylesheets="@../assets/style/style.css" />
       <Label layoutX="801.0" layoutY="226.0" text="Event Time :" textFill="#7b3927">
          <font>
             <Font name="Times New Roman Bold" size="18.0" />
          </font>
       </Label>
-      <DatePicker fx:id="eventDateTxt" layoutX="531.0" layoutY="224.0" onAction="#eventDateOnAction" prefHeight="25.0" prefWidth="192.0" stylesheets="@../style/style.css" />
-      <JFXComboBox fx:id="idTxt" focusColor="RED" layoutX="157.0" layoutY="124.0" onAction="#empIdOnAction" prefHeight="25.0" prefWidth="192.0" styleClass="firstComboBox" stylesheets="@../style/style.css" unFocusColor="#7b3927" />
+      <DatePicker fx:id="eventDateTxt" layoutX="531.0" layoutY="224.0" onAction="#eventDateOnAction" prefHeight="25.0" prefWidth="192.0" stylesheets="@../assets/style/style.css" />
+      <JFXComboBox fx:id="idTxt" focusColor="RED" layoutX="157.0" layoutY="124.0" onAction="#empIdOnAction" prefHeight="25.0" prefWidth="192.0" styleClass="firstComboBox" stylesheets="@../assets/style/style.css" unFocusColor="#7b3927" />
       <JFXButton fx:id="addImageBtn" buttonType="RAISED" layoutX="538.0" layoutY="163.0" onAction="#addImageBtnClick" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #7B3927;" text="Add event Image" textFill="#dfa47e" />
       <ImageView fx:id="empIdIcon" fitHeight="25.0" fitWidth="25.0" layoutX="353.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../assets/brownCheckMark.png" />
+            <Image url="@../assets/images/brownCheckMark.png" />
          </image>
       </ImageView>
       <ImageView fx:id="dateIcon" fitHeight="25.0" fitWidth="25.0" layoutX="726.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../assets/brownCheckMark.png" />
+            <Image url="@../assets/images/brownCheckMark.png" />
          </image>
       </ImageView>
       <ImageView fx:id="eventIdIcon" fitHeight="25.0" fitWidth="25.0" layoutX="730.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../assets/brownCheckMark.png" />
+            <Image url="@../assets/images/brownCheckMark.png" />
          </image>
       </ImageView>
       <ImageView fx:id="typeIcon" fitHeight="25.0" fitWidth="25.0" layoutX="353.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../assets/brownCheckMark.png" />
+            <Image url="@../assets/images/brownCheckMark.png" />
          </image>
       </ImageView>
       <ImageView fx:id="timeIcon" fitHeight="25.0" fitWidth="25.0" layoutX="1111.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../assets/brownCheckMark.png" />
+            <Image url="@../assets/images/brownCheckMark.png" />
          </image>
       </ImageView>
       <ImageView fx:id="nameIcon" fitHeight="25.0" fitWidth="25.0" layoutX="1110.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../assets/brownCheckMark.png" />
+            <Image url="@../assets/images/brownCheckMark.png" />
          </image>
       </ImageView>
    </children>

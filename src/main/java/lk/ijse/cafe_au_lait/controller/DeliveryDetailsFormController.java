@@ -17,10 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.DeliveryBO;
 import lk.ijse.cafe_au_lait.dto.DeliveryDTO;
-import lk.ijse.cafe_au_lait.entity.Delivery;
 import lk.ijse.cafe_au_lait.view.tdm.DeliveryTM;
-import lk.ijse.cafe_au_lait.model.DeliveryModel;
-import lk.ijse.cafe_au_lait.model.OrderModel;
 import lk.ijse.cafe_au_lait.util.NotificationController;
 import lk.ijse.cafe_au_lait.util.StageController;
 
@@ -236,7 +233,7 @@ public class DeliveryDetailsFormController {
                 boolean isDeleted = deliveryBO.deleteDeliveryById(deleiverIdTxt.getText());
                 if (isDeleted) {
                     getAll();
-                    NotificationController.animationMesseage("/assets/tick.gif", "delete", "Delivery deleted sucessfull !!");
+                    NotificationController.animationMesseage("/assets/images/tick.gif", "delete", "Delivery deleted sucessfull !!");
 
                     String message = "No";
                     boolean isUpdated = deliveryBO.updateDeliveyMode(orderIdTxt.getValue(), message);
@@ -264,7 +261,7 @@ public class DeliveryDetailsFormController {
                 boolean isUpdated = deliveryBO.updateDelivery(newDeliverDto);
                 if (isUpdated) {
                     getAll();
-                    NotificationController.animationMesseage("/assets/tick.gif", "update", "Delivery updated sucessfull !!");
+                    NotificationController.animationMesseage("/assets/images/tick.gif", "update", "Delivery updated sucessfull !!");
                 }
             }
 

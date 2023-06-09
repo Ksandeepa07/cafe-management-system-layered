@@ -13,10 +13,10 @@
    <children>
       <ImageView fitHeight="408.0" fitWidth="673.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/adminHome.png" />
+            <Image url="@../assets/images/adminHome.png" />
          </image>
       </ImageView>
-      <TextField fx:id="locationTxt" layoutX="330.0" layoutY="314.0" prefHeight="34.0" prefWidth="149.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <TextField fx:id="locationTxt" layoutX="330.0" layoutY="314.0" prefHeight="34.0" prefWidth="149.0" styleClass="dashBoardTextField" stylesheets="@../assets/style/style.css" />
       <Label layoutX="195.0" layoutY="174.0" prefHeight="23.0" prefWidth="128.0" text="Order Id       :" textFill="#7b3927">
          <font>
             <Font name="Times New Roman Bold" size="20.0" />
@@ -37,8 +37,8 @@
             <Font name="Times New Roman Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="deliverIdTxt" layoutX="329.0" layoutY="84.0" prefHeight="34.0" prefWidth="149.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
-      <TextField fx:id="orderIdLbl" layoutX="330.0" layoutY="157.0" prefHeight="34.0" prefWidth="149.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <TextField fx:id="deliverIdTxt" layoutX="329.0" layoutY="84.0" prefHeight="34.0" prefWidth="149.0" styleClass="dashBoardTextField" stylesheets="@../assets/style/style.css" />
+      <TextField fx:id="orderIdLbl" layoutX="330.0" layoutY="157.0" prefHeight="34.0" prefWidth="149.0" styleClass="dashBoardTextField" stylesheets="@../assets/style/style.css" />
       <Label layoutX="213.0" layoutY="14.0" text="Delivery details" textFill="#7b3927">
          <font>
             <Font name="Times New Roman Bold" size="35.0" />
@@ -49,6 +49,6 @@
             <Font name="Times New Roman" size="15.0" />
          </font>
       </JFXButton>
-      <JFXComboBox fx:id="empIdCOmbo" focusColor="RED" layoutX="330.0" layoutY="245.0" prefHeight="25.0" prefWidth="149.0" styleClass="firstComboBox" stylesheets="@../style/style.css" unFocusColor="#7b3927" />
+      <JFXComboBox fx:id="empIdCOmbo" focusColor="RED" layoutX="330.0" layoutY="245.0" prefHeight="25.0" prefWidth="149.0" styleClass="firstComboBox" stylesheets="@../assets/style/style.css" unFocusColor="#7b3927" />
    </children>
 </AnchorPane>

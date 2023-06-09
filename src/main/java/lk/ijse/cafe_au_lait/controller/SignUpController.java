@@ -9,7 +9,6 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.SignUpBO;
 import lk.ijse.cafe_au_lait.dto.UserDTO;
-import lk.ijse.cafe_au_lait.model.UserModel;
 import lk.ijse.cafe_au_lait.util.AnimationController;
 import lk.ijse.cafe_au_lait.util.DataValidateController;
 import lk.ijse.cafe_au_lait.util.NotificationController;
@@ -89,7 +88,7 @@ public class SignUpController {
                         usernameTxt.setText("");
                         passwordTxt.setText("");
                         confirmPassword.setText("");
-                        NotificationController.animationMesseage("/assets/tick.gif", "sign up", "" +
+                        NotificationController.animationMesseage("/assets/images/tick.gif", "sign up", "" +
                                 "Sign Up Sucessfull !");
                     }
                 }

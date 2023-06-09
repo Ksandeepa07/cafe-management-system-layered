@@ -14,10 +14,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.EmployeeBO;
-import lk.ijse.cafe_au_lait.dto.CustomerDTO;
 import lk.ijse.cafe_au_lait.dto.EmployeeDTO;
 import lk.ijse.cafe_au_lait.view.tdm.EmployeeTM;
-import lk.ijse.cafe_au_lait.model.EmployeeModel;
 import lk.ijse.cafe_au_lait.util.DataValidateController;
 import lk.ijse.cafe_au_lait.util.NotificationController;
 
@@ -194,7 +192,7 @@ public class AdminEmployeeCntroller {
                     contactTxt.setText("");
                     emailTxt.setText("");
 
-                    NotificationController.animationMesseage("/assets/tick.gif", "Saved",
+                    NotificationController.animationMesseage("/assets/images/tick.gif", "Saved",
                             "Employee Added sucessfully !!");
                     getAll();
 
@@ -328,7 +326,7 @@ public class AdminEmployeeCntroller {
                         emailTxt.setText("");
 
                         getAll();
-                        NotificationController.animationMesseage("/assets/tick.gif", "Update",
+                        NotificationController.animationMesseage("/assets/images/tick.gif", "Update",
                                 "Employee Updated sucessfully !!");
                     }
                 }
@@ -350,7 +348,7 @@ public class AdminEmployeeCntroller {
             if (result) {
                 if (isDeleted) {
                     getAll();
-                    NotificationController.animationMesseage("/assets/tick.gif", "Delete",
+                    NotificationController.animationMesseage("/assets/images/tick.gif", "Delete",
                             "Employee Deleted sucessfully !!");
                     saveBtn.setDisable(true);
                     updateBtn.setDisable(true);

@@ -40,7 +40,7 @@ public class AdminReportsController {
 
     @FXML
     void customerDetailsBtnClick(ActionEvent event) {
-        InputStream resource = this.getClass().getResourceAsStream("/reports/customerReports.jrxml");
+        InputStream resource = this.getClass().getResourceAsStream("/assets/reports/customerReports.jrxml");
         try {
             JasperReport jasperReport = JasperCompileManager.compileReport(resource);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
@@ -53,7 +53,7 @@ public class AdminReportsController {
 
     @FXML
     void ordersDetailsBtnClick(ActionEvent event) {
-        InputStream resource = this.getClass().getResourceAsStream("/reports/ordersReprts.jrxml");
+        InputStream resource = this.getClass().getResourceAsStream("/assets/reports/ordersReprts.jrxml");
         try {
             JasperReport jasperReport = JasperCompileManager.compileReport(resource);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
@@ -72,7 +72,7 @@ public class AdminReportsController {
 
     @FXML
     void supplierLoadDetailsBtnClick(ActionEvent event) {
-        InputStream resource = this.getClass().getResourceAsStream("/reports/supplierLoadReports.jrxml");
+        InputStream resource = this.getClass().getResourceAsStream("/assets/reports/supplierLoadReports.jrxml");
         try {
             JasperReport jasperReport = JasperCompileManager.compileReport(resource);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());

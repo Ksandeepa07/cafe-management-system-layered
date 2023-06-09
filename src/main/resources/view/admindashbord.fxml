@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="anchorpane" prefHeight="705.0" prefWidth="1374.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.cafe_au_lait.controller.AdminDashbordController">
    <children>
-      <AnchorPane prefHeight="705.0" prefWidth="221.0" styleClass="dashbordForm" stylesheets="@../style/style.css">
+      <AnchorPane prefHeight="705.0" prefWidth="221.0" styleClass="dashbordForm" stylesheets="@../assets/style/style.css">
          <children>
             <JFXButton fx:id="homeBtn" buttonType="RAISED" layoutX="42.0" layoutY="122.0" onAction="#homeBtnClick" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: #dfa47e; -fx-background-radius: 20;" text="Home " textFill="#7b3927">
                <font>
@@ -32,31 +32,31 @@
                <font>
                   <Font name="Times New Roman Bold" size="14.0" />
                </font></JFXButton>
-            <Label fx:id="timeLbl" alignment="CENTER" layoutX="24.0" layoutY="61.0" prefHeight="35.0" prefWidth="179.0" styleClass="timeLbl" stylesheets="@../style/style.css" textFill="#dfa47e" />
-            <Label fx:id="datLbl" alignment="CENTER" layoutX="21.0" layoutY="26.0" prefHeight="35.0" prefWidth="179.0" styleClass="timeLbl" stylesheets="@../style/style.css" textFill="#dfa47e" />
+            <Label fx:id="timeLbl" alignment="CENTER" layoutX="24.0" layoutY="61.0" prefHeight="35.0" prefWidth="179.0" styleClass="timeLbl" stylesheets="@../assets/style/style.css" textFill="#dfa47e" />
+            <Label fx:id="datLbl" alignment="CENTER" layoutX="21.0" layoutY="26.0" prefHeight="35.0" prefWidth="179.0" styleClass="timeLbl" stylesheets="@../assets/style/style.css" textFill="#dfa47e" />
             <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="51.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/homeIcon.png" />
+                  <Image url="@../assets/images/homeIcon.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="51.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/supplierIcon.png" />
+                  <Image url="@../assets/images/supplierIcon.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="51.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/employeeIcon.png" />
+                  <Image url="@../assets/images/employeeIcon.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="51.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/inventoryyIcon.png" />
+                  <Image url="@../assets/images/inventoryyIcon.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="51.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/orderIcon.png" />
+                  <Image url="@../assets/images/orderIcon.png" />
                </image>
             </ImageView>
             <JFXButton fx:id="slalaryBtn" buttonType="RAISED" layoutX="42.0" layoutY="542.0" onAction="#salaryBtnClick" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: #dfa47e; -fx-background-radius: 20;" text="Salary" textFill="#7b3927">
@@ -66,7 +66,7 @@
             </JFXButton>
             <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="-1.0" layoutY="667.0" onMousePressed="#logoutClick" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/icons8-logout.png" />
+                  <Image url="@../assets/images/icons8-logout.png" />
                </image>
             </ImageView>
             <Label layoutX="34.0" layoutY="678.0" text="Logout" textFill="#dfa47e">
@@ -80,12 +80,12 @@
                </font></JFXButton>
             <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="51.0" layoutY="627.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/reportIcon.png" />
+                  <Image url="@../assets/images/reportIcon.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="51.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/orderIcon.png" />
+                  <Image url="@../assets/images/orderIcon.png" />
                </image>
             </ImageView>
          </children>
@@ -94,7 +94,7 @@
          <children>
             <ImageView fitHeight="705.0" fitWidth="1166.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/dashbordd.png" />
+                  <Image url="@../assets/images/dashbordd.png" />
                </image>
             </ImageView>
          </children>

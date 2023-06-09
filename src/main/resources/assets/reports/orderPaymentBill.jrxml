@@ -88,7 +88,7 @@ FROM Orders) ORDER BY OrderDetail.OrderId desc ;]]>
 			</staticText>
 			<image>
 				<reportElement x="-17" y="-17" width="44" height="37" uuid="dd4244ff-e6cd-4083-aaa3-ed4a78b5a25b"/>
-				<imageExpression><![CDATA["/home/kaveen/Music/cafe-managment-system/src/main/resources/assets/icons8-coffee-cup-65.png"]]></imageExpression>
+				<imageExpression><![CDATA["src/main/resources/assets/images/icons8-coffee-cup-65.png"]]></imageExpression>
 			</image>
 			<textField pattern="MMMMM dd, yyyy">
 				<reportElement x="460" y="-10" width="106" height="30" uuid="78ac9bb8-ac76-4cbf-93c3-3cac217de719"/>

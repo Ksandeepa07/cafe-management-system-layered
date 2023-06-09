@@ -10,7 +10,7 @@
    <children>
       <ImageView fitHeight="705.0" fitWidth="1166.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/adminHome.png" />
+            <Image url="@../assets/images/adminHome.png" />
          </image>
       </ImageView>
       <Label layoutX="188.0" layoutY="230.0" text="Orders">

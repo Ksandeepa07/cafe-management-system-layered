@@ -16,11 +16,8 @@ import javafx.util.Callback;
 import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.EmployeeBO;
 import lk.ijse.cafe_au_lait.bo.custom.SalaryBO;
-import lk.ijse.cafe_au_lait.dto.CustomerDTO;
 import lk.ijse.cafe_au_lait.dto.SalaryDTO;
 import lk.ijse.cafe_au_lait.view.tdm.SalaryTM;
-import lk.ijse.cafe_au_lait.model.EmployeeModel;
-import lk.ijse.cafe_au_lait.model.SalaryModel;
 import lk.ijse.cafe_au_lait.util.DataValidateController;
 import lk.ijse.cafe_au_lait.util.NotificationController;
 
@@ -134,7 +131,7 @@ public class AdminSalaryController {
                     payamentTxt.setText("");
                     overTimeTxt.setText("");
                     getAll();
-                    NotificationController.animationMesseage("/assets/tick.gif", "Delete",
+                    NotificationController.animationMesseage("/assets/images/tick.gif", "Delete",
                             "Salary Deleted sucessfully !!");
                 }
             }
@@ -205,7 +202,7 @@ public class AdminSalaryController {
                     payamentTxt.setText("");
                     overTimeTxt.setText("");
                     getAll();
-                    NotificationController.animationMesseage("/assets/tick.gif", "Saved",
+                    NotificationController.animationMesseage("/assets/images/tick.gif", "Saved",
                             "Salary Added sucessfully !!");
                 }
             } catch (SQLIntegrityConstraintViolationException throwables) {
@@ -289,7 +286,7 @@ public class AdminSalaryController {
                     payamentTxt.setText("");
                     overTimeTxt.setText("");
                     getAll();
-                    NotificationController.animationMesseage("/assets/tick.gif", "Update",
+                    NotificationController.animationMesseage("/assets/images/tick.gif", "Update",
                             "Salary Updated sucessfully !!");
 
                 }

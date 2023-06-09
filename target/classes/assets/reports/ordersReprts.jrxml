@@ -73,7 +73,7 @@
 			</staticText>
 			<image>
 				<reportElement x="-17" y="-17" width="44" height="37" uuid="f9fede57-f628-4366-bba5-52cefa483ea8"/>
-				<imageExpression><![CDATA["/home/kaveen/Music/cafe-managment-system/src/main/resources/assets/icons8-coffee-cup-65.png"]]></imageExpression>
+				<imageExpression><![CDATA["src/main/resources/assets/images/icons8-coffee-cup-65.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="-15" y="25" width="169" height="40" uuid="ebc98814-9a99-4e6b-afc3-a948b0e5d9b3"/>

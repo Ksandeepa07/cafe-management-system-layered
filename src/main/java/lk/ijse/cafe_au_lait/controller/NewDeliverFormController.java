@@ -13,8 +13,6 @@ import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.PlaceOrderBO;
 import lk.ijse.cafe_au_lait.bo.custom.impl.PlaceOrderBOImpl;
 import lk.ijse.cafe_au_lait.dto.DeliveryDTO;
-import lk.ijse.cafe_au_lait.model.OrderModel;
-import lk.ijse.cafe_au_lait.model.PlaceOrderModel;
 
 import java.net.URL;
 import java.sql.SQLException;

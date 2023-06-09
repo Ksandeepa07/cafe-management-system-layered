@@ -26,7 +26,7 @@ public class NotificationController {
         alert.getDialogPane().setHeaderText(null);
 
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image("/assets/error.png"));
+        stage.getIcons().add(new Image("/assets/images/error.png"));
         ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
         alert.getButtonTypes().setAll(cancelButton);
 
@@ -58,7 +58,7 @@ public class NotificationController {
         alert.getDialogPane().setHeaderText(null);
 
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image("/assets/error.png"));
+        stage.getIcons().add(new Image("/assets/images/error.png"));
         ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.CANCEL_CLOSE);
         ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
 

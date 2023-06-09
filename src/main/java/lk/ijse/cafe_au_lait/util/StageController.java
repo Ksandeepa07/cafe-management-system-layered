@@ -28,7 +28,6 @@ public class StageController {
         Parent load = null;
         try {
             load = FXMLLoader.load(StageController.class.getResource(String.valueOf(fxml)));
-            System.out.println(load);
         } catch (IOException e) {
             e.printStackTrace();
         }

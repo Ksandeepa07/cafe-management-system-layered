@@ -16,9 +16,7 @@ import javafx.util.Duration;
 import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.HomeBO;
 import lk.ijse.cafe_au_lait.dto.EventDTO;
-import lk.ijse.cafe_au_lait.model.CustomerModel;
-import lk.ijse.cafe_au_lait.model.EventModel;
-import lk.ijse.cafe_au_lait.model.OrderModel;
+
 import lk.ijse.cafe_au_lait.util.StageController;
 
 import java.net.URL;

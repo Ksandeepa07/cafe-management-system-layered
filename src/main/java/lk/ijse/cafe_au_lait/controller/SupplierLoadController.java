@@ -191,7 +191,7 @@ public class SupplierLoadController {
         try {
             boolean isPlaced = supplierLoadBO.PlaceSupplyLoadOrder(new SupplyLoadDTO(supId, supLoadId, payment, data));
             if (isPlaced) {
-                NotificationController.animationMesseage("/assets/tick.gif", "Supply Load", "Supply load added sucessfully!!");
+                NotificationController.animationMesseage("/assets/images/tick.gif", "Supply Load", "Supply load added sucessfully!!");
                 netTotall.setText("");
                 itemName.setText("");
                 category.setText("");

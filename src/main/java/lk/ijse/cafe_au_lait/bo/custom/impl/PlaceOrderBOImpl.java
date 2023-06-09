@@ -6,7 +6,6 @@ import lk.ijse.cafe_au_lait.dao.custom.*;
 import lk.ijse.cafe_au_lait.db.DBConnection;
 import lk.ijse.cafe_au_lait.dto.*;
 import lk.ijse.cafe_au_lait.entity.*;
-import lk.ijse.cafe_au_lait.model.OrderModel;
 import lk.ijse.cafe_au_lait.view.tdm.CartTM;
 
 import java.sql.Connection;
@@ -89,7 +88,6 @@ public class PlaceOrderBOImpl implements PlaceOrderBO {
             //delivery insert
 
             if (ordersDTO.getDelivery().equals("Yes")) {
-                System.out.println("pakaya");
                 System.out.println(deliveryDTO.getLocation());
                 boolean isdeliverd =deliveryDAO.save(new Delivery(deliveryDTO.getDeliverId(),deliveryDTO.getLocation(),deliveryDTO.getOrderId(),deliveryDTO.getEmpId()));
                 if (!isdeliverd) {

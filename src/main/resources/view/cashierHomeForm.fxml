@@ -14,11 +14,11 @@
    <children>
       <ImageView fitHeight="705.0" fitWidth="1166.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/adminHome.png" />
+            <Image url="@../assets/images/adminHome.png" />
          </image>
       </ImageView>
-      <PieChart fx:id="pieChart" layoutX="754.0" layoutY="365.0" prefHeight="323.0" prefWidth="390.0" style="-fx-border-width: 0;" styleClass="chart-pie" stylesheets="@../style/style.css" />
-      <LineChart fx:id="lineChart" layoutX="31.0" layoutY="365.0" prefHeight="323.0" prefWidth="666.0" styleClass="chart-series-line" stylesheets="@../style/style.css">
+      <PieChart fx:id="pieChart" layoutX="754.0" layoutY="365.0" prefHeight="323.0" prefWidth="390.0" style="-fx-border-width: 0;" styleClass="chart-pie" stylesheets="@../assets/style/style.css" />
+      <LineChart fx:id="lineChart" layoutX="31.0" layoutY="365.0" prefHeight="323.0" prefWidth="666.0" styleClass="chart-series-line" stylesheets="@../assets/style/style.css">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -26,7 +26,7 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </LineChart>
-      <AnchorPane layoutX="31.0" layoutY="36.0" prefHeight="166.0" prefWidth="172.0" styleClass="dashBoardAnchorPane" stylesheets="@../style/style.css">
+      <AnchorPane layoutX="31.0" layoutY="36.0" prefHeight="166.0" prefWidth="172.0" styleClass="dashBoardAnchorPane" stylesheets="@../assets/style/style.css">
          <children>
             <Label layoutX="18.0" layoutY="69.0" prefHeight="30.0" prefWidth="133.0" text="Total Customers" textFill="#7b3927">
                <font>
@@ -41,11 +41,11 @@
             </Label>
             <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="53.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/employeeIcon.png" />
+                  <Image url="@../assets/images/employeeIcon.png" />
                </image>
             </ImageView>
          </children></AnchorPane>
-      <AnchorPane layoutX="268.0" layoutY="34.0" prefHeight="166.0" prefWidth="172.0" styleClass="dashBoardAnchorPane" stylesheets="@../style/style.css">
+      <AnchorPane layoutX="268.0" layoutY="34.0" prefHeight="166.0" prefWidth="172.0" styleClass="dashBoardAnchorPane" stylesheets="@../assets/style/style.css">
          <children>
             <Label layoutX="35.0" layoutY="70.0" prefHeight="30.0" prefWidth="113.0" text="Today Orders" textFill="#7b3927">
                <font>
@@ -59,7 +59,7 @@
             </Label>
             <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="61.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/orderIcon.png" />
+                  <Image url="@../assets/images/orderIcon.png" />
                </image>
             </ImageView>
          </children></AnchorPane>
@@ -68,7 +68,7 @@
             <Font name="Times New Roman Bold" size="30.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="507.0" layoutY="36.0" prefHeight="166.0" prefWidth="172.0" styleClass="dashBoardAnchorPane" stylesheets="@../style/style.css">
+      <AnchorPane layoutX="507.0" layoutY="36.0" prefHeight="166.0" prefWidth="172.0" styleClass="dashBoardAnchorPane" stylesheets="@../assets/style/style.css">
          <children>
             <Label layoutX="36.0" layoutY="66.0" prefHeight="30.0" prefWidth="113.0" text="Today Income" textFill="#7b3927">
                <font>
@@ -82,10 +82,10 @@
             </Label>
             <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="62.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/cash.png" />
+                  <Image url="@../assets/images/cash.png" />
                </image>
             </ImageView>
          </children></AnchorPane>
-      <AnchorPane layoutX="33.0" layoutY="237.0" prefHeight="112.0" prefWidth="1113.0" style="-fx-background-radius: 10;" styleClass="dashBoardAnchorPane" stylesheets="@../style/style.css" />
+      <AnchorPane layoutX="33.0" layoutY="237.0" prefHeight="112.0" prefWidth="1113.0" style="-fx-background-radius: 10;" styleClass="dashBoardAnchorPane" stylesheets="@../assets/style/style.css" />
    </children>
 </AnchorPane>

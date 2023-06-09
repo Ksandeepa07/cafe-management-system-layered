@@ -15,7 +15,7 @@
    <children>
       <ImageView fitHeight="705.0" fitWidth="1179.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/adminHome.png" />
+            <Image url="@../assets/images/adminHome.png" />
          </image>
       </ImageView>
       <Group fx:id="customerGroup" visible="false">
@@ -42,7 +42,7 @@
             </Label>
          </children>
       </Group>
-      <TableView fx:id="tblCheckOrders" layoutX="36.0" layoutY="244.0" onMousePressed="#tblClick" prefHeight="404.0" prefWidth="1087.0" stylesheets="@../style/style.css">
+      <TableView fx:id="tblCheckOrders" layoutX="36.0" layoutY="244.0" onMousePressed="#tblClick" prefHeight="404.0" prefWidth="1087.0" stylesheets="@../assets/style/style.css">
          <columns>
             <TableColumn fx:id="colOderId" prefWidth="169.0" text="Order Id" />
             <TableColumn fx:id="colCustomerId" prefWidth="213.0" text="Customer Id" />
@@ -52,10 +52,10 @@
             <TableColumn fx:id="colDelivery" prefWidth="199.0" text="Delivery" />
          </columns>
       </TableView>
-      <TextField fx:id="searchIdTxt" layoutX="916.0" layoutY="42.0" onKeyTyped="#searchTable" prefHeight="25.0" prefWidth="192.0" promptText="search by order Id" styleClass="searchBar" stylesheets="@../style/style.css" />
+      <TextField fx:id="searchIdTxt" layoutX="916.0" layoutY="42.0" onKeyTyped="#searchTable" prefHeight="25.0" prefWidth="192.0" promptText="search by order Id" styleClass="searchBar" stylesheets="@../assets/style/style.css" />
       <ImageView fx:id="searchIcon" fitHeight="25.0" fitWidth="28.0" layoutX="1070.0" layoutY="47.0" onMouseClicked="#searchIconClick" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/icons8-search-64.png" />
+            <Image url="@../assets/images/icons8-search-64.png" />
          </image>
       </ImageView>
       <JFXButton fx:id="backBtn" buttonType="RAISED" layoutX="1036.0" layoutY="665.0" onAction="#backBtnClick" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: #7B3927;" text="Back" textFill="#dfa47e">
@@ -63,10 +63,10 @@
             <Font name="Times New Roman Bold" size="14.0" />
          </font>
       </JFXButton>
-      <TextField fx:id="searchCustId" layoutX="685.0" layoutY="42.0" onKeyTyped="#searchTableByCustId" prefHeight="25.0" prefWidth="192.0" promptText="search by customerDTO Id" styleClass="searchBar" stylesheets="@../style/style.css" />
+      <TextField fx:id="searchCustId" layoutX="685.0" layoutY="42.0" onKeyTyped="#searchTableByCustId" prefHeight="25.0" prefWidth="192.0" promptText="search by customerDTO Id" styleClass="searchBar" stylesheets="@../assets/style/style.css" />
       <ImageView fx:id="searchIconCustomer" fitHeight="25.0" fitWidth="28.0" layoutX="845.0" layoutY="47.0" onMouseClicked="#searchIconCustomerClick" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/icons8-search-64.png" />
+            <Image url="@../assets/images/icons8-search-64.png" />
          </image>
       </ImageView>
       <Group fx:id="dateGroup" layoutX="44.0" layoutY="108.0">
@@ -83,10 +83,10 @@
             </Label>
          </children>
       </Group>
-      <TextField fx:id="searchByOrderDate" layoutX="451.0" layoutY="42.0" onKeyTyped="#searchTableByorderDate" prefHeight="25.0" prefWidth="192.0" promptText="search by order Date" styleClass="searchBar" stylesheets="@../style/style.css" />
+      <TextField fx:id="searchByOrderDate" layoutX="451.0" layoutY="42.0" onKeyTyped="#searchTableByorderDate" prefHeight="25.0" prefWidth="192.0" promptText="search by order Date" styleClass="searchBar" stylesheets="@../assets/style/style.css" />
       <ImageView fx:id="searchIconDate" fitHeight="25.0" fitWidth="28.0" layoutX="609.0" layoutY="47.0" onMouseClicked="#searchIconClickDate" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/icons8-search-64.png" />
+            <Image url="@../assets/images/icons8-search-64.png" />
          </image>
       </ImageView>
    </children>

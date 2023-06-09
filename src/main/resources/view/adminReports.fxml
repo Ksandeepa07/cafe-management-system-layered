@@ -10,7 +10,7 @@
    <children>
       <ImageView fitHeight="705.0" fitWidth="1166.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/adminHome.png" />
+            <Image url="@../assets/images/adminHome.png" />
          </image>
       </ImageView>
       <JFXButton fx:id="supplierLoadDetailsBtn" buttonType="RAISED" layoutX="123.0" layoutY="101.0" onAction="#supplierLoadDetailsBtnClick" prefHeight="49.0" prefWidth="325.0" style="-fx-background-color: #7B3927;" text="Supply Load Details" textFill="#dfa47e">

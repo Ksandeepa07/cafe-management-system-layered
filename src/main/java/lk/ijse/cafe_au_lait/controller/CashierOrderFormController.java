@@ -16,9 +16,6 @@ import lk.ijse.cafe_au_lait.bo.custom.PlaceOrderBO;
 import lk.ijse.cafe_au_lait.db.DBConnection;
 import lk.ijse.cafe_au_lait.dto.*;
 import lk.ijse.cafe_au_lait.view.tdm.CartTM;
-import lk.ijse.cafe_au_lait.model.CustomerModel;
-import lk.ijse.cafe_au_lait.model.OrderModel;
-import lk.ijse.cafe_au_lait.model.PlaceOrderModel;
 import lk.ijse.cafe_au_lait.util.*;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
@@ -314,11 +311,11 @@ public class CashierOrderFormController {
             try {
                 boolean isPlaced = placeOrderBO.placeOrder(ordersDTO);
                 if (isPlaced) {
-                    NotificationController.animationMesseage("/assets/tick.gif", "placed", "Order Placed" +
+                    NotificationController.animationMesseage("/assets/images/tick.gif", "placed", "Order Placed" +
                             "sucessfully!!");
-                    InputStream resource = this.getClass().getResourceAsStream("/reports/orderPaymentBill.jrxml");
+                    InputStream resource = this.getClass().getResourceAsStream("/assets/reports/orderPaymentBill.jrxml");
                     try {
-                        String outputFilePath = "/home/kaveen/Music/cafe-managment-system/src/main/resources/generated bills/output.pdf";
+                        String outputFilePath = "/home/kaveen/Music/git/cafe-management-system-layered/src/main/resources/assets/generated bills/output.pdf";
                         JasperReport jasperReport = JasperCompileManager.compileReport(resource);
                         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, DBConnection.getInstance().getConnection());
                         JasperViewer.viewReport(jasperPrint, false);

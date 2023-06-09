@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.ForgotPasswordBO;
 import lk.ijse.cafe_au_lait.dto.UserDTO;
-import lk.ijse.cafe_au_lait.model.UserModel;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
@@ -80,7 +79,7 @@ public class ForgotPasswordController {
                     otp = random.nextInt(9000);
                     otp += 1000;
                     EmailController.sendEmail(Emailtxtt.getText(), "cafe au lait verification", otp + "");
-                    NotificationController.animationMesseage("/assets/tik.png", "otp", "OTP sent " +
+                    NotificationController.animationMesseage("/assets/images/tik.png", "otp", "OTP sent " +
                             "sucessfully");
                     AnimationController.updateTime(sendCodeBtn, countLbl);
                 } catch (MessagingException e) {
@@ -128,7 +127,7 @@ public class ForgotPasswordController {
 
             boolean isSavd = forgotPasswordBO.updateUserPassword(new UserDTO(usernamee,password,email,jobTitle));
             if (isSavd) {
-                NotificationController.animationMesseage("/assets/tik.png", "OTP",
+                NotificationController.animationMesseage("/assets/images/tik.png", "OTP",
                         "Password change sucessfully");
                 recoveryAnchorpane.getScene().getWindow().hide();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/loginPage.fxml"));

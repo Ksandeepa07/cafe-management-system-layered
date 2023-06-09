@@ -15,7 +15,7 @@
    <children>
       <ImageView fitHeight="705.0" fitWidth="1175.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/adminHome.png" />
+            <Image url="@../assets/images/adminHome.png" />
          </image>
       </ImageView>
       <Label layoutX="37.0" layoutY="51.0" text="Supplier Id          : " textFill="#7b3927">
@@ -38,7 +38,7 @@
             <Font name="Times New Roman Bold" size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="tblSupplyLoads" layoutX="36.0" layoutY="364.0" onMousePressed="#tblClick" prefHeight="270.0" prefWidth="1087.0" stylesheets="@../style/style.css">
+      <TableView fx:id="tblSupplyLoads" layoutX="36.0" layoutY="364.0" onMousePressed="#tblClick" prefHeight="270.0" prefWidth="1087.0" stylesheets="@../assets/style/style.css">
          <columns>
             <TableColumn fx:id="colId" prefWidth="174.0" text="Item Id" />
             <TableColumn fx:id="colName" prefWidth="202.0" text="Item Name" />
@@ -116,7 +116,7 @@
             <Font name="Times New Roman Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="quantity" layoutX="893.0" layoutY="236.0" prefHeight="34.0" prefWidth="135.0" styleClass="qtyTxtField" stylesheets="@../style/style.css">
+      <TextField fx:id="quantity" layoutX="893.0" layoutY="236.0" prefHeight="34.0" prefWidth="135.0" styleClass="qtyTxtField" stylesheets="@../assets/style/style.css">
          <font>
             <Font name="Agency FB Bold" size="20.0" />
          </font>
@@ -137,10 +137,10 @@
       </JFXButton>
       <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="51.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/add.png" />
+            <Image url="@../assets/images/add.png" />
          </image>
       </ImageView>
-      <TextField fx:id="netTotall" layoutX="168.0" layoutY="642.0" styleClass="dashBoardTextField" stylesheets="@../style/style.css" />
+      <TextField fx:id="netTotall" layoutX="168.0" layoutY="642.0" styleClass="dashBoardTextField" stylesheets="@../assets/style/style.css" />
       <Label fx:id="supplyLoadTxt" layoutX="572.0" layoutY="50.0" prefHeight="23.0" prefWidth="161.0" textFill="#7b3927">
          <font>
             <Font name="Times New Roman Bold" size="20.0" />
@@ -153,7 +153,7 @@
       </JFXButton>
       <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="205.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/details.png" />
+            <Image url="@../assets/images/details.png" />
          </image>
       </ImageView>
       <Label fx:id="supplyQtyError" layoutX="896.0" layoutY="272.0" prefHeight="17.0" prefWidth="135.0" text="This filed can't be empty" textFill="#7b3927">
@@ -161,8 +161,8 @@
             <Font name="Times New Roman Bold Italic" size="13.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="itemId" focusColor="RED" layoutX="893.0" layoutY="49.0" onAction="#itemIdClick" prefHeight="25.0" prefWidth="143.0" styleClass="firstComboBox" stylesheets="@../style/style.css" unFocusColor="#7b3927" />
-      <JFXComboBox fx:id="supplierId" focusColor="RED" layoutX="181.0" layoutY="45.0" onAction="#supllierIdClick" prefHeight="25.0" prefWidth="143.0" styleClass="firstComboBox" stylesheets="@../style/style.css" unFocusColor="#7b3927" />
+      <JFXComboBox fx:id="itemId" focusColor="RED" layoutX="893.0" layoutY="49.0" onAction="#itemIdClick" prefHeight="25.0" prefWidth="143.0" styleClass="firstComboBox" stylesheets="@../assets/style/style.css" unFocusColor="#7b3927" />
+      <JFXComboBox fx:id="supplierId" focusColor="RED" layoutX="181.0" layoutY="45.0" onAction="#supllierIdClick" prefHeight="25.0" prefWidth="143.0" styleClass="firstComboBox" stylesheets="@../assets/style/style.css" unFocusColor="#7b3927" />
       <Label fx:id="itemIdError" layoutX="893.0" layoutY="77.0" prefHeight="17.0" prefWidth="135.0" text="This filed can't be empty" textFill="#7b3927">
          <font>
             <Font name="Times New Roman Bold Italic" size="13.0" />
@@ -170,12 +170,12 @@
       </Label>
       <ImageView fitHeight="34.0" fitWidth="24.0" layoutX="1016.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/cart.png" />
+            <Image url="@../assets/images/cart.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="34.0" fitWidth="24.0" layoutX="1009.0" layoutY="662.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/placeOrder.png" />
+            <Image url="@../assets/images/placeOrder.png" />
          </image>
       </ImageView>
    </children>

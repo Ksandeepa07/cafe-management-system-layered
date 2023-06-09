@@ -28,7 +28,6 @@ import lk.ijse.cafe_au_lait.dto.EventDTO;
 import lk.ijse.cafe_au_lait.dto.EventImageDTO;
 import lk.ijse.cafe_au_lait.entity.Event;
 import lk.ijse.cafe_au_lait.entity.EventImage;
-import lk.ijse.cafe_au_lait.model.EventModel;
 
 public class EventImageController {
 

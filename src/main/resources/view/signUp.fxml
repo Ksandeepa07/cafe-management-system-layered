@@ -15,17 +15,17 @@
    <children>
       <ImageView disable="true" fitHeight="415.0" fitWidth="743.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/sign.png" />
+            <Image url="@../assets/images/sign.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="44.0" layoutY="9.0" prefHeight="383.0" prefWidth="285.0" styleClass="loginForm" stylesheets="@../style/style.css">
+      <AnchorPane layoutX="44.0" layoutY="9.0" prefHeight="383.0" prefWidth="285.0" styleClass="loginForm" stylesheets="@../assets/style/style.css">
          <children>
-            <TextField fx:id="usernameTxt" focusTraversable="false" layoutX="64.0" layoutY="161.0" onKeyTyped="#usernameKeyTypeds" prefHeight="25.0" prefWidth="202.0" promptText="Username" styleClass="userNameField" stylesheets="@../style/style.css">
+            <TextField fx:id="usernameTxt" focusTraversable="false" layoutX="64.0" layoutY="161.0" onKeyTyped="#usernameKeyTypeds" prefHeight="25.0" prefWidth="202.0" promptText="Username" styleClass="userNameField" stylesheets="@../assets/style/style.css">
                <font>
                   <Font name="Times New Roman Bold" size="14.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="passwordTxt" focusTraversable="false" layoutX="64.0" layoutY="218.0" onKeyTyped="#passwordKeyTyped" prefHeight="25.0" prefWidth="202.0" promptText="Password" styleClass="userNameField" stylesheets="@../style/style.css">
+            <PasswordField fx:id="passwordTxt" focusTraversable="false" layoutX="64.0" layoutY="218.0" onKeyTyped="#passwordKeyTyped" prefHeight="25.0" prefWidth="202.0" promptText="Password" styleClass="userNameField" stylesheets="@../assets/style/style.css">
                <font>
                   <Font name="Times New Roman Bold" size="14.0" />
                </font>
@@ -42,7 +42,7 @@
             </ImageView>
             <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="19.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/icons8-lock.png" />
+                  <Image url="@../assets/images/icons8-lock.png" />
                </image>
             </ImageView>
             <JFXButton fx:id="signBtn" buttonType="RAISED" layoutX="181.0" layoutY="319.0" onAction="#signClick" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: #dfa47e; -fx-background-radius: 10;" text="Sign up" textFill="#7b3927">
@@ -55,27 +55,27 @@
                   <Font name="Times New Roman Bold" size="14.0" />
                </font>
             </Hyperlink>
-            <TextField fx:id="emailTxt" focusTraversable="false" layoutX="64.0" layoutY="105.0" onKeyTyped="#emailKeyTyped" prefHeight="25.0" prefWidth="202.0" promptText="E-mail" styleClass="userNameField" stylesheets="@../style/style.css">
+            <TextField fx:id="emailTxt" focusTraversable="false" layoutX="64.0" layoutY="105.0" onKeyTyped="#emailKeyTyped" prefHeight="25.0" prefWidth="202.0" promptText="E-mail" styleClass="userNameField" stylesheets="@../assets/style/style.css">
                <font>
                   <Font name="Times New Roman Bold" size="14.0" />
                </font>
             </TextField>
             <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="19.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/icons8-mail-48.png" />
+                  <Image url="@../assets/images/icons8-mail-48.png" />
                </image>
             </ImageView>
-            <PasswordField fx:id="confirmPassword" focusTraversable="false" layoutX="59.0" layoutY="266.0" prefHeight="25.0" prefWidth="202.0" promptText="Confirm Password" styleClass="userNameField" stylesheets="@../style/style.css">
+            <PasswordField fx:id="confirmPassword" focusTraversable="false" layoutX="59.0" layoutY="266.0" prefHeight="25.0" prefWidth="202.0" promptText="Confirm Password" styleClass="userNameField" stylesheets="@../assets/style/style.css">
                <font>
                   <Font name="Times New Roman Bold" size="14.0" />
                </font>
             </PasswordField>
             <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/icons8-confirm-48.png" />
+                  <Image url="@../assets/images/icons8-confirm-48.png" />
                </image>
             </ImageView>
-            <ComboBox fx:id="jobTitlte" layoutX="63.0" layoutY="61.0" prefWidth="150.0" promptText="Admin" styleClass="secondComboBox" stylesheets="@../style/style.css" />
+            <ComboBox fx:id="jobTitlte" layoutX="63.0" layoutY="61.0" prefWidth="150.0" promptText="Admin" styleClass="secondComboBox" stylesheets="@../assets/style/style.css" />
          </children>
       </AnchorPane>
    </children>

@@ -14,11 +14,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import jfxtras.scene.control.LocalTimeTextField;
 import lk.ijse.cafe_au_lait.bo.BOFactory;
-import lk.ijse.cafe_au_lait.bo.custom.EmployeeBO;
 import lk.ijse.cafe_au_lait.bo.custom.EventBO;
 import lk.ijse.cafe_au_lait.dto.EventDTO;
 import lk.ijse.cafe_au_lait.view.tdm.EventTM;
-import lk.ijse.cafe_au_lait.model.EventModel;
 import lk.ijse.cafe_au_lait.util.DataValidateController;
 import lk.ijse.cafe_au_lait.util.NotificationController;
 import lk.ijse.cafe_au_lait.util.StageController;
@@ -137,7 +135,7 @@ public class CashierEventController {
                 timeIcon.setVisible(false);
                 eventIdIcon.setVisible(false);
                 getAll();
-                NotificationController.animationMesseage("/assets/tick.gif", "Delete",
+                NotificationController.animationMesseage("/assets/images/tick.gif", "Delete",
                         "Event Deleted sucessfully !!");
                 idTxt.setValue(null);
                 eventIdTxt.setText("");
@@ -192,7 +190,7 @@ public class CashierEventController {
                 eventTypeTxt.setText("");
                 eventDateTxt.setValue(null);
                 eventTimeTxt.setLocalTime(null);
-                NotificationController.animationMesseage("/assets/tick.gif", "Saved",
+                NotificationController.animationMesseage("/assets/images/tick.gif", "Saved",
                         "Event Added sucessfully !!");
             }
 
@@ -315,7 +313,7 @@ public class CashierEventController {
                     eventTimeTxt.setLocalTime(null);
 
                     getAll();
-                    NotificationController.animationMesseage("/assets/tick.gif", "Update",
+                    NotificationController.animationMesseage("/assets/images/tick.gif", "Update",
                             "Event Updated sucessfully !!");
                 }
             }

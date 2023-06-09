@@ -12,12 +12,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.cafe_au_lait.bo.BOFactory;
-import lk.ijse.cafe_au_lait.bo.SuperBO;
 import lk.ijse.cafe_au_lait.bo.custom.SupplierBO;
 import lk.ijse.cafe_au_lait.dto.SupplierDTO;
-import lk.ijse.cafe_au_lait.entity.Supplier;
 import lk.ijse.cafe_au_lait.view.tdm.SupplierTM;
-import lk.ijse.cafe_au_lait.model.SupplierModel;
 import lk.ijse.cafe_au_lait.util.DataValidateController;
 import lk.ijse.cafe_au_lait.util.NotificationController;
 
@@ -140,7 +137,7 @@ public class AdminSupplierController {
                     contactTxt.setText(" ");
                     emailTxt.setText(" ");
                     getAll();
-                    NotificationController.animationMesseage("/assets/tick.gif", "Delete",
+                    NotificationController.animationMesseage("/assets/images/tick.gif", "Delete",
                             "Supplier Deleted sucessfully !!");
                 }
             }
@@ -178,7 +175,7 @@ public class AdminSupplierController {
                             emailIcon.setVisible(false);
                             contactIcon.setVisible(false);
                             getAll();
-                            NotificationController.animationMesseage("/assets/tick.gif", "Saved",
+                            NotificationController.animationMesseage("/assets/images/tick.gif", "Saved",
                                     "Supplier Added sucessfully !!");
 
                         }
@@ -263,7 +260,7 @@ public class AdminSupplierController {
                                 contactIcon.setVisible(false);
 
                                 getAll();
-                                NotificationController.animationMesseage("/assets/tick.gif", "Update",
+                                NotificationController.animationMesseage("/assets/images/tick.gif", "Update",
                                         "Suplier Updated sucessfully !!");
                             }
                         } catch (SQLException throwables) {

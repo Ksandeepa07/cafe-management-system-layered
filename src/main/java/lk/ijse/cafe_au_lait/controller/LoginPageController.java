@@ -16,7 +16,6 @@ import javafx.util.Duration;
 import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.LoginBO;
 import lk.ijse.cafe_au_lait.dto.UserDTO;
-import lk.ijse.cafe_au_lait.model.UserModel;
 import lk.ijse.cafe_au_lait.util.AnimationController;
 import lk.ijse.cafe_au_lait.util.NotificationController;
 import lk.ijse.cafe_au_lait.util.StageController;
@@ -109,7 +108,7 @@ public class LoginPageController {
         }
         try{
             if (passwordTxt.getText().equals(password) && selectJob.equals(jobTitle) && selectJob.equals("Cashier")) {
-                NotificationController.animationMesseage("/assets/tick.gif", "Login",
+                NotificationController.animationMesseage("/assets/images/tick.gif", "Login",
                         "Login succesfull !!");
                 Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
                     loginBtn.getScene().getWindow().hide();
@@ -119,7 +118,7 @@ public class LoginPageController {
                 }));
                 timeline.play();
             } else if (passwordTxt.getText().equals(password) && selectJob.equals(jobTitle) && selectJob.equals("Admin")) {
-                NotificationController.animationMesseage("/assets/tick.gif", "Login", "Login " +
+                NotificationController.animationMesseage("/assets/images/tick.gif", "Login", "Login " +
                         "succesfull !!");
                 NotificationController.notificationBar("login","Login Sucessfull!");
 
@@ -190,7 +189,7 @@ public class LoginPageController {
                 passwordTxt.setStyle("-fx-border-color: red; -fx-border-width: 0 0 3 0;");
 
             } else {
-                NotificationController.animationMesseage("/assets/error.png", "Error",
+                NotificationController.animationMesseage("/assets/images/error.png", "Error",
                         "Invalid details ");
                 invlidLbl.setText("Invalid details");
                 invlidLbl1.setText("Invalid details");

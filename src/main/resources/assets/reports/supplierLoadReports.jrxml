@@ -95,7 +95,7 @@
 			</staticText>
 			<image>
 				<reportElement x="-17" y="-17" width="44" height="37" uuid="0ee4d358-02dc-4f8d-bf4f-e6578c169836"/>
-				<imageExpression><![CDATA["/home/kaveen/Music/cafe-managment-system/src/main/resources/assets/icons8-coffee-cup-65.png"]]></imageExpression>
+				<imageExpression><![CDATA["src/main/resources/assets/images/icons8-coffee-cup-65.png"]]></imageExpression>
 			</image>
 			<textField pattern="MMMMM dd, yyyy">
 				<reportElement x="707" y="-16" width="106" height="30" uuid="c6d03d0d-f3aa-4f74-a73d-75b96972dfba"/>

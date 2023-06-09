@@ -14,8 +14,6 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.CustomerBO;
 import lk.ijse.cafe_au_lait.dto.CustomerDTO;
-import lk.ijse.cafe_au_lait.entity.Customer;
-import lk.ijse.cafe_au_lait.model.CustomerModel;
 import lk.ijse.cafe_au_lait.view.tdm.CustomerTM;
 import lk.ijse.cafe_au_lait.util.DataValidateController;
 import lk.ijse.cafe_au_lait.util.NotificationController;
@@ -112,7 +110,7 @@ public class CashierCustomerController {
                     emailTxt.setText("");
                     clear();
                     getAll();
-                    NotificationController.animationMesseage("/assets/tick.gif", "Delete",
+                    NotificationController.animationMesseage("/assets/images/tick.gif", "Delete",
                             "Customer Deleted sucessfully !!");
                 }
             }
@@ -155,7 +153,7 @@ public class CashierCustomerController {
             custNameIcon.setVisible(false);
             custEmailIcon.setVisible(false);
             custContactIcon.setVisible(false);
-            NotificationController.animationMesseage("/assets/tick.gif", "Saved",
+            NotificationController.animationMesseage("/assets/images/tick.gif", "Saved",
                     "Customer Added sucessfully !!");
 
         }
@@ -282,7 +280,7 @@ public class CashierCustomerController {
                     custContactIcon.setVisible(false);
 
                     getAll();
-                    NotificationController.animationMesseage("/assets/tick.gif", "Update",
+                    NotificationController.animationMesseage("/assets/images/tick.gif", "Update",
                             "customer Updated sucessfully !!");
                 }
             }
@@ -314,9 +312,10 @@ public class CashierCustomerController {
     }
 
     void getAll() {
-        tblCustomer.getItems().clear();
+
         try {
             ArrayList<CustomerDTO> customerData = customerBO.getAllCustomers();
+            tblCustomer.getItems().clear();
             for (CustomerDTO customerDatum : customerData) {
                 tblCustomer.getItems().add(new CustomerTM(customerDatum.getCustId(),customerDatum.getCustName(),customerDatum.getCustContact(),customerDatum.getCustEmail()));
             }
