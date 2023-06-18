@@ -298,6 +298,7 @@ public class AdminSalaryController {
     }
 
     void getAll() {
+        tbllsalary.getItems().clear();
         try {
             ArrayList<SalaryDTO> salaryData = salaryBO.getAllSalary();
             for (SalaryDTO salaryDatum : salaryData) {

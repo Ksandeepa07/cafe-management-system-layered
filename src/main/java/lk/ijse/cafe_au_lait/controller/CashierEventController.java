@@ -340,8 +340,7 @@ public class CashierEventController {
     }
 
     void getAll()  {
-
-
+        tblEvent.getItems().clear();
         try {
             ArrayList<EventDTO> eventData = eventBO.getAllEvent();
             for (EventDTO eventDatum : eventData) {

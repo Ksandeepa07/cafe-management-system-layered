@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class SalaryBOImpl implements SalaryBO<SalaryDTO,String> {
     SalaryDAO salaryDAO= DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.SALARY);
     EmployeeDAO employeeDAO=DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.EMPLOYEE);
-    ArrayList<SalaryDTO> salaryData=new ArrayList<>();
+
     @Override
     public boolean saveSalary(SalaryDTO salaryDTO) throws SQLException {
         return salaryDAO.save(new Salary(salaryDTO.getEmpId(),salaryDTO.getSalaryId(),salaryDTO.getPaymentMethod(),salaryDTO.getPayment(),salaryDTO.getOverTime()));
@@ -21,6 +21,7 @@ public class SalaryBOImpl implements SalaryBO<SalaryDTO,String> {
 
     @Override
     public ArrayList<SalaryDTO> getAllSalary() throws SQLException {
+        ArrayList<SalaryDTO> salaryData=new ArrayList<>();
         ArrayList<Salary> load=salaryDAO.getAll();
         for (Salary salary : load) {
             salaryData.add(new SalaryDTO(salary.getEmpId(),salary.getSalaryId(),salary.getSalaryPaymentMethod(),salary.getSalaryPayment(),salary.getSalaryOt()));

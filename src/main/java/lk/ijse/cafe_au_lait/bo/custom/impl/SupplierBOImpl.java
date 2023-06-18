@@ -11,14 +11,14 @@ import java.util.ArrayList;
 
 public class SupplierBOImpl implements SupplierBO<SupplierDTO,String> {
     SupplierDAO supplierDAO= DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.SUPPLIER);
-    ArrayList<SupplierDTO> supplierData=new ArrayList<>();
-    @Override
+     @Override
     public boolean saveSupplier(SupplierDTO supplierDTO) throws SQLException {
         return supplierDAO.save(new Supplier(supplierDTO.getId(),supplierDTO.getName(),supplierDTO.getContact(),supplierDTO.getAddress(),supplierDTO.getEmail()));
     }
 
     @Override
     public ArrayList<SupplierDTO> getAllSuppliers() throws SQLException {
+        ArrayList<SupplierDTO> supplierData=new ArrayList<>();
         ArrayList<Supplier> load=supplierDAO.getAll();
         for (Supplier supplier : load) {
             supplierData.add(new SupplierDTO(supplier.getId(),supplier.getName(),supplier.getContact(),supplier.getAddress(),supplier.getEmail()));

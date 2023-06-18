@@ -11,8 +11,7 @@ import java.util.ArrayList;
 
 public class CustomerBOImpl implements CustomerBO<CustomerDTO,String > {
     CustomerDAO customerDAO= DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.CUSTOMER);
-    ArrayList<CustomerDTO> customerData=new ArrayList<>();
-    @Override
+     @Override
     public boolean saveCustomer(CustomerDTO customerDTO) throws SQLException {
         return customerDAO.save(new Customer(customerDTO.getCustId(),customerDTO.getCustName(),customerDTO.getCustContact(),customerDTO.getCustEmail()));
 
@@ -20,10 +19,13 @@ public class CustomerBOImpl implements CustomerBO<CustomerDTO,String > {
 
     @Override
     public ArrayList<CustomerDTO> getAllCustomers() throws SQLException {
+        ArrayList<CustomerDTO> customerData=new ArrayList<>();
+
         ArrayList<Customer>load= customerDAO.getAll();
         for (Customer customer : load) {
             customerData.add(new CustomerDTO(customer.getCustId(),customer.getCustName(),customer.getCustContact(),customer.getCustEmail()) );
         }
+        System.out.println(customerData);
         return customerData;
     }
 

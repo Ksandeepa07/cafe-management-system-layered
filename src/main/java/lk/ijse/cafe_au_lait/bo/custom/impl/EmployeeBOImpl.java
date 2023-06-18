@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class EmployeeBOImpl implements EmployeeBO<EmployeeDTO,String>{
     EmployeeDAO employeeDAO= DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.EMPLOYEE);
-    ArrayList<EmployeeDTO> employeeData=new ArrayList<>();
 
     @Override
     public Boolean saveEmployee(EmployeeDTO employeeDTO) throws SQLException {
@@ -21,6 +20,7 @@ public class EmployeeBOImpl implements EmployeeBO<EmployeeDTO,String>{
 
     @Override
     public ArrayList<EmployeeDTO> getAllEmployee() throws SQLException {
+        ArrayList<EmployeeDTO> employeeData=new ArrayList<>();
         ArrayList<Employee> load=employeeDAO.getAll();
         for (Employee employee : load) {
             employeeData.add(new EmployeeDTO(employee.getId(),employee.getName(),employee.getAddress(),employee.getDob(),employee.getNic(),employee.getJobTitle(),employee.getContact(),employee.getEmail()));

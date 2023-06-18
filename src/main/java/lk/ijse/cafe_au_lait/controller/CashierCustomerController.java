@@ -21,6 +21,7 @@ import lk.ijse.cafe_au_lait.util.NotificationController;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
@@ -312,10 +313,10 @@ public class CashierCustomerController {
     }
 
     void getAll() {
-
+        tblCustomer.getItems().clear();
         try {
             ArrayList<CustomerDTO> customerData = customerBO.getAllCustomers();
-            tblCustomer.getItems().clear();
+
             for (CustomerDTO customerDatum : customerData) {
                 tblCustomer.getItems().add(new CustomerTM(customerDatum.getCustId(),customerDatum.getCustName(),customerDatum.getCustContact(),customerDatum.getCustEmail()));
             }

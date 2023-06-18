@@ -175,6 +175,7 @@ public class DeliveryDetailsFormController {
     }
 
     void getAll() {
+        tblDelivery.getItems().clear();
         try {
             ArrayList<DeliveryDTO> deliveryData = deliveryBO.getAllDelivery();
             ObservableList<DeliveryTM> obList= FXCollections.observableArrayList();

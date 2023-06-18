@@ -263,6 +263,7 @@ public class AdminInventoryController {
     }
 
     void getAll() {
+        tblItem.getItems().clear();
 
         try {
             ArrayList <ItemDTO> itemData = itemBO.getAllItem();

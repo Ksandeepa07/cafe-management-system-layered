@@ -17,7 +17,6 @@ public class EventBOImpl implements EventBO<EventDTO,String>{
     EventDAO eventDAO= DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.EVENT);
     EmployeeDAO employeeDAO=DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.EMPLOYEE);
 
-    ArrayList<EventDTO> eventData=new ArrayList<>();
     @Override
     public boolean saveEvent(EventDTO eventDTO1) throws SQLException {
         return eventDAO.save(new Event(eventDTO1.getEmpId(),eventDTO1.getEventId(),eventDTO1.getEventName(),eventDTO1.getEventType(),eventDTO1.getEventDate(),eventDTO1.getEventTime()));
@@ -25,6 +24,7 @@ public class EventBOImpl implements EventBO<EventDTO,String>{
 
     @Override
     public ArrayList<EventDTO> getAllEvent() throws SQLException {
+        ArrayList<EventDTO> eventData=new ArrayList<>();
         ArrayList<Event> load=eventDAO.getAll();
         for (Event event : load) {
             eventData.add(new EventDTO(event.getEmpId(),event.getEventId(),event.getEventName(),event.getEventType(),event.getEventDate(),event.getEventTime()));

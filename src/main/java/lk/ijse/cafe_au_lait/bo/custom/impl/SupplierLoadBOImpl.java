@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class SupplierLoadBOImpl implements SupplierLoadBO {
     ItemDAO itemDAO= DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ITEM);
     SupplierDAO supplierDAO=DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.SUPPLIER);
-    SupplierLoadDAO supplierLoadDAO=new SupplierLoadDAOImpl();
+    SupplierLoadDAO supplierLoadDAO=DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.SUPPLIERLOAD);
 
     @Override
     public ItemDTO searchItemById(String id) throws SQLException {

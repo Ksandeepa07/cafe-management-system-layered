@@ -162,6 +162,7 @@ public class CheckOrderController {
     }
 
     void getAll() {
+        tblCheckOrders.getItems().clear();
         try {
             ArrayList<OrdersDTO> orderData = ordersBO.getAllOrders();
             ObservableList<CheckOrdersTM> obList= FXCollections.observableArrayList();

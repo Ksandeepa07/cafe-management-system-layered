@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
 public class ItemBOImpl implements ItemBO<ItemDTO,String> {
     ItemDAO itemDAO= DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ITEM);
-    ArrayList<ItemDTO> itemData=new ArrayList<>();
 
     @Override
     public boolean saveItem(ItemDTO itemDTO) throws SQLException {
@@ -29,6 +28,7 @@ public class ItemBOImpl implements ItemBO<ItemDTO,String> {
 
     @Override
     public ArrayList<ItemDTO> getAllItem() throws SQLException {
+        ArrayList<ItemDTO> itemData=new ArrayList<>();
         ArrayList<Item> load=itemDAO.getAll();
         for (Item item : load) {
             itemData.add(new ItemDTO(item.getId(),item.getName(),item.getQuantity(),item.getPrice(),item.getCategory()));

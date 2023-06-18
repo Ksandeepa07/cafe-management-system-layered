@@ -15,9 +15,10 @@ import java.util.ArrayList;
 public class OrdersBOImpl implements OrdersBO {
     OrdersDAO ordersDAO= DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ORDERS);
     CustomerDAO customerDAO=DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.CUSTOMER);
-    ArrayList<OrdersDTO> ordersDTOS=new ArrayList<>();
+
     @Override
     public ArrayList<OrdersDTO> getAllOrders() throws SQLException {
+        ArrayList<OrdersDTO> ordersDTOS=new ArrayList<>();
         ArrayList<Orders> load=ordersDAO.getAll();
         for (Orders orders : load) {
             ordersDTOS.add(new OrdersDTO(orders.getOrderId(),orders.getCustId(),orders.getOrderDate(),orders.getOrderTime(),orders.getOrderPayment(),orders.getDelivery()));
