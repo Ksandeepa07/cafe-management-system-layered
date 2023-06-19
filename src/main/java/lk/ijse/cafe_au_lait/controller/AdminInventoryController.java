@@ -16,8 +16,8 @@ import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.ItemBO;
 import lk.ijse.cafe_au_lait.dto.ItemDTO;
 import lk.ijse.cafe_au_lait.view.tdm.ItemTM;
-import lk.ijse.cafe_au_lait.util.DataValidateController;
-import lk.ijse.cafe_au_lait.util.NotificationController;
+import lk.ijse.cafe_au_lait.controller.util.DataValidateController;
+import lk.ijse.cafe_au_lait.controller.util.NotificationController;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
-import static lk.ijse.cafe_au_lait.util.TextFieldBorderController.txtfieldbordercolor;
+import static lk.ijse.cafe_au_lait.controller.util.TextFieldBorderController.txtfieldbordercolor;
 
 public class AdminInventoryController {
 

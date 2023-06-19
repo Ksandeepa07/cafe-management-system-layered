@@ -2,9 +2,8 @@ package lk.ijse.cafe_au_lait.dao.custom.impl;
 
 import lk.ijse.cafe_au_lait.dao.custom.UserDAO;
 import lk.ijse.cafe_au_lait.db.DBConnection;
-import lk.ijse.cafe_au_lait.dto.UserDTO;
 import lk.ijse.cafe_au_lait.entity.User;
-import lk.ijse.cafe_au_lait.util.CrudUtil;
+import lk.ijse.cafe_au_lait.controller.util.CrudUtil;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

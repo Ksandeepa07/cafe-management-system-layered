@@ -6,7 +6,7 @@ import lk.ijse.cafe_au_lait.dao.custom.ItemDAO;
 import lk.ijse.cafe_au_lait.dao.custom.OrderDetailDAO;
 import lk.ijse.cafe_au_lait.entity.Item;
 import lk.ijse.cafe_au_lait.entity.OrdeDetail;
-import lk.ijse.cafe_au_lait.util.CrudUtil;
+import lk.ijse.cafe_au_lait.controller.util.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,14 +1,10 @@
 package lk.ijse.cafe_au_lait.bo.custom.impl;
 
-import javafx.collections.ObservableList;
 import lk.ijse.cafe_au_lait.bo.custom.ItemBO;
 import lk.ijse.cafe_au_lait.dao.DAOFactory;
 import lk.ijse.cafe_au_lait.dao.custom.ItemDAO;
-import lk.ijse.cafe_au_lait.dao.custom.impl.ItemDAOImpl;
 import lk.ijse.cafe_au_lait.dto.ItemDTO;
 import lk.ijse.cafe_au_lait.entity.Item;
-import lk.ijse.cafe_au_lait.util.CrudUtil;
-import lk.ijse.cafe_au_lait.view.tdm.ItemTM;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

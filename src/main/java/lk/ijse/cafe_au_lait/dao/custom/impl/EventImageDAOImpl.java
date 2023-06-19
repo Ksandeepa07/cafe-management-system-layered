@@ -3,9 +3,8 @@ package lk.ijse.cafe_au_lait.dao.custom.impl;
 import javafx.scene.image.Image;
 import lk.ijse.cafe_au_lait.dao.custom.EventImageDAO;
 import lk.ijse.cafe_au_lait.entity.EventImage;
-import lk.ijse.cafe_au_lait.util.CrudUtil;
+import lk.ijse.cafe_au_lait.controller.util.CrudUtil;
 
-import java.awt.*;
 import java.io.ByteArrayInputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;

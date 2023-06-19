@@ -1,9 +1,8 @@
 package lk.ijse.cafe_au_lait.dao.custom.impl;
 
 import lk.ijse.cafe_au_lait.dao.custom.SupplierLoadDAO;
-import lk.ijse.cafe_au_lait.dto.SupplyLoadDTO;
 import lk.ijse.cafe_au_lait.entity.SupplierLoadDetail;
-import lk.ijse.cafe_au_lait.util.CrudUtil;
+import lk.ijse.cafe_au_lait.controller.util.CrudUtil;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

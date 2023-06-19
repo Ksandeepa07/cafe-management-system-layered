@@ -17,9 +17,9 @@ import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.EventBO;
 import lk.ijse.cafe_au_lait.dto.EventDTO;
 import lk.ijse.cafe_au_lait.view.tdm.EventTM;
-import lk.ijse.cafe_au_lait.util.DataValidateController;
-import lk.ijse.cafe_au_lait.util.NotificationController;
-import lk.ijse.cafe_au_lait.util.StageController;
+import lk.ijse.cafe_au_lait.controller.util.DataValidateController;
+import lk.ijse.cafe_au_lait.controller.util.NotificationController;
+import lk.ijse.cafe_au_lait.controller.util.StageController;
 
 import java.io.FileNotFoundException;
 import java.net.URL;
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
-import static lk.ijse.cafe_au_lait.util.TextFieldBorderController.txtfieldbordercolor;
+import static lk.ijse.cafe_au_lait.controller.util.TextFieldBorderController.txtfieldbordercolor;
 
 public class CashierEventController {
 

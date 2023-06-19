@@ -16,9 +16,9 @@ import javafx.util.Duration;
 import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.LoginBO;
 import lk.ijse.cafe_au_lait.dto.UserDTO;
-import lk.ijse.cafe_au_lait.util.AnimationController;
-import lk.ijse.cafe_au_lait.util.NotificationController;
-import lk.ijse.cafe_au_lait.util.StageController;
+import lk.ijse.cafe_au_lait.controller.util.AnimationController;
+import lk.ijse.cafe_au_lait.controller.util.NotificationController;
+import lk.ijse.cafe_au_lait.controller.util.StageController;
 
 import java.awt.*;
 import java.io.IOException;

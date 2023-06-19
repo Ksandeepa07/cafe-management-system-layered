@@ -17,9 +17,9 @@ import lk.ijse.cafe_au_lait.dto.SupplierDTO;
 import lk.ijse.cafe_au_lait.dto.SupplierLoadDetailDTO;
 import lk.ijse.cafe_au_lait.dto.SupplyLoadDTO;
 import lk.ijse.cafe_au_lait.view.tdm.SupplyLoadTM;
-import lk.ijse.cafe_au_lait.util.NotificationController;
-import lk.ijse.cafe_au_lait.util.StageController;
-import lk.ijse.cafe_au_lait.util.TimeController;
+import lk.ijse.cafe_au_lait.controller.util.NotificationController;
+import lk.ijse.cafe_au_lait.controller.util.StageController;
+import lk.ijse.cafe_au_lait.controller.util.TimeController;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static lk.ijse.cafe_au_lait.util.TextFieldBorderController.txtfieldbordercolor;
+import static lk.ijse.cafe_au_lait.controller.util.TextFieldBorderController.txtfieldbordercolor;
 
 public class SupplierLoadController {
     ObservableList<SupplyLoadTM> obList = FXCollections.observableArrayList();

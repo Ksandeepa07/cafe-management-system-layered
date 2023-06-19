@@ -1,4 +1,4 @@
-package lk.ijse.cafe_au_lait.util;
+package lk.ijse.cafe_au_lait.controller.util;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;

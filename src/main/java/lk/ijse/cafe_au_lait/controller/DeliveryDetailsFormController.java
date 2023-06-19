@@ -18,8 +18,8 @@ import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.DeliveryBO;
 import lk.ijse.cafe_au_lait.dto.DeliveryDTO;
 import lk.ijse.cafe_au_lait.view.tdm.DeliveryTM;
-import lk.ijse.cafe_au_lait.util.NotificationController;
-import lk.ijse.cafe_au_lait.util.StageController;
+import lk.ijse.cafe_au_lait.controller.util.NotificationController;
+import lk.ijse.cafe_au_lait.controller.util.StageController;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
-import static lk.ijse.cafe_au_lait.util.TextFieldBorderController.txtfieldbordercolor;
+import static lk.ijse.cafe_au_lait.controller.util.TextFieldBorderController.txtfieldbordercolor;
 
 public class DeliveryDetailsFormController {
 

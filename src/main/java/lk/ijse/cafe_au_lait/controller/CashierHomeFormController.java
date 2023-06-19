@@ -15,9 +15,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.HomeBO;
-import lk.ijse.cafe_au_lait.dto.EventDTO;
 
-import lk.ijse.cafe_au_lait.util.StageController;
+import lk.ijse.cafe_au_lait.controller.util.StageController;
 
 import java.net.URL;
 import java.sql.SQLException;

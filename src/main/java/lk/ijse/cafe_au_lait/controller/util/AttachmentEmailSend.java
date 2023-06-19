@@ -1,4 +1,4 @@
-package lk.ijse.cafe_au_lait.util;
+package lk.ijse.cafe_au_lait.controller.util;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;

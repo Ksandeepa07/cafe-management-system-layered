@@ -15,13 +15,12 @@ import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.CustomerBO;
 import lk.ijse.cafe_au_lait.dto.CustomerDTO;
 import lk.ijse.cafe_au_lait.view.tdm.CustomerTM;
-import lk.ijse.cafe_au_lait.util.DataValidateController;
-import lk.ijse.cafe_au_lait.util.NotificationController;
+import lk.ijse.cafe_au_lait.controller.util.DataValidateController;
+import lk.ijse.cafe_au_lait.controller.util.NotificationController;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 

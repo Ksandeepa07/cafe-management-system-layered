@@ -1,14 +1,9 @@
 package lk.ijse.cafe_au_lait.dao.custom.impl;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import jfxtras.test.AssertNode;
 import lk.ijse.cafe_au_lait.dao.custom.EventDAO;
-import lk.ijse.cafe_au_lait.dto.EventDTO;
 import lk.ijse.cafe_au_lait.entity.Event;
-import lk.ijse.cafe_au_lait.util.CrudUtil;
-import lk.ijse.cafe_au_lait.util.NotificationController;
-import lk.ijse.cafe_au_lait.view.tdm.EventTM;
+import lk.ijse.cafe_au_lait.controller.util.CrudUtil;
+import lk.ijse.cafe_au_lait.controller.util.NotificationController;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

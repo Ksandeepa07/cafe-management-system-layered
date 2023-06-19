@@ -20,7 +20,7 @@ import lk.ijse.cafe_au_lait.bo.custom.OrdersBO;
 import lk.ijse.cafe_au_lait.dto.CustomerDTO;
 import lk.ijse.cafe_au_lait.dto.OrdersDTO;
 import lk.ijse.cafe_au_lait.view.tdm.CheckOrdersTM;
-import lk.ijse.cafe_au_lait.util.StageController;
+import lk.ijse.cafe_au_lait.controller.util.StageController;
 
 import java.net.URL;
 import java.sql.SQLException;

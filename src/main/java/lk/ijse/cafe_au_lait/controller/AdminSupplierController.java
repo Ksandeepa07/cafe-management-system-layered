@@ -15,8 +15,8 @@ import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.SupplierBO;
 import lk.ijse.cafe_au_lait.dto.SupplierDTO;
 import lk.ijse.cafe_au_lait.view.tdm.SupplierTM;
-import lk.ijse.cafe_au_lait.util.DataValidateController;
-import lk.ijse.cafe_au_lait.util.NotificationController;
+import lk.ijse.cafe_au_lait.controller.util.DataValidateController;
+import lk.ijse.cafe_au_lait.controller.util.NotificationController;
 
 import java.net.URL;
 import java.sql.SQLException;

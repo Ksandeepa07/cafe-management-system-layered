@@ -1,4 +1,4 @@
-package lk.ijse.cafe_au_lait.util;
+package lk.ijse.cafe_au_lait.controller.util;
 
 import lk.ijse.cafe_au_lait.db.DBConnection;
 

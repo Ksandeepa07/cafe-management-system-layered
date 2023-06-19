@@ -16,7 +16,7 @@ import lk.ijse.cafe_au_lait.bo.custom.PlaceOrderBO;
 import lk.ijse.cafe_au_lait.db.DBConnection;
 import lk.ijse.cafe_au_lait.dto.*;
 import lk.ijse.cafe_au_lait.view.tdm.CartTM;
-import lk.ijse.cafe_au_lait.util.*;
+import lk.ijse.cafe_au_lait.controller.util.*;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -27,7 +27,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 
-import static lk.ijse.cafe_au_lait.util.TextFieldBorderController.txtfieldbordercolor;
+import static lk.ijse.cafe_au_lait.controller.util.TextFieldBorderController.txtfieldbordercolor;
 
 public class CashierOrderFormController {
 

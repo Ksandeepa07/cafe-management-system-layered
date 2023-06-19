@@ -1,4 +1,4 @@
-package lk.ijse.cafe_au_lait.util;
+package lk.ijse.cafe_au_lait.controller.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

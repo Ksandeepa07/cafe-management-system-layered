@@ -6,8 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.cafe_au_lait.util.StageController;
-import lk.ijse.cafe_au_lait.util.TimeController;
+import lk.ijse.cafe_au_lait.controller.util.StageController;
+import lk.ijse.cafe_au_lait.controller.util.TimeController;
 
 import java.io.IOException;
 import java.net.URL;

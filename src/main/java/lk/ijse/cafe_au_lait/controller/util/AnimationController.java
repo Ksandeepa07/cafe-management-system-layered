@@ -1,4 +1,4 @@
-package lk.ijse.cafe_au_lait.util;
+package lk.ijse.cafe_au_lait.controller.util;
 
 import javafx.animation.*;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -9,7 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
-import java.awt.*;
 import java.io.IOException;
 
 public class AnimationController {

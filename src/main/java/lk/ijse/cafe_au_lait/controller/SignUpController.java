@@ -9,10 +9,10 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.cafe_au_lait.bo.BOFactory;
 import lk.ijse.cafe_au_lait.bo.custom.SignUpBO;
 import lk.ijse.cafe_au_lait.dto.UserDTO;
-import lk.ijse.cafe_au_lait.util.AnimationController;
-import lk.ijse.cafe_au_lait.util.DataValidateController;
-import lk.ijse.cafe_au_lait.util.NotificationController;
-import lk.ijse.cafe_au_lait.util.StageController;
+import lk.ijse.cafe_au_lait.controller.util.AnimationController;
+import lk.ijse.cafe_au_lait.controller.util.DataValidateController;
+import lk.ijse.cafe_au_lait.controller.util.NotificationController;
+import lk.ijse.cafe_au_lait.controller.util.StageController;
 
 import java.io.IOException;
 import java.net.URL;

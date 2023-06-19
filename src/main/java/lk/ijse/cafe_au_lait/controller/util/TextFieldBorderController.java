@@ -1,4 +1,4 @@
-package lk.ijse.cafe_au_lait.util;
+package lk.ijse.cafe_au_lait.controller.util;
 
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;

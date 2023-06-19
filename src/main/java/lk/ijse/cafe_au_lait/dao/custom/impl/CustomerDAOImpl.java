@@ -1,11 +1,9 @@
 package lk.ijse.cafe_au_lait.dao.custom.impl;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import lk.ijse.cafe_au_lait.dao.custom.CustomerDAO;
 import lk.ijse.cafe_au_lait.entity.Customer;
-import lk.ijse.cafe_au_lait.util.CrudUtil;
-import lk.ijse.cafe_au_lait.util.NotificationController;
+import lk.ijse.cafe_au_lait.controller.util.CrudUtil;
+import lk.ijse.cafe_au_lait.controller.util.NotificationController;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

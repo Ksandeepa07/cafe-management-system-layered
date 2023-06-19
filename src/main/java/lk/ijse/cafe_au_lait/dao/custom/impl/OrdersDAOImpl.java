@@ -1,12 +1,9 @@
 package lk.ijse.cafe_au_lait.dao.custom.impl;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart;
 import lk.ijse.cafe_au_lait.dao.custom.OrdersDAO;
 import lk.ijse.cafe_au_lait.entity.Orders;
-import lk.ijse.cafe_au_lait.util.CrudUtil;
-import lk.ijse.cafe_au_lait.view.tdm.CheckOrdersTM;
+import lk.ijse.cafe_au_lait.controller.util.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

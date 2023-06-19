@@ -1,11 +1,8 @@
 package lk.ijse.cafe_au_lait.dao.custom.impl;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import lk.ijse.cafe_au_lait.dao.custom.SalaryDAO;
 import lk.ijse.cafe_au_lait.entity.Salary;
-import lk.ijse.cafe_au_lait.util.CrudUtil;
-import lk.ijse.cafe_au_lait.view.tdm.SalaryTM;
+import lk.ijse.cafe_au_lait.controller.util.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
